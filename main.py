@@ -79,7 +79,7 @@ def main():
             makeSpacer(1, 100, "blue")
 
             showShapes()
-            makeSpacer(int(input(askShape)), int(input(askLen)), input(askCol))
+            makeSpacer(input(askShape), int(input(askLen)), input(askCol))
             makeSpacer(1, 100, "blue")
             # RE TEST
             if input(askRedo) == "n":
