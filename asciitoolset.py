@@ -7,6 +7,8 @@ terminal-based programs UIs
 """
 # IMPORTS
 
+import random, string
+
 import re
 
 import os
@@ -48,11 +50,19 @@ def makeSpacer(sh, le, col):
     Precond : Takes 3 args : shape, size, color
     :return: print(spacer)
     """
-    shape = shapes[sh]
-    shape1 = shape
-    for _ in range(le):
-        shape1 += shape
-    tcol.cprint(f"\n{shape1}\n", col)
+    if sh == "rand" :
+        chars = string.printable
+        shape = ''.join(random.choice(chars) for i in range(4))
+        shape1 = shape
+        for _ in range(le):
+            shape1 += shape
+        tcol.cprint(f"\n{shape1}\n", col)
+    else:
+        shape = shapes[int(sh)]
+        shape1 = shape
+        for _ in range(le):
+            shape1 += shape
+        tcol.cprint(f"\n{shape1}\n", col)
     return None
 
 
@@ -76,8 +86,11 @@ def showShapes():
     """
     :return: print each sort of spacers
     """
+    e = 0
     for i in range(len(shapes)):
+        e += 1
         print(f"{i+1}.'{shapes[i + 1]}'\n")
+    print(f"{e+1}.'rand'\n")
     return None
 
 # TODO "help" function in python or with argparse
@@ -85,3 +98,5 @@ def showShapes():
 #    print("")
 
 # TODO cleaner way of enumerating things
+
+#showFonts()
