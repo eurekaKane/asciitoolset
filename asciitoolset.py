@@ -50,7 +50,7 @@ def makeSpacer(sh, le, col):
     Precond : Takes 3 args : shape, size, color
     :return: print(spacer)
     """
-    if sh == "rand" :
+    if sh == "rand":
         chars = string.printable
         shape = ''.join(random.choice(chars) for i in range(4))
         shape1 = shape
