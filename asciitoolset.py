@@ -33,11 +33,15 @@ shapes = {
     11: "--->"
 }
 
+fonts = os.listdir("C:/Users/mynam/AppData/Local/Programs/Python/Python39/Lib/site-packages/pyfiglet/fonts")
+
 
 def makeBanner(txt, fnt, col):
     """
-        Precond : Takes 3 args : text, font, color
-        :return: print(banner)
+    :param txt: string you want
+    :param fnt: chosen font
+    :param col: color of banner
+    :return: ascii banner
     """
     ban = Figlet(font=fnt)
     myban = ban.renderText(txt)
@@ -47,8 +51,10 @@ def makeBanner(txt, fnt, col):
 
 def makeSpacer(sh, le, col):
     """
-    Precond : Takes 3 args : shape, size, color
-    :return: print(spacer)
+    :param sh: shape of spacer
+    :param le: length of spacer
+    :param col: color of spacer
+    :return:
     """
     if sh == "rand":
         chars = string.printable
@@ -66,19 +72,39 @@ def makeSpacer(sh, le, col):
     return None
 
 
+# FIXME : fixme please
+def strip(lis, foo):
+    """
+    :param lis: the list you want to strip the string(s) out of
+    :param foo: string(s) that you want to strip
+    :return: returns a list with the specific string removed
+    """
+    ls = []
+    rem = [foo]
+    for y in range(len(lis)):
+        for i in range(len(rem)):
+            strp = re.compile(f'(\\S*){rem[i-1]}(\\S*)')
+            ls.append(strp.sub('\\1\\2', lis[i]))
+
+    return ls
+
+# s1, s2 = foo
+# strip1 = re.compile(f'(\\S*){s1}(\\S*)')
+# strip2 = re.compile(f'(\\S*){s2}(\\S*)')
+
+
 def showFonts():
     # TODO : take args like family, alpha ord, spec string
     """
     :return: Print all pyfiglet font using the string 'test'
     """
-    fonts = os.listdir("C:/Users/mynam/AppData/Local/Programs/Python/Python312/Lib/site-packages/pyfiglet/fonts")
-    strip = re.compile('(\\S*).flf(\\S*)')
     fontss = []
+    stp = re.compile('(\\s*).flf(\\s*)')
     for i in range(len(fonts)-2):
-        fontss.append(strip.sub('\\1\\2', fonts[i]))
+        fontss.append(stp.sub('\\1\\2', fonts[i]))
         font = Figlet(font=fontss[i])
         ban = font.renderText('test')
-        print(f"{i}.'{fontss[i]}'\n\n{ban}\n")
+        print(f"{i}.'{fonts[i]}'\n\n{ban}\n")
         makeSpacer(5, 50, "red")
 
 
@@ -93,10 +119,8 @@ def showShapes():
     print(f"{e+1}.'rand'\n")
     return None
 
-# TODO "help" function in python or with argparse
+# TODO : "help" function in python or with argparse
 # def help():
 #    print("")
 
-# TODO cleaner way of enumerating things
-
-#showFonts()
+# TODO (UI) : cleaner way of enumerating things
