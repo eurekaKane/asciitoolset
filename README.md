@@ -15,9 +15,9 @@ to make clean terminal-based programs UIs
 ## Usage/Examples
 
 ```python
-import makeBanner from asciitoolset
+import ascc from asciitoolset
 
 def myfunc():
-    foo = makeBanner("your text", "font", "color")
-    
-
+    myban = ascc.Banner("myText","myFont","myColor")
+    myban.prntBan()
+    myban.setBan(color("lightBlue"))
