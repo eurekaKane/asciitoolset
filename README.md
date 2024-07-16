@@ -1,6 +1,4 @@
-
-# ========== ASCII tool-set ==========
-
+<p>align<center>"========ASCII-Toolset==========="</p>
 
 This is a complete module that allows you to manipulate characters 
 to make clean terminal-based programs UIs
