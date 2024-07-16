@@ -1,4 +1,4 @@
-<p align="center">"========ASCII-Toolset==========="</p>
+<h1 align="center">========ASCII-Toolset===========</h1>
 
 This is a complete module that allows you to manipulate characters 
 to make clean terminal-based programs UIs
