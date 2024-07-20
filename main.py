@@ -48,7 +48,7 @@ def showPalette():
     print("-'white'\n")
 
 spacer1 = Spacer(1, "blue")
-banner1 = Banner('slant', 'red', 'asiiTest')
+banner1 = Banner('slant', 'red', 'asciiTest')
 def main():
     """
     Interactive set of tests for the main functions of
