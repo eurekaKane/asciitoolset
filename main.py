@@ -6,7 +6,7 @@ to manipulate characters to make clean terminal based programs
 """
 
 # IMPORTS
-from asciitoolset import makeBanner, makeSpacer, showShapes
+from asciitoolset import makeBanner, makeSpacer, showShapes, clr
 from termcolor import termcolor as tcol
 
 # QUESTIONS
@@ -47,6 +47,7 @@ def main():
     Interactive set of tests for the main functions of
     the "asciitoolset" module
     """
+    clr()
     while True:
         # HEAD / INTRO
         makeBanner("asciiTest", "slant", "red")

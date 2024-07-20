@@ -1,0 +1,405 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="OOP fork rewrite">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/1row.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/3-d.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/3d_diagonal.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/3x5.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/4max.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/5lineoblique.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/B1FF.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/DANC4.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/Georgia11.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ICL-1900.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/acrobatic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/alligator.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/alligator2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/alligator3.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/alpha.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/alphabet.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amc3line.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amc3liv1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcaaa01.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcneko.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcrazo2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcrazor.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcslash.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcslder.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcthin.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amctubes.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/amcun1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/arrows.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ascii_new_roman.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/avatar.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/banner.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/banner3-D.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/banner3.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/banner4.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/barbwire.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/basic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bear.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bell.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/benjamin.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/big.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bigchief.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bigfig.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/binary.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/block.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/blocks.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bolger.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/braced.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bright.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/broadway.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/broadway_kb.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bubble.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/bulbhead.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/calgphy2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/caligraphy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cards.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/categories.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/categoriestree.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/catwalk.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/chiseled.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/chunky.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/coinstak.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cola.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/colossal.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/computer.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/contessa.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/contrast.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cosmic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cosmike.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/crawford.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/crazy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cricket.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cyberlarge.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cybermedium.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cybersmall.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/cygnet.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/dancingfont.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/decimal.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/defleppard.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/diamond.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/dietcola.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/digital.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/doh.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/doom.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/dosrebel.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/dotmatrix.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/double.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/doubleshorts.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/drpepper.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/dwhistled.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftichess.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftifont.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftipiti.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftirobot.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftitalic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftiwall.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/eftiwater.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/epic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fender.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/files.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/filter.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fire_font-k.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fire_font-s.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/flipped.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/flowerpower.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fourtops.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fraktur.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/funface.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/funfaces.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/fuzzy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/georgi16.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ghost.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ghoulish.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/glenyn.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/goofy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/gothic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/graceful.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/gradient.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/graffiti.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/greek.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/heart_left.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/heart_right.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/henry3d.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/hex.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/hieroglyphs.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/hollywood.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/horizontalleft.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/horizontalright.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/impossible.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/invita.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/isometric1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/isometric2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/isometric3.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/isometric4.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/italic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ivrit.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/jacky.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/jazmine.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/jerusalem.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/katakana.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/kban.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/keyboard.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/knob.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/konto.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/kontoslant.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/larry3d.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lcd.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lean.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/letters.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lildevil.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lineblocks.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/linux.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lockergnome.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/lower.flc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/madrid.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/marquee.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/maxfour.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/merlin1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/merlin2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/mike.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/mini.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/mirror.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/mnemonic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/modular.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/morse.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/morse2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/moscow.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/mshebrew210.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/muzzle.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nancyj-fancy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nancyj-improved.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nancyj-underlined.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nancyj.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nipples.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nscript.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ntgreek.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/null.flc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/nvscript.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/o8.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/octal.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ogre.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/oldbanner.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/os2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/pawp.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/peaks.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/peaksslant.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/pebbles.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/pepper.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/poison.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/puffy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/puzzle.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/pyramid.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rammstein.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/readme.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rectangles.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/red_phoenix.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/relief.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/relief2.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/reverse.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/roman.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rot13.flc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rot13.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rotated.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rounded.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rowancap.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/rozzo.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/runic.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/runyc.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/s-relief.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/santaclara.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/sblood.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/script.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/serifcap.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/shadow.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/shimrod.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/short.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/slant.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/slide.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/slscript.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/small.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smallcaps.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smisome1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smkeyboard.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smpoison.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smscript.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smshadow.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smslant.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/smtengwar.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/soft.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/speed.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/spliff.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stacey.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stampate.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stampatello.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/standard.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/starstrips.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/starwars.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stellar.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stforek.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/stop.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/straight.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/sub-zero.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/swampland.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/swan.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/sweet.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tanja.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tengwar.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/term.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/test1.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/thick.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/thin.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/threepoint.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ticks.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/ticksslant.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tiles.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tinker-toy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tombstone.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/train.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/trek.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tsalagi.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/tubular.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/twisted.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/twopoint.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/univers.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/upper.flc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/usaflag.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/varsity.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/wavy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/weird.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/wetletter.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/whimsy.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fonts/wow.flf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scratch.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/asciitoolset.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/asciitoolset.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/asciitoolset.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;eurekaKane&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/eurekaKane/asciitoolset.git&quot;,
+    &quot;accountId&quot;: &quot;248c76a6-1cfd-4061-8654-be3448a14849&quot;
+  }
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 3
+}</component>
+  <component name="ProjectId" id="2jPgLFuOb19bI9vEfmywPovrekH" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Python.asciitoolset.executor&quot;: &quot;Run&quot;,
+    &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;oop&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-PY-241.18034.82" />
+        <option value="bundled-python-sdk-975db3bf15a3-2767605e8bc2-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-241.18034.82" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="" />
+      <created>1721294067611</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1721294067611</updated>
+      <workItem from="1721294069023" duration="8734000" />
+      <workItem from="1721460483804" duration="5800000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="oop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="OOP fork rewrite" />
+    <option name="LAST_COMMIT_MESSAGE" value="OOP fork rewrite" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1721312565466" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1721461228012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1721312655813" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+</project>

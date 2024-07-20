@@ -1,7 +1,7 @@
 <h1 align="center">========ASCII-Toolset===========</h1>
 
-This is a complete module that allows you to manipulate characters 
-to make clean terminal-based programs UIs
+<h2>This is a complete module that allows you to manipulate characters 
+to make clean terminal-based programs UIs</h2>
 
 
 
@@ -9,6 +9,9 @@ to make clean terminal-based programs UIs
 
 - [@eurekaKane](https://www.github.com/eurekaKane)
 
+## Description
+
+<p align="center"> This module is mainly using a Figlet port to Python (pyFiglet)</p>
 
 ## Usage/Examples
 
