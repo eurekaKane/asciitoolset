@@ -6,7 +6,7 @@ to manipulate characters to make clean terminal based programs
 """
 
 # IMPORTS
-from asciitoolset import makeBanner, makeSpacer, showShapes, clr
+from asciitoolset import showShapes, Spacer, Banner, clr
 from termcolor import termcolor as tcol
 
 # QUESTIONS
@@ -40,8 +40,15 @@ colors = {
     5: "magenta",
     6: "cyan",
 }
+def showPalette():
+    print("Palette :\n")
+    print("-'black'\n")
+    for y in range(len(colors)):
+        tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
+    print("-'white'\n")
 
-
+spacer1 = Spacer(1, "blue")
+banner1 = Banner('slant', 'red', 'asiiTest')
 def main():
     """
     Interactive set of tests for the main functions of
@@ -50,42 +57,34 @@ def main():
     clr()
     while True:
         # HEAD / INTRO
-        makeBanner("asciiTest", "slant", "red")
-        makeSpacer(1, 100, "blue")
+        banner1.printBanner()
+        spacer1.spPrint(50)
         tcol.cprint("Ceci est un module de test destiné à tester asciitoolset.py", "green")
-        makeSpacer(1, 100, 'blue')
+        spacer1.spPrint(50)
+        # TEST makeBanner()
+        tcol.cprint("\n| Test bannière |\n", "red")
+        spacer1.spPrint(50)
 
-        while True:
-            # TEST makeBanner()
-            tcol.cprint("\n| Test bannière |\n", "red")
-            makeSpacer(1, 100, "blue")
+        showPalette()
 
-            print("Palette :\n")
-            print("-'black'\n")
-            for y in range(len(colors)):
-                tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
-            print("-'white'\n")
+        usrBanner = Banner(input(askFnt), input(askCol), input(askTxt))
+        usrBanner.printBanner()
 
-            makeBanner(input(askTxt), input(askFnt), input(askCol))
-            makeSpacer(1, 100, "blue")
-            # TEST makeSpacer()
-            tcol.cprint("| Test éspaceur |\n", "red")
-            makeSpacer(1, 100, "blue")
+        spacer1.spPrint(50)
 
-            print("Palette :\n")
-            print("-'black'\n")
-            for y in range(len(colors)):
-                tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
-            print("-'white'\n")
-            makeSpacer(1, 100, "blue")
+        # TEST makeSpacer()
 
-            showShapes()
-            makeSpacer(input(askShape), int(input(askLen)), input(askCol))
-            makeSpacer(1, 100, "blue")
-            # RE TEST
-            if input(askRedo) == "n":
-                return False
-
+        tcol.cprint("| Test éspaceur |\n", "red")
+        spacer1.spPrint(50)
+        showShapes()
+        usrSpacer = Spacer(input(askShape), input(askCol))
+        usrSpacer.spPrint(int(input(askLen)))
+        spacer1.spPrint(50)
+        # RE TEST
+        if input(askRedo) == "n":
+            return False
+        else:
+            clr()
 
 if __name__ == "__main__":
     main()

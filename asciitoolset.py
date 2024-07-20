@@ -38,6 +38,14 @@ shapes = {
     11: "--->"
 }
 
+def showShapes():
+    """
+    :return: print each sort of spacers
+    """
+    for i in range(len(shapes)):
+        print(f"{i+1}.'{shapes[i + 1]}'\n")
+    return None
+
 # INIT
 
 os.system('color')
