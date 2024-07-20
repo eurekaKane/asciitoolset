@@ -1,15 +1,20 @@
 # -*- encoding: utf-8 -*-
 
 """
-This is a complete module that allows you
-to manipulate characters to make clean
-terminal-based programs UIs
+This is a module meant to facilitate CLI UIs
+making. Allowing you to generate save and edit
+spacers and banners to make your program
+look neater. More feature will be added.
+This is a rewrite in OOP
 """
+
 # IMPORTS
 
 import random, string
 
 import re
+
+import colorama
 
 import os
 
@@ -17,8 +22,8 @@ from termcolor import termcolor as tcol
 
 from pyfiglet import Figlet
 
-
 # SHAPES
+
 shapes = {
     1: "|-|_",
     2: "####",
@@ -33,94 +38,114 @@ shapes = {
     11: "--->"
 }
 
-fonts = os.listdir("C:/Users/mynam/AppData/Local/Programs/Python/Python39/Lib/site-packages/pyfiglet/fonts")
-
-
-def makeBanner(txt, fnt, col):
-    """
-    :param txt: string you want
-    :param fnt: chosen font
-    :param col: color of banner
-    :return: ascii banner
-    """
-    ban = Figlet(font=fnt)
-    myban = ban.renderText(txt)
-    tcol.cprint(myban, col)
-    return None
-
-
-def makeSpacer(sh, le, col):
-    """
-    :param sh: shape of spacer
-    :param le: length of spacer
-    :param col: color of spacer
-    :return:
-    """
-    if sh == "rand":
-        chars = string.printable
-        shape = ''.join(random.choice(chars) for i in range(4))
-        shape1 = shape
-        for _ in range(le):
-            shape1 += shape
-        tcol.cprint(f"\n{shape1}\n", col)
-    else:
-        shape = shapes[int(sh)]
-        shape1 = shape
-        for _ in range(le):
-            shape1 += shape
-        tcol.cprint(f"\n{shape1}\n", col)
-    return None
-
-
-# FIXME : fixme please
-def strip(lis, foo):
-    """
-    :param lis: the list you want to strip the string(s) out of
-    :param foo: string(s) that you want to strip
-    :return: returns a list with the specific string removed
-    """
-    ls = []
-    rem = [foo]
-    for y in range(len(lis)):
-        for i in range(len(rem)):
-            strp = re.compile(f'(\\S*){rem[i-1]}(\\S*)')
-            ls.append(strp.sub('\\1\\2', lis[i]))
-
-    return ls
-
-# s1, s2 = foo
-# strip1 = re.compile(f'(\\S*){s1}(\\S*)')
-# strip2 = re.compile(f'(\\S*){s2}(\\S*)')
-
-
-def showFonts():
-    # TODO : take args like family, alpha ord, spec string
-    """
-    :return: Print all pyfiglet font using the string 'test'
-    """
-    fontss = []
-    stp = re.compile('(\\s*).flf(\\s*)')
-    for i in range(len(fonts)-2):
-        fontss.append(stp.sub('\\1\\2', fonts[i]))
-        font = Figlet(font=fontss[i])
-        ban = font.renderText('test')
-        print(f"{i}.'{fonts[i]}'\n\n{ban}\n")
-        makeSpacer(5, 50, "red")
-
-
 def showShapes():
     """
     :return: print each sort of spacers
     """
-    e = 0
     for i in range(len(shapes)):
-        e += 1
         print(f"{i+1}.'{shapes[i + 1]}'\n")
-    print(f"{e+1}.'rand'\n")
     return None
 
-# TODO : "help" function in python or with argparse
-# def help():
-#    print("")
+# INIT
 
-# TODO (UI) : cleaner way of enumerating things
+os.system('color')
+colorama.init()
+
+def clr():
+    _ = os.system('cls' if os.name == 'nt' else 'clear')
+class Spacer:
+    # TODO : make a variable that stores the spacer params instead of the whole makeSpacer func
+    def __init__(self, sh, col : str):
+        """
+        A spacer is an object designed to give some space to
+        the console output, make it readable, and good-looking
+        :param sh: shape of spacer
+        :param col: color of spacer
+        """
+        self.sh = sh
+        self.color = col
+        self.shape = None
+        if self.sh == "rand":
+            chars = string.printable
+            self.shape = ''.join(random.choice(chars) for _ in range(4))
+        else:
+            self.shape = shapes[int(self.sh)]
+
+    def __str__(self):
+        return str(self.__class__.__name__)
+
+    def makeSpacer(self):
+        """"""
+        if self.sh == "rand":
+            chars = string.printable
+            self.shape = ''.join(random.choice(chars) for _ in range(4))
+        else:
+            self.shape = shapes[int(self.sh)]
+
+    def getShape(self):
+        return self.shape
+
+    def getColor(self):
+        return self.color
+
+    def getSpcInfo(self):
+        print(f"{self}'s shape is {self.shape}/n")
+        print(f"{self}'s color is {self.color}")
+
+    def setShape(self, sh):
+        self.sh = sh
+        self.makeSpacer()
+
+    def setColor(self, col):
+        self.color = col
+        self.makeSpacer()
+
+    def spPrint(self, le):
+        spcShape = self.shape
+        for _ in range(le):
+            spcShape += self.shape
+        tcol.cprint(f"\n{spcShape}\n", self.color)
+
+
+class Banner:
+    def __init__(self, fnt, col, txt):
+        self.font = Figlet(font=fnt)
+        self.color = col
+        self.text = txt
+        self.banner = self.font.renderText(self.text)
+
+    def makeBanner(self):
+        self.banner = self.font.renderText(self.text)
+
+    def getFont(self):
+        return self.fnt
+
+    def getColor(self):
+        return self.color
+
+    def getTxt(self):
+        return self.text
+
+    def setFont(self, fnt):
+        self.font = fnt
+        self.makeBanner()
+
+    def setColor(self, col):
+        self.color = col
+        self.makeBanner()
+
+    def setTxt(self, txt):
+        self.text = txt
+        self.makeBanner()
+
+    def printBanner(self):
+        self.makeBanner()
+        tcol.cprint(self.banner, self.color)
+
+
+def test():
+    spc = Spacer('rand', "red")
+    myban = Banner('doom', "blue", "DooM")
+    while True:
+        myban.printBanner()
+        spc.spPrint(10)
