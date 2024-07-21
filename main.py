@@ -40,6 +40,8 @@ colors = {
     5: "magenta",
     6: "cyan",
 }
+
+
 def showPalette():
     print("Palette :\n")
     print("-'black'\n")
@@ -47,8 +49,11 @@ def showPalette():
         tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
     print("-'white'\n")
 
+
 spacer1 = Spacer(1, "blue")
 banner1 = Banner('slant', 'red', 'asciiTest')
+
+
 def main():
     """
     Interactive set of tests for the main functions of
@@ -85,6 +90,7 @@ def main():
             return False
         else:
             clr()
+
 
 if __name__ == "__main__":
     main()

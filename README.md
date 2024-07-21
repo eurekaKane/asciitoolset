@@ -1,6 +1,6 @@
-<h1 align="center">========ASCII-Toolset===========</h1>
+<h1 align="center">===========ASCII-Toolset===========</h1>
 
-<h2>This is a complete module that allows you to manipulate characters 
+<h2>This is a module that allows you to manipulate characters 
 to make clean terminal-based programs UIs</h2>
 
 
@@ -11,14 +11,22 @@ to make clean terminal-based programs UIs</h2>
 
 ## Description
 
-<p align="center"> This module is mainly using a Figlet port to Python (pyFiglet)</p>
+This module uses mainly pyFiglet a port of Figlet to python made by pwaller(INSERT HREF)
+I had the idea of making it after realizing that I had been strugling making CLI UIs for each program I made.
+What I usually did was a spacer function and generate a Figlet banner online then copy it in my code. So to spare me the 
+pain I decided to write a module simple of use that automates all the process 
 
 ## Usage/Examples
 
 ```python
 import ascc from asciitoolset
 
+myBan = ascc.Banner('myFont','myColor','myText')
+
+mySpc = ascc.Spacer('myShape', 'myColor')
+
 def myfunc():
-    myban = ascc.Banner("myText","myFont","myColor")
-    myban.prntBan()
-    myban.setBan(color("lightBlue"))
+    myBan.printBanner()
+    myBan.setColor('light_blue')
+    mySpc.spPrint('myLenght')
+    myBan.printBanner()
