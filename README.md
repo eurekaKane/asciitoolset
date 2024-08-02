@@ -52,3 +52,15 @@ def myfunc():
 
 >>>
 ```
+## Changelog
+
+Global changes :
+-
+- Striped the logic of main.py to a new file (test_func.py) to only use main.py for execution coordination
+- Updated README.md 
+- New folder 'source' for script files
+
+Specific changes :
+- 
+- New method 'saveBanner' for the Banner object. It allows to export the render to a .txt file (more formats are coming...)
+- Opening an experimental branch to test a new showFonts() function
