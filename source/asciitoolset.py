@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 """
-This is a module meant to facilitate CLI UIs
+This is a module meant to facilitate CLI scripts readability
 making. Allowing you to generate save and edit
 spacers and banners to make your program
 look neater. More feature will be added.
@@ -10,9 +10,9 @@ This is a rewrite in OOP
 
 # IMPORTS
 
-import random, string
+import random
 
-import re
+import string
 
 import colorama
 
@@ -38,18 +38,20 @@ shapes = {
     11: "--->"
 }
 
+# COLORS
 
-def showShapes():
-    """
-    :return: print each sort of spacers
-    """
-    for i in range(len(shapes)):
-        print(f"{i+1}.'{shapes[i + 1]}'\n")
-    return None
+colors: dict[int, str] = {
+    1: "red",
+    2: "green",
+    3: "yellow",
+    4: "blue",
+    5: "magenta",
+    6: "cyan",
+}
 
 # INIT
+# Required to display colors properly on any terminal
 
-"""Required to display colors properly on any terminal"""
 os.system('color')
 colorama.init()
 
@@ -57,6 +59,21 @@ colorama.init()
 def clr():
     """Clears the console on both Linux and Windows"""
     _ = os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def showPalette():
+    print("Palette :\n")
+    print("-'black'\n")
+    for y in range(len(colors)):
+        tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
+    print("-'white'\n")
+
+
+def showShapes():
+    """Prints out the shape list"""
+    for i in range(len(shapes)):
+        print(f"{i+1}.'{shapes[i + 1]}'\n")
+    return None
 
 
 class Spacer:
@@ -128,9 +145,13 @@ class Banner:
         :param txt: banner text
         """
         self.font = Figlet(font=fnt)
+        self.fontName = fnt
         self.color = col
         self.text = txt
         self.banner = self.font.renderText(self.text)
+
+    def __repr__(self):
+        return f"Banner({self.fontName}, {self.color}, {self.text})"
 
     def makeBanner(self):
         """Compiles the banner using Figlet python port PyFiglet by 'pwaller'"""
@@ -168,10 +189,15 @@ class Banner:
         self.makeBanner()
         tcol.cprint(self.banner, self.color)
 
+    def saveBanner(self, userdir : str, name : str):
+        os.chdir(userdir)
+        expBan = open(f"{name}.txt", "w")
+        expBan.write(self.banner)
+        expBan.close()
+
 
 def test():
     spc = Spacer('rand', "red")
     myBan = Banner('doom', "blue", "DooM")
-    while True:
-        myBan.printBanner()
-        spc.spPrint(10)
+    myBan.printBanner()
+    spc.spPrint(10)

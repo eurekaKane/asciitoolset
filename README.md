@@ -1,4 +1,4 @@
-<h1 align="center">===========ASCII-Toolset===========</h1>
+<h1 align="center">ASCII-Toolset</h1>
 
 <h2>This is a module that allows you to manipulate characters 
 to make clean terminal-based programs UIs</h2>
@@ -19,7 +19,7 @@ pain I decided to write a module simple of use that automates all the process
 ## Usage/Examples
 
 ```python
-import ascc from asciitoolset
+import source.asciitoolset as ascc
 
 myBan = ascc.Banner('myFont','myColor','myText')
 
@@ -30,3 +30,25 @@ def myfunc():
     myBan.setColor('light_blue')
     mySpc.spPrint('myLenght')
     myBan.printBanner()
+```
+## Output
+
+```pycon
+>>> from myScript import myBan, mySpc, myfunc
+>>> myfunc()
+   __            __ 
+  / /____  _____/ /_
+ / __/ _ \/ ___/ __/
+/ /_/  __(__  ) /_  
+\__/\___/____/\__/  
+                    
+==============================================
+
+   __            __ 
+  / /____  _____/ /_
+ / __/ _ \/ ___/ __/
+/ /_/  __(__  ) /_  
+\__/\___/____/\__/  
+
+>>>
+```
