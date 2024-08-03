@@ -3,7 +3,8 @@
 <h2>This is a module that allows you to manipulate characters 
 to make clean terminal-based programs UIs</h2>
 
-
+<h1 align="center">WARNING !</h1>
+<h2>Don't clone my repo nothing works, like seriously i need to make a setup.py file else you are going to need and fix everything by hand to make it work it's terrible !</h2>
 
 ## Authors
 
