@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="tweaked some stuff">
-      <change afterPath="$PROJECT_DIR$/source/test_func.py" afterDir="false" />
+    <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="Updated README.md">
+      <change afterPath="$PROJECT_DIR$/source/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/figletfonts40.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/files.txt" beforeDir="false" afterPath="$PROJECT_DIR$/fonts/files.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scratch.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +28,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -63,6 +57,7 @@
   &quot;keyToString&quot;: {
     &quot;Python.asciitoolset.executor&quot;: &quot;Run&quot;,
     &quot;Python.main.executor&quot;: &quot;Run&quot;,
+    &quot;Python.python asciitoolset.py.executor&quot;: &quot;Run&quot;,
     &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
@@ -76,14 +71,26 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.toDoOptions&quot;,
     &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Peanut/PycharmProjects/asciitoolset/old_main.py&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
+      &quot;PLAIN_TEXT&quot;
+    ]
   }
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset" />
       <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\source" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="BloW Me !" />
+      <command value="python asciitoolset.py " />
+    </option>
+  </component>
+  <component name="RunManager" selected="Python.python asciitoolset.py">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
@@ -98,7 +105,30 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Peanut\PycharmProjects\asciitoolset\main.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="python asciitoolset.py" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="asciitoolset.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -109,6 +139,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.python asciitoolset.py" />
         <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
@@ -139,7 +170,14 @@
       <workItem from="1722254491654" duration="1540000" />
       <workItem from="1722425400788" duration="2645000" />
       <workItem from="1722507922879" duration="6905000" />
-      <workItem from="1722555595087" duration="7213000" />
+      <workItem from="1722555595087" duration="11580000" />
+      <workItem from="1722656857513" duration="4282000" />
+      <workItem from="1722722389083" duration="6529000" />
+      <workItem from="1722774054034" duration="5976000" />
+      <workItem from="1722808586293" duration="7667000" />
+      <workItem from="1722884189695" duration="1140000" />
+      <workItem from="1722895983876" duration="7440000" />
+      <workItem from="1723277171934" duration="3150000" />
     </task>
     <task id="LOCAL-00001" summary="Edited main.py">
       <option name="closed" value="true" />
@@ -173,7 +211,23 @@
       <option name="project" value="LOCAL" />
       <updated>1721544230553</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="New feature (changelog in README.md)">
+      <option name="closed" value="true" />
+      <created>1722598537966</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1722598537966</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Updated README.md">
+      <option name="closed" value="true" />
+      <created>1722599763503</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1722599763503</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -207,11 +261,14 @@
     <MESSAGE value="Edited main.py" />
     <MESSAGE value="tweaked some stuff" />
     <MESSAGE value="fixup! tweaked some stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixup! tweaked some stuff" />
+    <MESSAGE value="New feature (changelog in README.md)" />
+    <MESSAGE value="Updated README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated README.md" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1722079740960" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1722726632140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1721461228012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1722509794066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1722775935463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$python_asciitoolset_py.coverage" NAME="python asciitoolset.py Coverage Results" MODIFIED="1722871154096" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
   </component>
 </project>

@@ -18,9 +18,11 @@ import colorama
 
 import os
 
+# import time
+
 from termcolor import termcolor as tcol
 
-from pyfiglet import Figlet
+from pyfiglet import Figlet, FigletError
 
 # SHAPES
 
@@ -49,6 +51,7 @@ colors: dict[int, str] = {
     6: "cyan",
 }
 
+files = 'files.txt'
 # INIT
 # Required to display colors properly on any terminal
 
@@ -59,6 +62,68 @@ colorama.init()
 def clr():
     """Clears the console on both Linux and Windows"""
     _ = os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def getFileSize():
+    filesize = os.path.getsize(files)
+    return filesize
+
+
+def getFntList():
+    fntList = []
+    with open('fontList.txt', 'w') as t:
+        with open(files, 'r') as f:
+            for line in f:
+                font = line.strip('\n')
+                fntList.append(font)
+                t.write(font + '\n')
+        f.close()
+    t.close()
+    return fntList
+
+
+def testFonts():
+    fontList = getFntList()
+    passed = 0
+    failed = []
+    for font in fontList:
+        try:
+            fnt = Figlet(font)
+        except FigletError:
+            tcol.cprint(f"{font} : Failed !\n", "red")
+            failed.append(font)
+        else:
+            passed += 1
+            tcol.cprint(f"{font} : OK !\n", "green")
+
+    tcol.cprint(f"{passed} tests passed / {len(fontList)}", "green" if passed >= len(fontList) / 2 else "red")
+    tcol.cprint(f"Failed: {failed}", "red")
+
+    def fixFonts():
+        fntList = getFntList()
+        passedFnt = []
+        with open('files.txt', 'w') as t:
+            t.truncate()
+            t.close()
+
+        with open('files.txt', 'w') as f:
+            for fonts in fntList:
+                for _ in failed:
+                    if fonts in passedFnt:
+                        pass
+                    elif fonts in failed:
+                        tcol.cprint(f"{fonts} is not working, it has been deleted !\n", "red")
+                        passedFnt.append(fonts)
+                    else:
+                        f.write(fonts + "\n")
+                        tcol.cprint(f"{fonts} is good !\n", "green")
+                        passedFnt.append(fonts)
+
+
+        f.close()
+        # FIXME : fix fixFonts() haha !
+    if len(failed) > 0:
+        fixFonts()
 
 
 def showPalette():
@@ -72,7 +137,7 @@ def showPalette():
 def showShapes():
     """Prints out the shape list"""
     for i in range(len(shapes)):
-        print(f"{i+1}.'{shapes[i + 1]}'\n")
+        print(f"{i + 1}.'{shapes[i + 1]}'\n")
     return None
 
 
@@ -151,7 +216,7 @@ class Banner:
         self.banner = self.font.renderText(self.text)
 
     def __repr__(self):
-        return f"Banner({self.fontName}, {self.color}, {self.text})"
+        return f"Font {self.fontName} in {self.color} tested with '{self.text}'"
 
     def makeBanner(self):
         """Compiles the banner using Figlet python port PyFiglet by 'pwaller'"""
@@ -189,15 +254,35 @@ class Banner:
         self.makeBanner()
         tcol.cprint(self.banner, self.color)
 
-    def saveBanner(self, userdir : str, name : str):
+    def saveBanner(self, userdir: str, name: str):
         os.chdir(userdir)
         expBan = open(f"{name}.txt", "w")
         expBan.write(self.banner)
         expBan.close()
 
 
+def roll(col, txt):
+    fontList = getFntList()
+    spc = Spacer(2, 'white')
+    for font in fontList:
+        rollBan = Banner(font, col, txt)
+        tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
+        rollBan.printBanner()
+        spc.spPrint(25)
+
 def test():
     spc = Spacer('rand', "red")
     myBan = Banner('doom', "blue", "DooM")
     myBan.printBanner()
     spc.spPrint(10)
+    try :
+        roll('red', 'Test')
+    except :
+        tcol.cprint("Oops! Smth went wrong run testFonts() to see which font isn't working", "red")
+        if input('Do you want to fix the fonts ? (y/n) : ') == 'y':
+            testFonts()
+    finally:
+        tcol.cprint('Everything is working !', 'green')
+
+
+test()
