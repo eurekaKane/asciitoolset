@@ -58,11 +58,12 @@ def myfunc():
 
 Global changes :
 -
-- Striped the logic of main.py to a new file (test_func.py) to only use main.py for execution coordination
-- Updated README.md 
-- New folder 'source' for script files
+- Added a '__ini__.py' file (it's empty for the moment)
+- Added a copy of 'files.txt' to /source for test purposes (path to original one will be added in master soon)
 
 Specific changes :
 - 
-- New method 'saveBanner' for the Banner object. It allows to export the render to a .txt file (more formats are coming...)
-- Opening an experimental branch to test a new showFonts() function
+- Few experimental features for testing the fonts : testFonts() --> fixFonts() (the two of them will be splited) ; getFileSize(), getFontList
+- New roll() func, it basically render out a banner for each font name in 'files.txt'
+- Opening an experimental branch
+  
