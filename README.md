@@ -58,7 +58,7 @@ def myfunc():
 
 Global changes :
 -
-- Added a '__ini__.py' file (it's empty for the moment)
+- Added a '__ _ini_ __.py' file (it's empty for the moment)
 - Added a copy of 'files.txt' to /source for test purposes (path to original one will be added in master soon)
 
 Specific changes :
