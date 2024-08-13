@@ -1,1 +1,1 @@
-Just send me a mail and i'll respond : eurekaKane@proton.me
+Just send me a mail and i'll respond : eurekakane@proton.me
