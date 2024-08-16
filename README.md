@@ -13,7 +13,7 @@ to make clean terminal-based programs UIs</h2>
 
 ## Description
 
-This module uses mainly pyFiglet a port of Figlet to python made by pwaller(INSERT HREF)
+This module uses mainly pyFiglet a port of Figlet to python made by <a href='https://github.com/pwaller'>@pwaller</a> and many other.
 I had the idea of making it after realizing that I had been strugling making CLI UIs for each program I made.
 What I usually did was a spacer function and generate a Figlet banner online then copy it in my code. So to spare me the 
 pain I decided to write a module simple of use that automates all the process 
