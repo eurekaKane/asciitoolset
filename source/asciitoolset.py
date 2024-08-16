@@ -1,11 +1,13 @@
 # -*- encoding: utf-8 -*-
 
 """
-This is a module meant to facilitate CLI scripts readability
-making. Allowing you to generate save and edit
-spacers and banners to make your program
-look neater. More feature will be added.
-This is a rewrite in OOP
+This is a module meant to facilitate CLI scripts making process and readability.
+Allowing you to generate save and edit spacers, banners (and many others)
+to make your program look neater.
+More feature will be added.
+This is a rewrite in OOP (check the OG commit to see the mess it was in functional programming).
+I decided to change paradigm simply because I was working with what could be interpreted as objects, thus it was
+far more optimized coding in OOP :)
 """
 
 # IMPORTS
@@ -119,9 +121,8 @@ def testFonts():
                         tcol.cprint(f"{fonts} is good !\n", "green")
                         passedFnt.append(fonts)
 
-
         f.close()
-        # FIXME : fix fixFonts() haha !
+        # DONE : fix fixFonts() haha !
     if len(failed) > 0:
         fixFonts()
 
@@ -159,8 +160,8 @@ class Spacer:
         else:
             self.shape = shapes[int(self.sh)]
 
-    def __str__(self):
-        return str(self.__class__.__name__)
+    def __repr__(self):
+        return f"Object : Spacer ; Shape : n°{self.sh} ; Color : {self.color}"
 
     def makeSpacer(self):
         """Compile Spacer's parameters into a single variable"""
@@ -216,10 +217,10 @@ class Banner:
         self.banner = self.font.renderText(self.text)
 
     def __repr__(self):
-        return f"Font {self.fontName} in {self.color} tested with '{self.text}'"
+        return f"Object[ Banner ] ; Font[ {self.fontName} ] ; Color[ {self.color} ] ; Text[ '{self.text}' ]"
 
     def makeBanner(self):
-        """Compiles the banner using Figlet python port PyFiglet by 'pwaller'"""
+        """Compiles the banner using Figlet python port PyFiglet"""
         self.banner = self.font.renderText(self.text)
 
     def getFont(self):
@@ -270,15 +271,19 @@ def roll(col, txt):
         rollBan.printBanner()
         spc.spPrint(25)
 
+
 def test():
-    spc = Spacer('rand', "red")
+    spc = Spacer('1', "red")
     myBan = Banner('doom', "blue", "DooM")
+    tcol.cprint(f'DEBUG : {os.getcwd()}', 'yellow')
     myBan.printBanner()
     spc.spPrint(10)
     try :
-        roll('red', 'Test')
+        roll('red', 'MiStA WiLLO')
     except :
+        spc.setColor('green')
         tcol.cprint("Oops! Smth went wrong run testFonts() to see which font isn't working", "red")
+        spc.spPrint(10)
         if input('Do you want to fix the fonts ? (y/n) : ') == 'y':
             testFonts()
     finally:

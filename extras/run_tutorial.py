@@ -7,7 +7,7 @@ before using it in your scripts
 
 # IMPORTS
 
-from source.test_func import*
+from source.tutorial import *
 
 
 def main():
