@@ -8,8 +8,15 @@ before using it in your scripts
 
 # IMPORTS
 
-from source.asciitoolset import clr, showPalette, showShapes, Spacer, Banner
+from source.asciitoolset import *
 from termcolor import termcolor as tcol
+
+# COPYRIGHT
+__copyright__ = """
+The MIT License (MIT)
+Copyright © 2023 - 2024
+Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
+"""
 
 # QUESTIONS
 
@@ -22,29 +29,40 @@ askRedo = "VOULEZ VOUS RE-TESTER ? (y/n) :\n"
 
 
 testSpc = Spacer(5, 'red')
+testSsmall = Spacer(3, 'blue')
 testBan = Banner('graffiti','red','ASCIItlst')
 
 
 def banTest():
     tcol.cprint("\n| Test bannière |\n", "red")
-    testSpc.spPrint(50)
+    testSpc.spPrint(40)
 
     showPalette()
 
-    usrBanner = Banner(input(askFnt), input(askCol), input(askTxt))
+    testSsmall.spPrint(13)
+    usrBanner = Banner(input(askFnt), input(f"{testSsmall.spPrint(13)}\n{askCol}\n"), input(f"{testSsmall.spPrint(13)}\n{askTxt}\n"))
+    testSsmall.spPrint(13)
+    tcol.cprint("| Rendu |", "yellow")
+    testSpc.spPrint(13)
+    time.sleep(1)
     usrBanner.printBanner()
 
 
 def spcTest():
     tcol.cprint("| Test éspaceur |\n", "red")
 
-    testSpc.spPrint(50)
+    testSpc.spPrint(40)
 
     showShapes()
-
-    usrSpacer = Spacer(input(askShape), input(askCol))
-    testSpc.spPrint(50)
-    usrSpacer.spPrint(int(input(askLen)))
+    testSsmall.spPrint(13)
+    usrSpacer = Spacer(input(askShape), input(f"{testSsmall.spPrint(13)}\n{askCol}\n"))
+    length = int(input(f"{testSsmall.spPrint(13)}\n{askLen}"))
+    testSpc.spPrint(40)
+    testSsmall.spPrint(13)
+    tcol.cprint(" | Rendu | ", 'yellow')
+    testSsmall.spPrint(13)
+    time.sleep(1)
+    usrSpacer.spPrint(length)
 
 
 def redo() -> bool:
@@ -57,5 +75,6 @@ def redo() -> bool:
         return False
     else:
         clr()
+        return True
 
 # FIXED : not stopping when input == 'n'

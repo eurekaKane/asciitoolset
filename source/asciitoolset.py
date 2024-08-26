@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 
-"""
+long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
 Allowing you to generate save and edit spacers, banners (and many others)
 to make your program look neater.
@@ -20,11 +20,20 @@ import colorama
 
 import os
 
-# import time
+import sys
+
+import time
 
 from termcolor import termcolor as tcol
 
 from pyfiglet import Figlet, FigletError
+
+# COPYRIGHT
+__copyright__ = """
+The MIT License (MIT)
+Copyright © 2023 - 2024
+Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
+"""
 
 # SHAPES
 
@@ -54,6 +63,7 @@ colors: dict[int, str] = {
 }
 
 files = 'files.txt'
+
 # INIT
 # Required to display colors properly on any terminal
 
@@ -61,17 +71,40 @@ os.system('color')
 colorama.init()
 
 
+def ln_clr():
+    """
+    Clears current line
+    makes sys.stdout.flush() work without any ghosting
+    :return:
+    """
+    print("\033[1G\033[2K", end="", flush=True)
+    return None
+
+
 def clr():
-    """Clears the console on both Linux and Windows"""
+    """
+    Clears the console on both Linux and Windows
+    :return: None
+    """
     _ = os.system('cls' if os.name == 'nt' else 'clear')
+    return None
 
 
 def getFileSize():
+    """
+    Gets the size of files.txt
+    for truncate purposes
+    :return: filesize -> float
+    """
     filesize = os.path.getsize(files)
     return filesize
 
 
 def getFntList():
+    """
+    Gets all Figlet fonts present in files.txt
+    :return: fntList -> list
+    """
     fntList = []
     with open('fontList.txt', 'w') as t:
         with open(files, 'r') as f:
@@ -84,59 +117,23 @@ def getFntList():
     return fntList
 
 
-def testFonts():
-    fontList = getFntList()
-    passed = 0
-    failed = []
-    for font in fontList:
-        try:
-            fnt = Figlet(font)
-        except FigletError:
-            tcol.cprint(f"{font} : Failed !\n", "red")
-            failed.append(font)
-        else:
-            passed += 1
-            tcol.cprint(f"{font} : OK !\n", "green")
-
-    tcol.cprint(f"{passed} tests passed / {len(fontList)}", "green" if passed >= len(fontList) / 2 else "red")
-    tcol.cprint(f"Failed: {failed}", "red")
-
-    def fixFonts():
-        fntList = getFntList()
-        passedFnt = []
-        with open('files.txt', 'w') as t:
-            t.truncate()
-            t.close()
-
-        with open('files.txt', 'w') as f:
-            for fonts in fntList:
-                for _ in failed:
-                    if fonts in passedFnt:
-                        pass
-                    elif fonts in failed:
-                        tcol.cprint(f"{fonts} is not working, it has been deleted !\n", "red")
-                        passedFnt.append(fonts)
-                    else:
-                        f.write(fonts + "\n")
-                        tcol.cprint(f"{fonts} is good !\n", "green")
-                        passedFnt.append(fonts)
-
-        f.close()
-        # DONE : fix fixFonts() haha !
-    if len(failed) > 0:
-        fixFonts()
-
-
 def showPalette():
-    print("Palette :\n")
+    """
+    Displays termcolor's palette
+    :return: None
+    """
+    print("Palette :\n\n")
     print("-'black'\n")
     for y in range(len(colors)):
         tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
     print("-'white'\n")
-
+    return None
 
 def showShapes():
-    """Prints out the shape list"""
+    """
+    Prints out the shape list
+    :return: None
+    """
     for i in range(len(shapes)):
         print(f"{i + 1}.'{shapes[i + 1]}'\n")
     return None
@@ -161,44 +158,73 @@ class Spacer:
             self.shape = shapes[int(self.sh)]
 
     def __repr__(self):
+        """
+        __repr__ method for Spacer
+        :return: a string representation of Spacer object
+        """
         return f"Object : Spacer ; Shape : n°{self.sh} ; Color : {self.color}"
 
     def makeSpacer(self):
-        """Compile Spacer's parameters into a single variable"""
+        """
+        Compile Spacer's parameters into a single variable
+        :return: None
+        """
         if self.sh == "rand":
             chars = string.printable
             self.shape = ''.join(random.choice(chars) for _ in range(4))
         else:
             self.shape = shapes[int(self.sh)]
 
+
     def getShape(self):
-        """Getter for Spacer shape"""
+        """
+        Getter for Spacer shape
+        :return: Spacer shape
+        """
         return self.shape
 
     def getColor(self):
-        """Getter for Spacer color"""
+        """
+        Getter for Spacer color
+        :return: spacer's color
+        """
         return self.color
 
     def getSpcInfo(self):
-        """Getter for Spacer info (shape and color)"""
+        """
+        Getter for Spacer info (shape and color)
+        :return: None
+        """
         print(f"{self}'s shape is {self.shape}/n")
         print(f"{self}'s color is {self.color}")
 
     def setShape(self, sh):
-        """Setter for Spacer shape"""
+        """
+        Setter for Spacer shape
+        :return: None
+        """
         self.sh = sh
         self.makeSpacer()
 
     def setColor(self, col):
-        """Setter for Spacer color"""
+        """
+        Setter for Spacer color
+        :return: None
+        """
         self.color = col
         self.makeSpacer()
 
     def spPrint(self, le):
-        """Displays the compiled spacer"""
+        """
+        Displays the compiled spacer with a supplementary argument
+        :param le: spacer length
+        :return: None
+        """
         spcShape = self.shape
+
         for _ in range(le):
             spcShape += self.shape
+
         tcol.cprint(f"\n{spcShape}\n", self.color)
 
 
@@ -217,52 +243,96 @@ class Banner:
         self.banner = self.font.renderText(self.text)
 
     def __repr__(self):
+        """
+        __repr__ method for Banner
+        :return: f-string representation of Banner object
+        """
         return f"Object[ Banner ] ; Font[ {self.fontName} ] ; Color[ {self.color} ] ; Text[ '{self.text}' ]"
 
     def makeBanner(self):
-        """Compiles the banner using Figlet python port PyFiglet"""
+        """
+        Compiles the banner using Figlet python port PyFiglet
+        :return: Banner object
+        """
         self.banner = self.font.renderText(self.text)
+        return self.banner
 
     def getFont(self):
-        """Getter for Banner font"""
+        """
+        Getter for Banner font
+        :return: Figlet font object
+        """
         return self.font
 
     def getColor(self):
-        """Getter for Banner color"""
+        """
+        Getter for Banner color
+        :return: Banner color
+        """
         return self.color
 
     def getTxt(self):
-        """Getter for Banner text"""
+        """
+        Getter for Banner text
+        :return: Banner text
+        """
         return self.text
 
     def setFont(self, fnt):
-        """Setter for Banner font"""
+        """
+        Setter for Banner font
+        :return: None
+        """
         self.font = fnt
         self.makeBanner()
 
     def setColor(self, col):
-        """Setter for Banner color"""
+        """
+        Setter for Banner color
+        :return: None
+        """
         self.color = col
         self.makeBanner()
 
     def setTxt(self, txt):
-        """Setter for Banner text"""
+        """
+        Setter for Banner text
+        :return: None
+        """
         self.text = txt
         self.makeBanner()
 
     def printBanner(self):
-        """Displays the compiled banner"""
+        """
+        Displays the compiled banner
+        :return: None
+        """
         self.makeBanner()
         tcol.cprint(self.banner, self.color)
 
     def saveBanner(self, userdir: str, name: str):
+        """
+        Saves the rendered banner to a (.txt) file
+        :param userdir: user specified directory
+        :param name: user specified name for the banner
+        :return: None
+        """
         os.chdir(userdir)
         expBan = open(f"{name}.txt", "w")
         expBan.write(self.banner)
         expBan.close()
 
 
+# OTHER FEATURES
+
+
 def roll(col, txt):
+    """
+    Roll through every font in the font list and renders a Banner for each with the specified parameters
+    :param col: color to display
+    :param txt: text to display
+    :return: None
+    """
     fontList = getFntList()
     spc = Spacer(2, 'white')
     for font in fontList:
@@ -270,24 +340,3 @@ def roll(col, txt):
         tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
         rollBan.printBanner()
         spc.spPrint(25)
-
-
-def test():
-    spc = Spacer('1', "red")
-    myBan = Banner('doom', "blue", "DooM")
-    tcol.cprint(f'DEBUG : {os.getcwd()}', 'yellow')
-    myBan.printBanner()
-    spc.spPrint(10)
-    try :
-        roll('red', 'MiStA WiLLO')
-    except :
-        spc.setColor('green')
-        tcol.cprint("Oops! Smth went wrong run testFonts() to see which font isn't working", "red")
-        spc.spPrint(10)
-        if input('Do you want to fix the fonts ? (y/n) : ') == 'y':
-            testFonts()
-    finally:
-        tcol.cprint('Everything is working !', 'green')
-
-
-test()
