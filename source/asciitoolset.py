@@ -1,4 +1,6 @@
 # -*- encoding: utf-8 -*-
+from os import getcwd
+from platform import system
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -83,7 +85,7 @@ def ln_clr():
 
 def clr():
     """
-    Clears the console on both Linux and Windows
+    Clears the console context on both Linux and Windows
     :return: None
     """
     _ = os.system('cls' if os.name == 'nt' else 'clear')
@@ -178,14 +180,14 @@ class Spacer:
 
     def getShape(self):
         """
-        Getter for Spacer shape
-        :return: Spacer shape
+        Getter for Spacer's shape parameter
+        :return: spacer's shape
         """
         return self.shape
 
     def getColor(self):
         """
-        Getter for Spacer color
+        Getter for Spacer's color parameter
         :return: spacer's color
         """
         return self.color
@@ -340,3 +342,14 @@ def roll(col, txt):
         tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
         rollBan.printBanner()
         spc.spPrint(25)
+
+
+def debug():
+    """
+    :return: Debug string
+    """
+    cwd = getcwd()
+    return cwd
+
+
+print(debug())
