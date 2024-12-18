@@ -7,8 +7,6 @@ before using it in your scripts
 
 # IMPORTS
 
-from source.asciitoolset import clr
-
 from source.tutorial import *
 
 # COPYRIGHT

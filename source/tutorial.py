@@ -9,7 +9,8 @@ before using it in your scripts
 # IMPORTS
 
 from source.asciitoolset import *
-from termcolor import termcolor as tcol
+
+from source.utils.utils import *
 
 # COPYRIGHT
 __copyright__ = """
@@ -34,6 +35,10 @@ testBan = Banner('graffiti','red','ASCIItlst')
 
 
 def banTest():
+    """
+    Simple test protocol for Banner object
+    :return:
+    """
     tcol.cprint("\n| Test bannière |\n", "red")
     testSpc.spPrint(40)
 
@@ -49,6 +54,10 @@ def banTest():
 
 
 def spcTest():
+    """
+    Simple test protocol for Spacer object
+    :return:
+    """
     tcol.cprint("| Test éspaceur |\n", "red")
 
     testSpc.spPrint(40)
@@ -67,7 +76,8 @@ def spcTest():
 
 def redo() -> bool:
     """
-
+    Interface func ask redo at the end of
+    tutorial module
     :rtype: object
     """
     if input(askRedo) == "n":
