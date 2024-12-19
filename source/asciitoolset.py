@@ -1,6 +1,4 @@
 # -*- encoding: utf-8 -*-
-from os import getcwd
-from platform import system
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -29,6 +27,8 @@ import time
 from termcolor import termcolor as tcol
 
 from pyfiglet import Figlet, FigletError
+
+from source.utils.utils import *
 
 # COPYRIGHT
 __copyright__ = """
@@ -64,80 +64,35 @@ colors: dict[int, str] = {
     6: "cyan",
 }
 
-files = 'files.txt'
-
+files = f"{os.getcwd()}\\source\\files.txt"
 # INIT
 # Required to display colors properly on any terminal
 
 os.system('color')
 colorama.init()
 
-
-def ln_clr():
-    """
-    Clears current line
-    makes sys.stdout.flush() work without any ghosting
-    :return:
-    """
-    print("\033[1G\033[2K", end="", flush=True)
-    return None
-
-
-def clr():
-    """
-    Clears the console context on both Linux and Windows
-    :return: None
-    """
-    _ = os.system('cls' if os.name == 'nt' else 'clear')
-    return None
-
-
-def getFileSize():
-    """
-    Gets the size of files.txt
-    for truncate purposes
-    :return: filesize -> float
-    """
-    filesize = os.path.getsize(files)
-    return filesize
-
-
-def getFntList():
-    """
-    Gets all Figlet fonts present in files.txt
-    :return: fntList -> list
-    """
-    fntList = []
-    with open('fontList.txt', 'w') as t:
-        with open(files, 'r') as f:
-            for line in f:
-                font = line.strip('\n')
-                fntList.append(font)
-                t.write(font + '\n')
-        f.close()
-    t.close()
-    return fntList
-
-
 def showPalette():
     """
-    Displays termcolor's palette
+    Displays module's color palette
     :return: None
     """
     print("Palette :\n\n")
     print("-'black'\n")
-    for y in range(len(colors)):
-        tcol.cprint(f"-(light_)'{colors[y + 1]}'\n", colors[y + 1])
+    for y in range(1, len(colors)+1):
+        tcol.cprint(f"-(light_)'{colors[y]}'\n", colors[y])
+
     print("-'white'\n")
+
+
     return None
 
 def showShapes():
     """
-    Prints out the shape list
+    Prints out shape list to choose from
     :return: None
     """
-    for i in range(len(shapes)):
-        print(f"{i + 1}.'{shapes[i + 1]}'\n")
+    for i in range(1, len(shapes)+1):
+        print(f"{i}.'{shapes[i]}'\n")
     return None
 
 
@@ -146,7 +101,7 @@ class Spacer:
     def __init__(self, sh, col):
         """
         A spacer is an object designed to give some space to
-        the console output, make it readable, and good-looking
+        the console output, making it readable, and good-looking
         :param sh: shape of spacer
         :param col: color of spacer
         """
@@ -156,6 +111,7 @@ class Spacer:
         if self.sh == "rand":
             chars = string.printable
             self.shape = ''.join(random.choice(chars) for _ in range(4))
+
         else:
             self.shape = shapes[int(self.sh)]
 
@@ -176,18 +132,19 @@ class Spacer:
             self.shape = ''.join(random.choice(chars) for _ in range(4))
         else:
             self.shape = shapes[int(self.sh)]
+        return None
 
 
     def getShape(self):
         """
-        Getter for Spacer's shape parameter
-        :return: spacer's shape
+        Getter for Spacer shape
+        :return: Spacer shape
         """
         return self.shape
 
     def getColor(self):
         """
-        Getter for Spacer's color parameter
+        Getter for Spacer color
         :return: spacer's color
         """
         return self.color
@@ -199,6 +156,7 @@ class Spacer:
         """
         print(f"{self}'s shape is {self.shape}/n")
         print(f"{self}'s color is {self.color}")
+        return None
 
     def setShape(self, sh):
         """
@@ -207,6 +165,7 @@ class Spacer:
         """
         self.sh = sh
         self.makeSpacer()
+        return None
 
     def setColor(self, col):
         """
@@ -215,6 +174,7 @@ class Spacer:
         """
         self.color = col
         self.makeSpacer()
+        return None
 
     def spPrint(self, le):
         """
@@ -228,6 +188,7 @@ class Spacer:
             spcShape += self.shape
 
         tcol.cprint(f"\n{spcShape}\n", self.color)
+        return None
 
 
 class Banner:
@@ -247,7 +208,7 @@ class Banner:
     def __repr__(self):
         """
         __repr__ method for Banner
-        :return: f-string representation of Banner object
+        :return: a string representation of Banner object
         """
         return f"Object[ Banner ] ; Font[ {self.fontName} ] ; Color[ {self.color} ] ; Text[ '{self.text}' ]"
 
@@ -287,6 +248,7 @@ class Banner:
         """
         self.font = fnt
         self.makeBanner()
+        return None
 
     def setColor(self, col):
         """
@@ -295,7 +257,7 @@ class Banner:
         """
         self.color = col
         self.makeBanner()
-
+        return None
     def setTxt(self, txt):
         """
         Setter for Banner text
@@ -303,6 +265,7 @@ class Banner:
         """
         self.text = txt
         self.makeBanner()
+        return None
 
     def printBanner(self):
         """
@@ -323,6 +286,7 @@ class Banner:
         expBan = open(f"{name}.txt", "w")
         expBan.write(self.banner)
         expBan.close()
+        return None
 
 
 # OTHER FEATURES
@@ -336,20 +300,13 @@ def roll(col, txt):
     :return: None
     """
     fontList = getFntList()
+
     spc = Spacer(2, 'white')
+
     for font in fontList:
         rollBan = Banner(font, col, txt)
         tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
         rollBan.printBanner()
         spc.spPrint(25)
 
-
-def debug():
-    """
-    :return: Debug string
-    """
-    cwd = getcwd()
-    return cwd
-
-
-print(debug())
+    return None

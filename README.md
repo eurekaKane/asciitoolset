@@ -6,27 +6,51 @@
 to make clean terminal-based programs UIs</h2>
 
 <h1 align="center">WARNING !</h1>
-<h2>Don't clone my repo nothing works, like seriously i need to make a setup.py file else you are going to need and fix everything by hand to make it work it's terrible !</h2>
+<h2>Don't clone my repo nothing works, like seriously I need to make a setup.py file else you are going to need and fix everything by hand to make it work it's terrible !</h2>
 <h2>Like the mess it is in terms of dependencies and like shit you need to know to make it work is awful. GOD ! This repo is a construction site. Fixing my stuff ASAP :)</h2>
 
 ## Changelog
 
 Global changes :
 -
-* Added an '__ _init_ __.py' file (it's empty for the moment)
-* Added a copy of 'files.txt' to /source for test purposes (path to original one will be added in master soon)
+* Added a <code>setup.py</code> file
+* Fragmented every script in separate folders :
+
+    +   ``` txt
+        /asciitoolset
+        │
+        ├──/source
+        │  │
+        │  ├─── /utils
+        │  │    ├─── __init__.py
+        │  │    └─── utils.py
+        │  ├─── /test
+        │  │    ├─── __init__.py
+        │  │    └─── test_all.py
+        │  │
+        │  ├─── __init__.py
+        │  ├─── asciitoolset.py
+        │  ├─── test_all.py
+        │  └─── tutorial.py
+        │
+        ├─── run_test.py
+        ├─── run_tutorial.py
+        └─── setup.py  
+        ```
+     
+
 
 Specific changes :
 -
-* Few experimental features for testing the fonts : testFonts() --> fixFonts() (the two of them will be splited) ; getFileSize(), getFontList
-* New roll() func, it basically renders out a banner for each font name in 'files.txt'
-* Opening an experimental branch
+* Deleted the fonts folder
+* HUGE <code>README.md</code> upgrade
+* I honestly don't remember the other changes
 
 Future changes :
 -
-* 
-* fill
-* fill
+* Other objects like loading bars, buttons, boxes... will be added
+* Other languages support for the tutorial like English or Russian
+* Error handling
 
 
 ## Supported
@@ -34,31 +58,43 @@ Future changes :
 
 ## Guide
 <details>
-<summary>Guide for beginners</summary>
+   <summary>Guide for beginners</summary>
 
-1. <details><summary>Cloning GitHub repo</summary>
+   Since the projects is not yet on PyPi you can't use pip
+
+   1. <details><summary>Cloning GitHub repo</summary>
    
-   1. fill
-   2. fill
-   3. fill
+      1. Make sure you have [git](https://git-scm.com/downloads) installed on your computer
+
+         + On Windows 11/10 you'll have to install it manually.
+         + On MacOS you can just type in <code>git</code> and a pop-up should ask you if you want to install it.
+         + On Linux it's built-in
+
+      2. Once it's done there are two options
    
-   </details>
+         + You can navigate to your local python package folder and clone it there
+         + Or if you are on a virtual environment clone in your projects local .venv packages folder
 
-2. <details><summary>Downloading .zip archive on GitHub</summary>
+      3. Then go to the folder of asciitoolset you just cloned and run <code>python setup.py</code>
+   
+         + If you don't have <code>pip</code> installed, make sure you re/install it by running <code>py -m ensurepip --upgrade</code>. And re-run <code>setup.py</code>
+         + Else you should be good to go
+      </details>
 
-   1. fill
-   2. fill
-   3. fill
+   2. <details><summary>Downloading .zip archive on GitHub</summary>
 
-   </details>
+      1. Go to the [repo page](https://github.com/eurekakane/asciitoolset) on GitHub and select the branch you want
+      2. Then click on the [<>Code](https://github.com/eurekaKane/asciitoolset/archive/refs/heads/experimental.zip) button and .zip
+      3. Extract the archive in your python package folder
+      4. You are good to go 
+
+      </details>
 
 </details>
 
 <details><summary>Guide for advanced people</summary>
 
-1. fill 
-2. fill
-3. fill
+1. Follow the beginners tutorial 🧍‍♂️
 
 </details>
 

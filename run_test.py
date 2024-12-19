@@ -2,7 +2,7 @@
 
 # IMPORTS
 
-from source.test_all import *
+from source.tests.test_all import *
 
 
 def main():
@@ -20,7 +20,7 @@ def main():
     spc.spPrint(10)
 
     try:
-        roll('red', 'MiStA WiLLO')
+        roll('red', 'DoxBin for Kislitsyn :)')
     except FigletError:
         spc.setColor('green')
         tcol.cprint("Oops! Smth went wrong running testFonts() to see which font isn't working", "red")
