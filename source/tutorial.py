@@ -40,15 +40,15 @@ def banTest():
     :return:
     """
     tcol.cprint("\n| Test bannière |\n", "red")
-    testSpc.spPrint(40)
+    testSpc.sp_print(40)
 
     showPalette()
 
-    testSsmall.spPrint(13)
-    usrBanner = Banner(input(askFnt), input(f"{testSsmall.spPrint(13)}\n{askCol}\n"), input(f"{testSsmall.spPrint(13)}\n{askTxt}\n"))
-    testSsmall.spPrint(13)
+    testSsmall.sp_print(13)
+    usrBanner = Banner(input(askFnt), input(f"{testSsmall.sp_print(13)}\n{askCol}\n"), input(f"{testSsmall.sp_print(13)}\n{askTxt}\n"))
+    testSsmall.sp_print(13)
     tcol.cprint("| Rendu |", "yellow")
-    testSpc.spPrint(13)
+    testSpc.sp_print(13)
     time.sleep(1)
     usrBanner.printBanner()
 
@@ -60,18 +60,18 @@ def spcTest():
     """
     tcol.cprint("| Test éspaceur |\n", "red")
 
-    testSpc.spPrint(40)
+    testSpc.sp_print(40)
 
     showShapes()
-    testSsmall.spPrint(13)
-    usrSpacer = Spacer(input(askShape), input(f"{testSsmall.spPrint(13)}\n{askCol}\n"))
-    length = int(input(f"{testSsmall.spPrint(13)}\n{askLen}"))
-    testSpc.spPrint(40)
-    testSsmall.spPrint(13)
+    testSsmall.sp_print(13)
+    usrSpacer = Spacer(input(askShape), input(f"{testSsmall.sp_print(13)}\n{askCol}\n"))
+    length = int(input(f"{testSsmall.sp_print(13)}\n{askLen}"))
+    testSpc.sp_print(40)
+    testSsmall.sp_print(13)
     tcol.cprint(" | Rendu | ", 'yellow')
-    testSsmall.spPrint(13)
+    testSsmall.sp_print(13)
     time.sleep(1)
-    usrSpacer.spPrint(length)
+    usrSpacer.sp_print(length)
 
 
 def redo() -> bool:

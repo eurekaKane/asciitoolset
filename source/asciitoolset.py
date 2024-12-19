@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 
+
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
 Allowing you to generate save and edit spacers, banners (and many others)
@@ -14,19 +15,10 @@ far more optimized coding in OOP :)
 
 import random
 
-import string
+# import sys
 
-import colorama
+from pyfiglet import Figlet
 
-import os
-
-import sys
-
-import time
-
-from termcolor import termcolor as tcol
-
-from pyfiglet import Figlet, FigletError
 
 from source.utils.utils import *
 
@@ -35,164 +27,127 @@ __copyright__ = """
 The MIT License (MIT)
 Copyright © 2023 - 2024
 Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
+Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
 
-# SHAPES
-
-shapes = {
-    1: "|-|_",
-    2: "####",
-    3: "/-/-",
-    4: "~~~~",
-    5: "====",
-    6: "=+=+",
-    7: "$%$%",
-    8: "/*/*",
-    9: "////",
-    10: ">>>>",
-    11: "--->"
-}
-
-# COLORS
-
-colors: dict[int, str] = {
-    1: "red",
-    2: "green",
-    3: "yellow",
-    4: "blue",
-    5: "magenta",
-    6: "cyan",
-}
-
-files = f"{os.getcwd()}\\source\\files.txt"
-# INIT
-# Required to display colors properly on any terminal
-
-os.system('color')
-colorama.init()
-
-def showPalette():
-    """
-    Displays module's color palette
-    :return: None
-    """
-    print("Palette :\n\n")
-    print("-'black'\n")
-    for y in range(1, len(colors)+1):
-        tcol.cprint(f"-(light_)'{colors[y]}'\n", colors[y])
-
-    print("-'white'\n")
-
-
-    return None
-
-def showShapes():
-    """
-    Prints out shape list to choose from
-    :return: None
-    """
-    for i in range(1, len(shapes)+1):
-        print(f"{i}.'{shapes[i]}'\n")
-    return None
 
 
 class Spacer:
-    # TODO : make a variable that stores the spacer params instead of the whole makeSpacer func
-    def __init__(self, sh, col):
+    # TODO : multicolor spacer
+
+    def __init__(self, **opt):
         """
         A spacer is an object designed to give some space to
         the console output, making it readable, and good-looking
         :param sh: shape of spacer
-        :param col: color of spacer
+        :param **opt: spacer's options
         """
-        self.sh = sh
-        self.color = col
-        self.shape = None
-        if self.sh == "rand":
-            chars = string.printable
-            self.shape = ''.join(random.choice(chars) for _ in range(4))
 
+        class SpacerParams:
+            def __init__(self, opt_params):
+                self.SH = opt_params.get('shape', 2)
+
+                self.CUTOFF = opt_params.get('cutoff', True)
+
+                self.COLOR = opt_params.get('color', 'white')
+                self.CHARS_PER_COLOR = opt_params.get('chars_per_color', 1)
+
+                self.RANDOM = opt_params.get('random', False)
+                self.RANDOM_RANGE = opt_params.get('random_range', 4)
+
+        self.Params = SpacerParams(opt)
+
+        # Shape handler
+        if isinstance(self.Params.SH, int):
+            _result = shapes[self.Params.SH]
+        elif self.Params.RANDOM:
+            _result = ''.join(random.choice(chars) for _ in range(self.Params.RANDOM_RANGE))
         else:
-            self.shape = shapes[int(self.sh)]
+            _result = self.Params.SH
 
-    def __repr__(self):
-        """
-        __repr__ method for Spacer
-        :return: a string representation of Spacer object
-        """
-        return f"Object : Spacer ; Shape : n°{self.sh} ; Color : {self.color}"
+        self.shape = _result
 
-    def makeSpacer(self):
-        """
-        Compile Spacer's parameters into a single variable
-        :return: None
-        """
-        if self.sh == "rand":
-            chars = string.printable
-            self.shape = ''.join(random.choice(chars) for _ in range(4))
+    def set(self, **opt):
+        self.Params.CUTOFF = opt.get('cutoff', self.Params.CUTOFF)
+
+        self.Params.COLOR = opt.get('color', self.Params.COLOR)
+        self.Params.CHARS_PER_COLOR = opt.get('chars_per_color', self.Params.CHARS_PER_COLOR)
+
+        self.Params.RANDOM = opt.get('random', self.Params.RANDOM)
+        self.Params.RANDOM_RANGE = opt.get('random_range', self.Params.RANDOM_RANGE)
+
+        sh_tmp = opt.get('shape', self.shape)
+        if self.Params.RANDOM:
+            _result = ''.join(random.choice(chars) for _ in range(self.Params.RANDOM_RANGE))
         else:
-            self.shape = shapes[int(self.sh)]
-        return None
+            _result = sh_tmp
 
+        self.shape = _result
 
-    def getShape(self):
+    def get_shape(self):
         """
         Getter for Spacer shape
-        :return: Spacer shape
+        :return: spacer's shape
         """
         return self.shape
 
-    def getColor(self):
+    def get_color(self):
         """
         Getter for Spacer color
         :return: spacer's color
         """
-        return self.color
+        return self.Params.COLOR
 
-    def getSpcInfo(self):
+    def sp_print(self, len_spc):
+        """
+        Displays the compiled spacer.
+        Fuck this shit for real man, I spent 1h trying to fix it and in the end I got where i started.
+
+        :param len_spc: spacer length in chars
+
+        :return: None
+        """
+
+        spc_shape = ""
+        spc_temp = self.shape
+
+        if self.Params.CUTOFF:
+            for i in range(len_spc):
+                spc_shape += spc_temp[i % len(spc_temp)]
+        else:
+            for spc_char in spc_temp:
+                spc_shape += spc_char
+
+
+        if isinstance(self.Params.COLOR, str):
+            tcol.cprint(f"\n{spc_shape}\n", self.Params.COLOR)
+        elif isinstance(self.Params.COLOR, list):
+            tcol.cprint(f"\n")
+            for i_char in range(len(spc_shape)):
+                tcol.cprint(f"{spc_shape[i_char]}", self.Params.COLOR[i_char%len(self.Params.COLOR)], end="")
+            tcol.cprint(f"\n")
+
+        return None
+
+    def _spcnfo(self):
         """
         Getter for Spacer info (shape and color)
         :return: None
-        """
-        print(f"{self}'s shape is {self.shape}/n")
-        print(f"{self}'s color is {self.color}")
-        return None
 
-    def setShape(self, sh):
+        Debug func only
         """
-        Setter for Spacer shape
-        :return: None
-        """
-        self.sh = sh
-        self.makeSpacer()
-        return None
 
-    def setColor(self, col):
-        """
-        Setter for Spacer color
-        :return: None
-        """
-        self.color = col
-        self.makeSpacer()
-        return None
+        tcol.cprint(f"""
+                
+               {self}'s shape is {self.shape}
+               {self}'s color is {self.Params.COLOR}
+               """, 'yellow')
 
-    def spPrint(self, le):
-        """
-        Displays the compiled spacer with a supplementary argument
-        :param le: spacer length
-        :return: None
-        """
-        spcShape = self.shape
-
-        for _ in range(le):
-            spcShape += self.shape
-
-        tcol.cprint(f"\n{spcShape}\n", self.color)
         return None
 
 
 class Banner:
-    def __init__(self, fnt, col, txt):
+    def __init__(self, fnt, col, txt, **opt):
         """
         A banner is an object designed to display your program logo or name
         :param fnt: Figlet font
@@ -203,7 +158,9 @@ class Banner:
         self.fontName = fnt
         self.color = col
         self.text = txt
+        self.width = opt.get('width', None)
         self.banner = self.font.renderText(self.text)
+
 
     def __repr__(self):
         """
@@ -212,13 +169,6 @@ class Banner:
         """
         return f"Object[ Banner ] ; Font[ {self.fontName} ] ; Color[ {self.color} ] ; Text[ '{self.text}' ]"
 
-    def makeBanner(self):
-        """
-        Compiles the banner using Figlet python port PyFiglet
-        :return: Banner object
-        """
-        self.banner = self.font.renderText(self.text)
-        return self.banner
 
     def getFont(self):
         """
@@ -241,13 +191,23 @@ class Banner:
         """
         return self.text
 
+
+    def get_width(self):
+        """
+        Getter for Banner width
+        :return: Banner width
+        """
+
+        return self.width
+
     def setFont(self, fnt):
         """
         Setter for Banner font
         :return: None
         """
+
         self.font = fnt
-        self.makeBanner()
+
         return None
 
     def setColor(self, col):
@@ -256,7 +216,7 @@ class Banner:
         :return: None
         """
         self.color = col
-        self.makeBanner()
+
         return None
     def setTxt(self, txt):
         """
@@ -264,16 +224,29 @@ class Banner:
         :return: None
         """
         self.text = txt
-        self.makeBanner()
+
         return None
+
+
+    def set_width(self, width):
+        """
+        Setter for Banner width
+        :param width:
+        :return:
+        """
+        self.width = width
+
 
     def printBanner(self):
         """
         Displays the compiled banner
         :return: None
         """
-        self.makeBanner()
+
         tcol.cprint(self.banner, self.color)
+
+        return None
+
 
     def saveBanner(self, userdir: str, name: str):
         """
@@ -290,23 +263,3 @@ class Banner:
 
 
 # OTHER FEATURES
-
-
-def roll(col, txt):
-    """
-    Roll through every font in the font list and renders a Banner for each with the specified parameters
-    :param col: color to display
-    :param txt: text to display
-    :return: None
-    """
-    fontList = getFntList()
-
-    spc = Spacer(2, 'white')
-
-    for font in fontList:
-        rollBan = Banner(font, col, txt)
-        tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
-        rollBan.printBanner()
-        spc.spPrint(25)
-
-    return None
