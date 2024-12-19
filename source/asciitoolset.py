@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-
+import os
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -20,6 +20,8 @@ import random
 from pyfiglet import Figlet
 
 from source.utils.utils import *
+
+from source.utils.utils import __local
 
 # COPYRIGHT
 __copyright__ = """
@@ -113,8 +115,9 @@ class Spacer:
             for i in range(len_spc):
                 spc_shape += spc_temp[i % len(spc_temp)]
         else:
-            for spc_char in spc_temp:
-                spc_shape += spc_char
+            for i in range(len_spc):
+                for spc_char in spc_temp:
+                    spc_shape += spc_char
 
 
         if isinstance(self.Params.COLOR, str):
@@ -127,7 +130,7 @@ class Spacer:
 
         return None
 
-    def _spcnfo(self):
+    def __spc_nfo__(self):
         """
         Getter for Spacer info (shape and color)
         :return: None
@@ -249,14 +252,30 @@ class Banner:
     def saveBanner(self, userdir: str, name: str):
         """
         Saves the rendered banner to a (.txt) file
-        :param userdir: user specified directory
         :param name: user specified name for the banner
         :return: None
         """
-        os.chdir(userdir)
+        os.chdir()
         expBan = open(f"{name}.txt", "w")
         expBan.write(self.banner)
         expBan.close()
+        return None
+
+
+    def __banfo(self):
+        """
+        Getter for Banner info (shape and color)
+        :return: None
+
+        Debug func only
+        """
+        os.mkdir(f'{__local}\\')
+        tcol.cprint(f"""
+
+               {self.__repr__()}'s shape is {self.getTxt()}
+               {self.__repr__()}'s color is {self.getColor()}
+               """, 'yellow')
+
         return None
 
 
