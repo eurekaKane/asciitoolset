@@ -5,20 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="Finally !">
-      <change afterPath="$PROJECT_DIR$/learchidebugdelamort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_tutorial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learchidebugdelamort.py" beforeDir="false" afterPath="$PROJECT_DIR$/learchidebugdelamort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/files.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/source/tests/test_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tests/test_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tutorial.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
-    <list id="a90adb02-1493-4e3f-af68-0d7d700d4563" name="Changes by juste" comment="">
-      <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils/utils.py" afterDir="false" />
-    </list>
+    <list id="a90adb02-1493-4e3f-af68-0d7d700d4563" name="Changes by juste" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,67 +39,12 @@
     &quot;assignee&quot;: &quot;eurekaKane&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/eurekaKane/asciitoolset.git",
-    "accountId": "5270f5ee-6a2e-4f13-b37b-8c05ba1061ab"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/eurekaKane/asciitoolset.git&quot;,
+    &quot;accountId&quot;: &quot;5270f5ee-6a2e-4f13-b37b-8c05ba1061ab&quot;
   }
-}]]></component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/source/asciitoolset.py">
-      <ranges>
-        <range start1="1" end1="1" start2="1" end2="2" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="16" end1="23" start2="17" end2="18" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="24" end1="25" start2="19" end2="20" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="26" end1="29" start2="21" end2="21" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="37" end1="37" start2="29" end2="30" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="39" end1="96" start2="32" end2="32" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="99" end1="101" start2="35" end2="38" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="105" end1="106" start2="42" end2="43" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="107" end1="113" start2="44" end2="48" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="114" end1="114" start2="49" end2="64" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="115" end1="116" start2="65" end2="68" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="117" end1="123" start2="69" end2="71" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="124" end1="132" start2="72" end2="81" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="133" end1="135" start2="82" end2="83" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="136" end1="136" start2="84" end2="85" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="137" end1="138" start2="86" end2="87" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="140" end1="141" start2="89" end2="90" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="144" end1="145" start2="93" end2="94" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="149" end1="177" start2="98" end2="99" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="178" end1="179" start2="100" end2="101" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="180" end1="182" start2="102" end2="107" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="184" end1="185" start2="109" end2="112" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="186" end1="188" start2="113" end2="119" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="189" end1="190" start2="120" end2="129" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="191" end1="191" start2="130" end2="146" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="194" end1="195" start2="149" end2="150" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="205" end1="205" start2="160" end2="161" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="206" end1="206" start2="162" end2="163" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="214" end1="221" start2="171" end2="171" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="242" end1="242" start2="192" end2="201" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="248" end1="248" start2="207" end2="208" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="249" end1="250" start2="209" end2="210" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="258" end1="259" start2="218" end2="219" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="266" end1="267" start2="226" end2="227" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="269" end1="269" start2="229" end2="239" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="274" end1="275" start2="244" end2="245" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="276" end1="276" start2="246" end2="249" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="292" end1="312" start2="265" end2="265" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-      </ranges>
-    </file>
-    <file path="$PROJECT_DIR$/source/utils/utils.py">
-      <ranges>
-        <range start1="4" end1="5" start2="4" end2="13" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="6" end1="6" start2="14" end2="15" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="7" end1="8" start2="16" end2="69" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="13" end1="14" start2="74" end2="75" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="40" end1="41" start2="101" end2="102" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="52" end1="54" start2="113" end2="122" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="64" end1="64" start2="132" end2="157" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-      </ranges>
-    </file>
-  </component>
+}</component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
@@ -134,6 +73,7 @@
     "Python.scratch.executor": "Run",
     "Python.test.executor": "Run",
     "Python.tutorial.executor": "Run",
+    "Python.utils.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "Experimental²",
@@ -177,7 +117,7 @@
       <command value="python asciitoolset.py " />
     </option>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.learchidebugdelamort">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
@@ -553,11 +493,12 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/asciitoolset$tutorial.coverage" NAME="tutorial Coverage Results" MODIFIED="1734443332077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
+    <SUITE FILE_PATH="coverage/asciitoolset$utils.coverage" NAME="utils Coverage Results" MODIFIED="1734606685908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/utils" />
     <SUITE FILE_PATH="coverage/asciitoolset$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1723732838811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
     <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1734563072334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
-    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1734570904148" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
+    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1734607854839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
     <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial.coverage" NAME="run_tutorial Coverage Results" MODIFIED="1734542087034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$learchidebugdelamort.coverage" NAME="learchidebugdelamort Coverage Results" MODIFIED="1734571276156" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$learchidebugdelamort.coverage" NAME="learchidebugdelamort Coverage Results" MODIFIED="1734607510300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$run_test.coverage" NAME="run_test Coverage Results" MODIFIED="1734541945152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$python_asciitoolset_py.coverage" NAME="python asciitoolset.py Coverage Results" MODIFIED="1723843959323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1722775935463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

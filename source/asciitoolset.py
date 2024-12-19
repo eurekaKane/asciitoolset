@@ -19,7 +19,6 @@ import random
 
 from pyfiglet import Figlet
 
-
 from source.utils.utils import *
 
 # COPYRIGHT
@@ -29,7 +28,6 @@ Copyright © 2023 - 2024
 Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
 Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
-
 
 
 class Spacer:

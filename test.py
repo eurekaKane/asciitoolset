@@ -4,7 +4,7 @@ from source.asciitoolset import *
 
 from source.tests.test_all import roll
 
-spc = Spacer(shape = "skibidi", color = ["green","red"])#, random = True)
+spc = Spacer(shape = "skibidi", color = ["green","red","yellow"])#, random = True)
 
 def main():
     spc._spcnfo()

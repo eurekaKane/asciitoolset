@@ -15,12 +15,12 @@ def roll(col, txt):
     """
     fontList = getFntList()
 
-    spc = Spacer(2, 'white')
+    spc = Spacer(shape = 2, color ='white')
 
     for font in fontList:
-        rollBan = Banner(font, col, txt, width = 100)
-        tcol.cprint(f'{rollBan.__repr__()}\n', 'green')
-        rollBan.printBanner()
+        roll_ban = Banner(font, col, txt, width = 100)
+        tcol.cprint(f'{roll_ban.__repr__()}\n', 'green')
+        roll_ban.printBanner()
         time.sleep(0.5)
         spc.sp_print(25)
 

@@ -2,6 +2,8 @@
 
 # IMPORTS
 
+import importlib.resources
+
 import os
 
 import colorama
@@ -47,9 +49,11 @@ colors: dict[int, str] = {
 
 __local = os.getcwd()
 
-SHARED_DIRECTORY = os.path.join(os.environ["LOCALAPPDATA"])
+#SHARED_DIRECTORY = os.path.join(os.environ["APPDATA"])
 
-FILES = f"{SHARED_DIRECTORY}\\Programs\\Python\\Python313\\Lib\\site-packages\\pyfiglet\\fonts\\files.txt"
+path = importlib.resources.files('pyfiglet.fonts')
+
+FILES = f"{path}\\files.txt"
 
 __tmp = f"{__local}\\tmp"
 
@@ -63,11 +67,13 @@ os.system('color')
 colorama.init()
 
 
-if os.path.exists(__tmp):
-    os.chmod(__tmp, 0o777)
-    os.remove(f"{__tmp}\\fontList.txt")
-    os.removedirs(__tmp)
+def del_tmp():
+    if os.path.exists(__tmp):
+        os.chmod(__tmp, 0o777)
+        os.remove(f"{__tmp}\\fontList.txt")
+        os.removedirs(__tmp)
 
+del_tmp()
 
 def ln_clr():
     """
@@ -100,6 +106,7 @@ def getFileSize():
     :return: filesize -> float
     """
     filesize = os.path.getsize(FILES)
+    print(path)
 
     return filesize
 
@@ -111,10 +118,7 @@ def getFntList():
     """
     fntList = []
 
-    if os.path.exists(__tmp):
-        os.chmod(__tmp, 0o777)
-        os.remove(f"{__tmp}\\fontList.txt")
-        os.removedirs(__tmp)
+    del_tmp()
 
     os.mkdir(f"{__local}\\tmp")
 
