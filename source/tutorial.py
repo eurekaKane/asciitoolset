@@ -29,8 +29,8 @@ askShape = "QUELLE FORME ? \n"
 askRedo = "VOULEZ VOUS RE-TESTER ? (y/n) :\n"
 
 
-testSpc = Spacer(5, 'red')
-testSsmall = Spacer(3, 'blue')
+testSpc = Spacer(shape = 5, color = 'red')
+testSsmall = Spacer(shape = 3, color = 'blue')
 testBan = Banner('graffiti','red','ASCIItlst')
 
 
@@ -64,7 +64,7 @@ def spcTest():
 
     showShapes()
     testSsmall.sp_print(13)
-    usrSpacer = Spacer(input(askShape), input(f"{testSsmall.sp_print(13)}\n{askCol}\n"))
+    usrSpacer = Spacer(shape = input(askShape), color = input(f"{testSsmall.sp_print(13)}\n{askCol}\n"))
     length = int(input(f"{testSsmall.sp_print(13)}\n{askLen}"))
     testSpc.sp_print(40)
     testSsmall.sp_print(13)
@@ -81,10 +81,8 @@ def redo() -> bool:
     :rtype: object
     """
     if input(askRedo) == "n":
-        clr()
         return False
     else:
-        clr()
         return True
 
 # FIXED : not stopping when input == 'n'
