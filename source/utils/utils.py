@@ -5,6 +5,7 @@
 import importlib.resources
 
 import os
+from unittest import installHandler
 
 import colorama
 
@@ -67,13 +68,29 @@ os.system('color')
 colorama.init()
 
 
-def del_tmp():
-    if os.path.exists(__tmp):
-        os.chmod(__tmp, 0o777)
-        os.remove(f"{__tmp}\\fontList.txt")
-        os.removedirs(__tmp)
+def crt_dir(new_dir : str):
+    os.chdir(__local)
+    os.mkdir(f"{__tmp}\\{new_dir}")
 
-del_tmp()
+
+def tmp_handler(**kwargs):
+
+    handler_input = kwargs.get()
+
+    if handler_input == 'make':
+        crt_dir('tmp')
+    elif handler_input() == 'clean':
+        if os.path.exists(__tmp):
+            os.chmod(__tmp, 0o777)
+            for filenames in os.walk(__tmp):
+                for i in range(len(filenames)):
+                    os.remove(f"{__tmp}\\{filenames[i]}")
+            os.removedirs(__tmp)
+    else:
+        raise Exception("Not a valid input")
+
+# del_tmp()
+
 
 def ln_clr():
     """
@@ -120,7 +137,7 @@ def getFntList():
 
     del_tmp()
 
-    os.mkdir(f"{__local}\\tmp")
+    crt_dir('tmp')
 
     with open(f'{__local}\\tmp\\fontList.txt', 'w') as t:
         with open(FILES, 'r') as f:
