@@ -2,16 +2,100 @@
 
 # IMPORTS
 
-from source.asciitoolset import *
+import importlib.resources
+
+import os
+from unittest import installHandler
+
+import colorama
+
+from pyfiglet import SHARED_DIRECTORY, FigletError
+
+from termcolor import termcolor as tcol
+
+import string
+
+import time
+
+# SHAPES
+
+shapes = {
+    1: "|-|_",
+    2: "####",
+    3: "/-/-",
+    4: "~~~~",
+    5: "====",
+    6: "=+=+",
+    7: "$%$%",
+    8: "/*/*",
+    9: "////",
+    10: ">>>>",
+    11: "--->"
+}
+
+# COLORS
+
+colors: dict[int, str] = {
+    1: "red",
+    2: "green",
+    3: "yellow",
+    4: "blue",
+    5: "magenta",
+    6: "cyan",
+}
 
 
-files = f"{os.getcwd()}\\source\\files.txt"
+
+# CONST
+
+__local = os.getcwd()
+
+#SHARED_DIRECTORY = os.path.join(os.environ["APPDATA"])
+
+path = importlib.resources.files('pyfiglet.fonts')
+
+FILES = f"{path}\\files.txt"
+
+__tmp = f"{__local}\\tmp"
+
+chars = string.printable
+
+
+# INIT
+
+os.system('color')
+
+colorama.init()
+
+
+def crt_dir(new_dir : str):
+    os.chdir(__local)
+    os.mkdir(f"{__tmp}\\{new_dir}")
+
+
+def tmp_handler(**kwargs):
+
+    handler_input = kwargs.get()
+
+    if handler_input == 'make':
+        crt_dir('tmp')
+    elif handler_input() == 'clean':
+        if os.path.exists(__tmp):
+            os.chmod(__tmp, 0o777)
+            for filenames in os.walk(__tmp):
+                for i in range(len(filenames)):
+                    os.remove(f"{__tmp}\\{filenames[i]}")
+            os.removedirs(__tmp)
+    else:
+        raise Exception("Not a valid input")
+
+# del_tmp()
 
 
 def ln_clr():
     """
     Clears current line
-    makes sys.stdout.flush() work without any ghosting
+    sys.stdout.flush() but without any ghosting
     :return:
     """
     print("\033[1G\033[2K", end="", flush=True)
@@ -38,7 +122,8 @@ def getFileSize():
     for truncate purposes
     :return: filesize -> float
     """
-    filesize = os.path.getsize(files)
+    filesize = os.path.getsize(FILES)
+    print(path)
 
     return filesize
 
@@ -50,8 +135,12 @@ def getFntList():
     """
     fntList = []
 
-    with open('source\\fontList.txt', 'w') as t:
-        with open(files, 'r') as f:
+    del_tmp()
+
+    crt_dir('tmp')
+
+    with open(f'{__local}\\tmp\\fontList.txt', 'w') as t:
+        with open(FILES, 'r') as f:
             for line in f:
                 font = line.strip('\n')
                 fntList.append(font)
@@ -62,3 +151,27 @@ def getFntList():
     t.close()
 
     return fntList
+
+
+def showPalette():
+    """
+    Displays module's color palette
+    :return: None
+    """
+    print("Palette :\n\n")
+    print("-'black'\n")
+    for y in range(1, len(colors)+1):
+        tcol.cprint(f"-(light_)'{colors[y]}'\n", colors[y])
+
+    print("-'white'\n")
+
+    return None
+
+def showShapes():
+    """
+    Prints out shape list to choose from
+    :return: None
+    """
+    for i in range(1, len(shapes)+1):
+        print(f"{i}.'{shapes[i]}'\n")
+    return None

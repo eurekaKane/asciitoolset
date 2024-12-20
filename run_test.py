@@ -17,21 +17,29 @@ def main():
     myBan = Banner('doom', "blue", "DooM")
     tcol.cprint(f'DEBUG : {os.getcwd()}', 'yellow')
     myBan.printBanner()
-    spc.spPrint(10)
+    spc.sp_print(10)
 
     try:
-        roll('red', 'DoxBin for Kislitsyn :)')
+        roll('red', 'Ct une VANNE !')
+
     except FigletError:
-        spc.setColor('green')
+
+        spc.set_color('green')
         tcol.cprint("Oops! Smth went wrong running testFonts() to see which font isn't working", "red")
-        spc.spPrint(10)
-        testFonts()
+        spc.sp_print(10)
+        test_fonts()
+
         if input('Do you want to fix the fonts ? (y/n) : ') == 'y':
-            fixFonts()
+            fix_fonts()
+
     finally:
+
         tcol.cprint('Everything is working !', 'green')
+
     clr()
-    testFonts()
+    test_fonts()
+
+    os.removedirs()
 
 
 if __name__ == '__main__':

@@ -4,293 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="squash! Update README.md">
-      <change afterPath="$PROJECT_DIR$/source/tests/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/utils/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/source/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/asciitoolset.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/asciitoolset.iml" afterDir="false" />
+    <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="&quot;exp²&quot;">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/1row.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/3-d.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/3d_diagonal.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/3x5.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/4max.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/5lineoblique.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/B1FF.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/DANC4.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/Georgia11.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ICL-1900.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/acrobatic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/alligator.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/alligator2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/alligator3.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/alpha.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/alphabet.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amc3line.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amc3liv1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcaaa01.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcneko.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcrazo2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcrazor.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcslash.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcslder.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcthin.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amctubes.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/amcun1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/arrows.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ascii_new_roman.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/avatar.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/banner.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/banner3-D.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/banner3.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/banner4.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/barbwire.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/basic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bear.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bell.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/benjamin.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/big.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bigchief.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bigfig.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/binary.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/block.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/blocks.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bolger.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/braced.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bright.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/broadway.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/broadway_kb.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bubble.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/bulbhead.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/calgphy2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/caligraphy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cards.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/categories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/categoriestree.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/catwalk.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/chiseled.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/chunky.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/coinstak.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cola.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/colossal.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/computer.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/contessa.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/contrast.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cosmic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cosmike.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/crawford.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/crazy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cricket.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cyberlarge.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cybermedium.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cybersmall.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/cygnet.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/dancingfont.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/decimal.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/defleppard.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/diamond.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/dietcola.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/digital.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/doh.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/doom.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/dosrebel.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/dotmatrix.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/double.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/doubleshorts.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/drpepper.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/dwhistled.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftichess.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftifont.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftipiti.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftirobot.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftitalic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftiwall.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/eftiwater.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/epic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fender.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/files.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/filter.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fire_font-k.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fire_font-s.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/flipped.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/flowerpower.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fourtops.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fraktur.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/funface.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/funfaces.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/fuzzy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/georgi16.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ghost.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ghoulish.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/glenyn.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/goofy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/gothic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/graceful.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/gradient.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/graffiti.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/greek.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/heart_left.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/heart_right.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/henry3d.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/hex.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/hieroglyphs.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/hollywood.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/horizontalleft.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/horizontalright.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/impossible.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/invita.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/isometric1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/isometric2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/isometric3.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/isometric4.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/italic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ivrit.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/jacky.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/jazmine.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/jerusalem.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/katakana.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/kban.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/keyboard.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/knob.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/konto.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/kontoslant.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/larry3d.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lcd.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lean.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/letters.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lildevil.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lineblocks.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/linux.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lockergnome.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/lower.flc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/madrid.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/marquee.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/maxfour.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/merlin1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/merlin2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/mike.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/mini.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/mirror.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/mnemonic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/modular.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/morse.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/morse2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/moscow.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/mshebrew210.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/muzzle.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nancyj-fancy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nancyj-improved.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nancyj-underlined.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nancyj.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nipples.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nscript.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ntgreek.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/null.flc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/nvscript.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/o8.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/octal.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ogre.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/oldbanner.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/os2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/pawp.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/peaks.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/peaksslant.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/pebbles.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/pepper.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/poison.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/puffy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/puzzle.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/pyramid.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rammstein.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/readme.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rectangles.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/red_phoenix.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/relief.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/relief2.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/reverse.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/roman.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rot13.flc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rot13.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rotated.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rounded.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rowancap.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/rozzo.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/runic.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/runyc.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/s-relief.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/santaclara.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/sblood.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/script.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/serifcap.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/shadow.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/shimrod.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/short.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/slant.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/slide.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/slscript.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/small.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smallcaps.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smisome1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smkeyboard.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smpoison.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smscript.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smshadow.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smslant.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/smtengwar.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/soft.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/speed.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/spliff.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stacey.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stampate.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stampatello.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/standard.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/starstrips.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/starwars.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stellar.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stforek.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/stop.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/straight.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/sub-zero.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/swampland.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/swan.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/sweet.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tanja.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tengwar.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/term.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/test1.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/thick.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/thin.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/threepoint.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ticks.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/ticksslant.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tiles.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tinker-toy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tombstone.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/train.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/trek.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tsalagi.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/tubular.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/twisted.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/twopoint.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/univers.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/upper.flc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/usaflag.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/varsity.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/wavy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/weird.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/wetletter.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/whimsy.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/fonts/wow.flf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_test.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_tutorial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/learchidebugdelamort.py" beforeDir="false" afterPath="$PROJECT_DIR$/learchidebugdelamort.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/test_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tests/test_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/tutorial.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tutorial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/tests/test_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tests/test_all.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
-    <list id="a90adb02-1493-4e3f-af68-0d7d700d4563" name="Changes by juste" comment="">
-      <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-    </list>
+    <list id="a90adb02-1493-4e3f-af68-0d7d700d4563" name="Changes by juste" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -306,7 +28,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="oop" />
+        <entry key="$PROJECT_DIR$" value="experimental" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -320,44 +42,11 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/eurekaKane/asciitoolset.git&quot;,
-    &quot;accountId&quot;: &quot;248c76a6-1cfd-4061-8654-be3448a14849&quot;
+    &quot;accountId&quot;: &quot;5270f5ee-6a2e-4f13-b37b-8c05ba1061ab&quot;
   }
 }</component>
-  <component name="LineStatusTrackerManager">
-    <file path="$PROJECT_DIR$/source/asciitoolset.py">
-      <ranges>
-        <range start1="1" end1="3" start2="1" end2="1" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="31" end1="31" start2="29" end2="31" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="66" end1="68" start2="66" end2="67" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="73" end1="120" start2="72" end2="72" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="123" end1="124" start2="75" end2="76" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="128" end1="130" start2="80" end2="83" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="131" end1="131" start2="84" end2="86" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="135" end1="136" start2="90" end2="91" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="138" end1="140" start2="93" end2="95" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="148" end1="149" start2="103" end2="104" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="158" end1="158" start2="113" end2="114" changelist="a90adb02-1493-4e3f-af68-0d7d700d4563" />
-        <range start1="178" end1="178" start2="134" end2="135" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="182" end1="184" start2="139" end2="141" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="189" end1="190" start2="146" end2="147" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="201" end1="201" start2="158" end2="159" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="209" end1="209" start2="167" end2="168" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="217" end1="217" start2="176" end2="177" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="230" end1="230" start2="190" end2="191" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="249" end1="250" start2="210" end2="211" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="289" end1="289" start2="250" end2="251" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="297" end1="298" start2="259" end2="260" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="305" end1="305" start2="267" end2="268" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="325" end1="325" start2="288" end2="289" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="338" end1="338" start2="302" end2="303" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="339" end1="339" start2="304" end2="305" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="345" end1="352" start2="311" end2="312" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-        <range start1="353" end1="355" start2="313" end2="313" changelist="8673f60c-1d6c-463a-8ad6-375906fadbc4" />
-      </ranges>
-    </file>
-  </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -368,41 +57,45 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;HTTP Request.All in generated-requests.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__main__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.asciitoolset.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.python asciitoolset.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.run_tutorial (1).executor&quot;: &quot;Coverage&quot;,
-    &quot;Python.run_tutorial.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scratch.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;Python.tutorial.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;experimental&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/mynam/PycharmProjects/asciitoolset/source&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Peanut/PycharmProjects/asciitoolset/old_main.py&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "HTTP Request.All in generated-requests.executor": "Run",
+    "Python.TEST.executor": "Run",
+    "Python.__init__.executor": "Run",
+    "Python.__main__.executor": "Run",
+    "Python.asciitoolset.executor": "Run",
+    "Python.learchidebugdelamort.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.python asciitoolset.py.executor": "Run",
+    "Python.run_test.executor": "Run",
+    "Python.run_tutorial (1).executor": "Coverage",
+    "Python.run_tutorial.executor": "Run",
+    "Python.scratch.executor": "Run",
+    "Python.test.executor": "Run",
+    "Python.tutorial.executor": "Run",
+    "Python.utils.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "Experimental²",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/mynam/PycharmProjects/asciitoolset",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "aDefault",
+    "settings.editor.selected.configurable": "preferences.editor",
+    "two.files.diff.last.used.file": "C:/Users/Peanut/PycharmProjects/asciitoolset/old_main.py",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;TEXT&quot;,
-      &quot;PLAIN_TEXT&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "TEXT",
+      "PLAIN_TEXT"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source" />
@@ -411,11 +104,11 @@
       <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\source" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\tests" />
+      <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\utils" />
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source" />
+      <recent name="C:\Users\mynam\PycharmProjects\asciitoolset" />
+      <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\tests" />
       <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\source" />
-      <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset" />
-      <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\extras" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -424,7 +117,7 @@
       <command value="python asciitoolset.py " />
     </option>
   </component>
-  <component name="RunManager" selected="Python.__init__">
+  <component name="RunManager" selected="Python.learchidebugdelamort">
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
@@ -463,6 +156,29 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet/__main__.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="learchidebugdelamort" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/learchidebugdelamort.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -540,8 +256,41 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.12 (asciitoolset)" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\mynam\PycharmProjects\asciitoolset" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Python.test" />
+      <item itemvalue="Python.learchidebugdelamort" />
+      <item itemvalue="Python.__init__" />
+      <item itemvalue="Python.__main__" />
+      <item itemvalue="Python.python asciitoolset.py" />
+      <item itemvalue="Python.run_tutorial" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.learchidebugdelamort" />
         <item itemvalue="Python.__init__" />
         <item itemvalue="Python.run_tutorial" />
         <item itemvalue="Python.python asciitoolset.py" />
@@ -609,7 +358,7 @@
       <workItem from="1733903675886" duration="2552000" />
       <workItem from="1734137036073" duration="6308000" />
       <workItem from="1734441185402" duration="8487000" />
-      <workItem from="1734515089117" duration="5474000" />
+      <workItem from="1734515089117" duration="38123000" />
     </task>
     <task id="LOCAL-00001" summary="Edited main.py">
       <option name="closed" value="true" />
@@ -691,7 +440,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723803873833</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Finally !">
+      <option name="closed" value="true" />
+      <created>1734522014726</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1734522014726</updated>
+    </task>
+    <task id="LOCAL-00012" summary="&quot;exp²&quot;">
+      <option name="closed" value="true" />
+      <created>1734608756874</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1734608756874</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -708,7 +473,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="HEAD" />
+                        <option value="Experimental²" />
                       </list>
                     </value>
                   </entry>
@@ -731,19 +496,23 @@
     <MESSAGE value="Experimental branch update" />
     <MESSAGE value="squash! Experimental branch update" />
     <MESSAGE value="squash! Update README.md" />
-    <option name="LAST_COMMIT_MESSAGE" value="squash! Update README.md" />
+    <MESSAGE value="Finally !" />
+    <MESSAGE value="&quot;exp²&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;exp²&quot;" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/asciitoolset$tutorial.coverage" NAME="tutorial Coverage Results" MODIFIED="1734443332077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
-    <SUITE FILE_PATH="coverage/asciitoolset$run_test.coverage" NAME="run_test Coverage Results" MODIFIED="1734444150457" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$python_asciitoolset_py.coverage" NAME="python asciitoolset.py Coverage Results" MODIFIED="1723843959323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
+    <SUITE FILE_PATH="coverage/asciitoolset$utils.coverage" NAME="utils Coverage Results" MODIFIED="1734606685908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/utils" />
     <SUITE FILE_PATH="coverage/asciitoolset$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1723732838811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
+    <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1734563072334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
+    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1734607854839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
+    <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial.coverage" NAME="run_tutorial Coverage Results" MODIFIED="1734542087034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$learchidebugdelamort.coverage" NAME="learchidebugdelamort Coverage Results" MODIFIED="1734608401338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$run_test.coverage" NAME="run_test Coverage Results" MODIFIED="1734541945152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$python_asciitoolset_py.coverage" NAME="python asciitoolset.py Coverage Results" MODIFIED="1723843959323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1722775935463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1722726632140" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
-    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1723732361076" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
-    <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial.coverage" NAME="run_tutorial Coverage Results" MODIFIED="1734476284495" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial__1_.coverage" NAME="run_tutorial (1) Coverage Results" MODIFIED="1723885758319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1721461228012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1734476278499" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
+    <SUITE FILE_PATH="coverage/asciitoolset$__init__.coverage" NAME="__init__ Coverage Results" MODIFIED="1734562895666" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
   </component>
 </project>
