@@ -105,7 +105,6 @@ class Spacer:
 
         return None
 
-
     def print(self, len_spc: int) -> None:
         """
         Displays the compiled spacer.
