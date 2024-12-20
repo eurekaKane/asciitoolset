@@ -1,5 +1,6 @@
 # -*- encoding: utf-8 -*-
 import os
+from types import NoneType
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -17,9 +18,11 @@ import random
 
 # import sys
 
+
 from pyfiglet import Figlet
 
-from source.utils import *
+from .colr import *
+from .utils import *
 
 # COPYRIGHT
 __copyright__ = """
@@ -37,7 +40,7 @@ def _validate_shape(value):
     return value
 
 def _validate_color(value):
-    if not isinstance(value, (list, str)):
+    if not isinstance(value, (list, str, NoneType)):
         raise ValueError("Color must be a list or a string")
     return value
 
@@ -55,7 +58,6 @@ def _validate_positive_int(value, param_name):
     if not isinstance(value, int) or value < 1:
         raise ValueError(f"{param_name} must be an integer bigger than 0")
     return value
-
 
 class Spacer:
     def __init__(self, **opt):
@@ -85,6 +87,9 @@ class Spacer:
                 self.COLOR = _validate_color(opt_params.get('color', 'white'))
                 self.CHARS_COLOR = _validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
 
+                self.BG_COLOR = _validate_color(opt_params.get('bg_color', None))
+                self.CHARS_BG_COLOR = _validate_positive_int(opt_params.get('chars_bg_color', 1), 'chars_bg_color')
+
         self.Params = SpacerParams(opt)
 
     def set(self, **opt) -> None:
@@ -105,7 +110,10 @@ class Spacer:
 
         return None
 
-    def print(self, len_spc: int) -> None:
+    def string(self, **opt) -> None:
+        pass
+
+    def print_spacer(self, len_spc: int) -> None:
         """
         Displays the compiled spacer.
 
@@ -115,7 +123,6 @@ class Spacer:
         """
         # TODO : Add y axis support (ez but too lazy)
         # TODO : Add option to skip \n before and/or after in output
-        # TODO : fix the bug in the if.
 
         spc_shape = ""
         spc_temp = self.Params.SHAPE
@@ -123,25 +130,18 @@ class Spacer:
         if self.Params.CUTOFF:
             for i_char in range(len_spc):
                 spc_shape += spc_temp[i_char % len(spc_temp)]
-
-            # Somewhere here is a bug that adds additional \n's at the start and end
-            # ... or i'm just stupid.
-            # Either way check line 13 in test.py
-            # P.S.: Somehow it you comment the \n's it just does not print. wtf moment.
         else:
             while len(spc_shape) < len_spc:
                 spc_shape += spc_temp
 
-
+        print()
         if isinstance(self.Params.COLOR, str):
-            tcol.cprint(f"\n{spc_shape}\n", self.Params.COLOR)
+            print(Colr.Ansi.ansi(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
         elif isinstance(self.Params.COLOR, list):
-            tcol.cprint(f"\n")
-            for i_char in range(len(spc_shape)):
-                tcol.cprint(f"{spc_shape[i_char]}", self.Params.COLOR[i_char%len(self.Params.COLOR)], end="")
-            tcol.cprint(f"\n")
+            print(Colr.Ansi.ansi_comb(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
         else:
-            raise ValueError(f"Color must be a list or a string")
+            raise ValueError(f"Color/BG color must be a list or a string")
+        print()
 
         return None
 
