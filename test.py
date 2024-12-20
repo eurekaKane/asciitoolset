@@ -4,19 +4,20 @@ from source.asciitoolset import *
 
 from source.tests.test_all import roll
 
-spc = Spacer(shape = "skibidi", color = ["green","red","yellow"])#, random = True)
+spc = Spacer(shape = "zebi zeub", color = ["green","red","yellow"])#, random = True)
 
 def main():
     spc.__spc_nfo__()
     print(os.getcwd())
     #print(getFntList())
-    spc.sp_print(17)
-    spc.set(shape = "zob")
-    spc.set(cutoff = True)
-    spc.sp_print(100)
-    print(spc.__repr__())
+    spc.print(17)
+    spc.set(cutoff = False, shape = "zeub zebi")
+    spc.print(100)
+
     spc.set(color="red")
-    spc.sp_print(3)
+    spc.print(3)
+
+    print(spc.__repr__())
     #roll('red', "test")
 
 if __name__ == "__main__":

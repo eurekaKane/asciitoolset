@@ -19,9 +19,7 @@ import random
 
 from pyfiglet import Figlet
 
-from source.utils.utils import *
-
-from source.utils.utils import __local
+from source.utils import *
 
 # COPYRIGHT
 __copyright__ = """
@@ -31,92 +29,109 @@ Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
 Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
 
+def _validate_shape(value):
+    if not isinstance(value, (int, str)):
+        raise ValueError("Shape must be an integer or a string")
+    if isinstance(value, int) and value < 1:
+        raise ValueError("Shape integer must be positive")
+    return value
+
+def _validate_color(value):
+    if not isinstance(value, (list, str)):
+        raise ValueError("Color must be a list or a string")
+    return value
+
+def _validate_string(value, param_name):
+    if not isinstance(value, str):
+        raise ValueError(f"{param_name} must be a string")
+    return value
+
+def _validate_bool(value, param_name):
+    if not isinstance(value, bool):
+        raise ValueError(f"{param_name} must be a boolean")
+    return value
+
+def _validate_positive_int(value, param_name):
+    if not isinstance(value, int) or value < 1:
+        raise ValueError(f"{param_name} must be an integer bigger than 0")
+    return value
+
 
 class Spacer:
-    # TODO : multicolor spacer
-
     def __init__(self, **opt):
         """
         A spacer is an object designed to give some space to
-        the console output, making it readable, and good-looking
-        :param sh: shape of spacer
-        :param **opt: spacer's options
+        the console output, making it readable, and good-looking.
+        :param **opt: Spacer's options
         """
 
         class SpacerParams:
             def __init__(self, opt_params):
-                self.SH = opt_params.get('shape', 2)
+                self.RANDOM = _validate_bool(opt_params.get('random', False), 'random') # Un-fucking-controllable
+                self.RANDOM_RANGE = _validate_positive_int(opt_params.get('random_range', 4), 'random_range')
 
-                self.CUTOFF = opt_params.get('cutoff', True)
+                self.SHAPE = _validate_shape(opt_params.get('shape', 2)) # By default, uses preset 2
 
-                self.COLOR = opt_params.get('color', 'white')
-                self.CHARS_PER_COLOR = opt_params.get('chars_per_color', 1)
+                _result = self.SHAPE
+                if isinstance(self.SHAPE, int):
+                    _result = shapes[self.SHAPE]
+                elif self.RANDOM:
+                    _result = ''.join(random.choices(chars, k=self.RANDOM_RANGE))
 
-                self.RANDOM = opt_params.get('random', False)
-                self.RANDOM_RANGE = opt_params.get('random_range', 4)
+                self.SHAPE = _result
+
+                self.CUTOFF = _validate_bool(opt_params.get('cutoff', True), 'cutoff')
+
+                self.COLOR = _validate_color(opt_params.get('color', 'white'))
+                self.CHARS_COLOR = _validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
 
         self.Params = SpacerParams(opt)
 
-        # Shape handler
-        if isinstance(self.Params.SH, int):
-            _result = shapes[self.Params.SH]
+    def set(self, **opt) -> None:
+        for param, value in opt.items():
+            if hasattr(self.Params, param.upper()):
+                setattr(self.Params, param.upper(), value)
+            else:
+                raise ValueError(f'Spacer.set() has no attribute "{param.upper()}"')
+
+        _result = self.Params.SHAPE
+        if isinstance(self.Params.SHAPE, int):
+            _result = shapes[self.Params.SHAPE]
         elif self.Params.RANDOM:
-            _result = ''.join(random.choice(chars) for _ in range(self.Params.RANDOM_RANGE))
-        else:
-            _result = self.Params.SH
+            _result = ''.join(random.choices(chars, k=self.Params.RANDOM_RANGE))
 
-        self.shape = _result
 
-    def set(self, **opt):
-        self.Params.CUTOFF = opt.get('cutoff', self.Params.CUTOFF)
+        self.Params.SHAPE = _result
 
-        self.Params.COLOR = opt.get('color', self.Params.COLOR)
-        self.Params.CHARS_PER_COLOR = opt.get('chars_per_color', self.Params.CHARS_PER_COLOR)
+        return None
 
-        self.Params.RANDOM = opt.get('random', self.Params.RANDOM)
-        self.Params.RANDOM_RANGE = opt.get('random_range', self.Params.RANDOM_RANGE)
 
-        sh_tmp = opt.get('shape', self.shape)
-        if self.Params.RANDOM:
-            _result = ''.join(random.choice(chars) for _ in range(self.Params.RANDOM_RANGE))
-        else:
-            _result = sh_tmp
-
-        self.shape = _result
-
-    def get_shape(self):
-        """
-        Getter for Spacer shape
-        :return: spacer's shape
-        """
-        return self.shape
-
-    def get_color(self):
-        """
-        Getter for Spacer color
-        :return: spacer's color
-        """
-        return self.Params.COLOR
-
-    def sp_print(self, len_spc):
+    def print(self, len_spc: int) -> None:
         """
         Displays the compiled spacer.
-        Fuck this shit for real man, I spent 1h trying to fix it and in the end I got where i started.
 
         :param len_spc: spacer length in chars
 
         :return: None
         """
+        # TODO : Add y axis support (ez but too lazy)
+        # TODO : Add option to skip \n before and/or after in output
+        # TODO : fix the bug in the if.
 
         spc_shape = ""
-        spc_temp = self.shape
+        spc_temp = self.Params.SHAPE
 
         if self.Params.CUTOFF:
-            for i in range(len_spc):
-                spc_shape += spc_temp[i % len(spc_temp)]
+            for i_char in range(len_spc):
+                spc_shape += spc_temp[i_char % len(spc_temp)]
+
+            # Somewhere here is a bug that adds additional \n's at the start and end
+            # ... or i'm just stupid.
+            # Either way check line 13 in test.py
+            # P.S.: Somehow it you comment the \n's it just does not print. wtf moment.
         else:
-            for spc_char in spc_temp:
-                spc_shape += spc_char
+            while len(spc_shape) < len_spc:
+                spc_shape += spc_temp
 
 
         if isinstance(self.Params.COLOR, str):
@@ -126,6 +141,8 @@ class Spacer:
             for i_char in range(len(spc_shape)):
                 tcol.cprint(f"{spc_shape[i_char]}", self.Params.COLOR[i_char%len(self.Params.COLOR)], end="")
             tcol.cprint(f"\n")
+        else:
+            raise ValueError(f"Color must be a list or a string")
 
         return None
 
@@ -136,12 +153,20 @@ class Spacer:
 
         Debug func only
         """
+        params = {
+            'Shape': self.Params.SHAPE,
+            'Cutoff': self.Params.CUTOFF,
+            'Color': self.Params.COLOR,
+            'CharsColor': self.Params.CHARS_COLOR,
+            'Random': self.Params.RANDOM,
+            'Random Range': self.Params.RANDOM_RANGE,
+        }
 
-        tcol.cprint(f"""
-                
-               {self}'s shape is {self.shape}
-               {self}'s color is {self.Params.COLOR}
-               """, 'yellow')
+        info = f"{self}\n"
+        for key, value in params.items():
+            info += f"{key:20}: {value}\n"
+
+        tcol.cprint(info, 'yellow')
 
         return None
 
@@ -160,15 +185,6 @@ class Banner:
         self.text = txt
         self.width = opt.get('width', None)
         self.banner = self.font.renderText(self.text)
-
-
-    def __repr__(self):
-        """
-        __repr__ method for Banner
-        :return: a string representation of Banner object
-        """
-        return f"Object[ Banner ] ; Font[ {self.fontName} ] ; Color[ {self.color} ] ; Text[ '{self.text}' ]"
-
 
     def getFont(self):
         """
