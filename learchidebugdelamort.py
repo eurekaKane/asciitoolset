@@ -7,7 +7,7 @@ def main():
     tcol.cprint(getFntList(), 'green')
     test_fonts()
     roll('red', 'Ma bite')
-
+    test_fonts()
 
 if __name__ == '__main__':
     main()
