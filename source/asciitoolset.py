@@ -115,9 +115,8 @@ class Spacer:
             for i in range(len_spc):
                 spc_shape += spc_temp[i % len(spc_temp)]
         else:
-            for i in range(len_spc):
-                for spc_char in spc_temp:
-                    spc_shape += spc_char
+            for spc_char in spc_temp:
+                spc_shape += spc_char
 
 
         if isinstance(self.Params.COLOR, str):
