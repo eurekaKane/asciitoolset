@@ -1,6 +1,5 @@
 # -*- encoding: utf-8 -*-
-import os
-from types import NoneType
+
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -12,17 +11,19 @@ I decided to change paradigm simply because I was working with what could be int
 far more optimized coding in OOP :)
 """
 
+
 # IMPORTS
 
 import random
 
-# import sys
+import os
 
+from types import NoneType
 
 from pyfiglet import Figlet
 
-from .colr import *
 from .utils import *
+
 
 # COPYRIGHT
 __copyright__ = """
@@ -31,6 +32,7 @@ Copyright © 2023 - 2024
 Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
 Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
+
 
 def _validate_shape(value):
     if not isinstance(value, (int, str)):
@@ -136,9 +138,9 @@ class Spacer:
 
         print()
         if isinstance(self.Params.COLOR, str):
-            print(Colr.Ansi.ansi(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
+            print(ansi.ansi(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
         elif isinstance(self.Params.COLOR, list):
-            print(Colr.Ansi.ansi_comb(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
+            print(ansi.ansi_comb(spc_shape, self.Params.COLOR, self.Params.BG_COLOR))
         else:
             raise ValueError(f"Color/BG color must be a list or a string")
         print()
@@ -165,7 +167,7 @@ class Spacer:
         for key, value in params.items():
             info += f"{key:20}: {value}\n"
 
-        tcol.cprint(info, 'yellow')
+        print(ansi.ansi_comb(info, 'yellow'))
 
         return None
 
@@ -194,8 +196,8 @@ class Banner:
 
     def getColor(self):
         """
-        Getter for Banner color
-        :return: Banner color
+        Getter for banner's color parameter
+        :return: color parameter
         """
         return self.color
 
@@ -258,18 +260,18 @@ class Banner:
         :return: None
         """
 
-        tcol.cprint(self.banner, self.color)
+        ansi.ansi_print(self.banner, self.color)
 
         return None
 
 
-    def saveBanner(self, userdir: str, name: str):
+    def save_banner(self, name: str):
         """
         Saves the rendered banner to a (.txt) file
         :param name: user specified name for the banner
         :return: None
         """
-        os.chdir()
+        crt_dir('Banners')
         expBan = open(f"{name}.txt", "w")
         expBan.write(self.banner)
         expBan.close()
@@ -283,11 +285,10 @@ class Banner:
 
         Debug func only
         """
-        os.mkdir(f'{__local}\\')
-        tcol.cprint(f"""
+        ansi.ansi_print(f"""
 
-               {self.__repr__()}'s shape is {self.getTxt()}
-               {self.__repr__()}'s color is {self.getColor()}
+               {self}'s shape is {self.getTxt()}
+               {self}'s color is {self.getColor()}
                """, 'yellow')
 
         return None

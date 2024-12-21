@@ -5,13 +5,12 @@
 import importlib.resources
 
 import os
-from unittest import installHandler
 
-import colorama
+#from unittest import installHandler
 
-from pyfiglet import SHARED_DIRECTORY, FigletError
+from pyfiglet import FigletError, FontNotFound
 
-from termcolor import termcolor as tcol
+from source.colr import *
 
 import string
 
@@ -52,9 +51,9 @@ __local = os.getcwd()
 
 #SHARED_DIRECTORY = os.path.join(os.environ["APPDATA"])
 
-path = importlib.resources.files('pyfiglet.fonts')
+path_to_fnts = importlib.resources.files('pyfiglet.fonts')
 
-FILES = f"{path}\\files.txt"
+FILES = f"{path_to_fnts}\\files.txt"
 
 __tmp = f"{__local}\\tmp"
 
@@ -65,29 +64,39 @@ chars = string.printable
 
 os.system('color')
 
-colorama.init()
-
 
 def crt_dir(new_dir : str):
     os.chdir(__local)
-    os.mkdir(f"{__tmp}\\{new_dir}")
+    os.mkdir(f"{new_dir}")
 
 
-def tmp_handler(**kwargs):
-
-    handler_input = kwargs.get()
+def tmp_handler(handler_input : str):
 
     if handler_input == 'make':
-        crt_dir('tmp')
-    elif handler_input() == 'clean':
-        if os.path.exists(__tmp):
+
+        try:
+            crt_dir('tmp')
+
+        except FileExistsError:
+            pass
+
+    elif handler_input == 'clean':
+
+        try:
+            files = os.listdir(__tmp)
             os.chmod(__tmp, 0o777)
-            for filenames in os.walk(__tmp):
-                for i in range(len(filenames)):
-                    os.remove(f"{__tmp}\\{filenames[i]}")
+
+            for i in range(len(files)):
+                os.chmod(f'{__tmp}\\{files[i]}', 0o777)
+                os.remove(f"{__tmp}\\{files[i]}")
+
             os.removedirs(__tmp)
-    else:
-        raise Exception("Not a valid input")
+
+        except FileNotFoundError:
+            pass
+
+        else:
+            raise Exception("Not a valid input")
 
 # del_tmp()
 
@@ -116,62 +125,65 @@ def clr():
     return None
 
 
-def getFileSize():
+def get_file_size(file):
     """
     Gets the size of files.txt
     for truncate purposes
     :return: filesize -> float
     """
-    filesize = os.path.getsize(FILES)
-    print(path)
+    filesize = os.path.getsize(file)
 
     return filesize
 
 
-def getFntList():
+def get_fnt_list():
     """
     Gets all Figlet fonts present in files.txt
     :return: fntList -> list
     """
-    fntList = []
+    fnt_list = []
 
-    del_tmp()
-
-    crt_dir('tmp')
+    time.sleep(5)
+    tmp_handler('make')
 
     with open(f'{__local}\\tmp\\fontList.txt', 'w') as t:
         with open(FILES, 'r') as f:
+
             for line in f:
                 font = line.strip('\n')
-                fntList.append(font)
+                fnt_list.append(font)
                 t.write(font + '\n')
 
         f.close()
 
     t.close()
 
-    return fntList
+    return fnt_list
 
 
-def showPalette():
+def show_palette():
     """
     Displays module's color palette
     :return: None
     """
     print("Palette :\n\n")
     print("-'black'\n")
+
     for y in range(1, len(colors)+1):
-        tcol.cprint(f"-(light_)'{colors[y]}'\n", colors[y])
+        ansi.ansi_print(f"-(light_)'{colors[y]}'\n", colors[y])
+
 
     print("-'white'\n")
 
     return None
 
-def showShapes():
+def show_shapes():
     """
     Prints out shape list to choose from
     :return: None
     """
+
     for i in range(1, len(shapes)+1):
         print(f"{i}.'{shapes[i]}'\n")
+
     return None

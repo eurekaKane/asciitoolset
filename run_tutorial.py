@@ -22,18 +22,18 @@ def main():
         # HEAD / INTRO
         clr()
         testBan.printBanner()
-        testSsmall.sp_print(13)
-        tcol.cprint(__copyright__, 'yellow')
-        tcol.cprint(long_des, 'light_magenta')
-        testSsmall.sp_print(13)
-        testSpc.sp_print(40)
-        tcol.cprint("Bienvenue sur ce petit tutoriel visant a montrer les principales fonctionnalités du module "
+        testSsmall.print_spacer(13)
+        ansi.ansi_print(__copyright__, 'yellow')
+        ansi.ansi_print(long_des, (119,0,143))
+        testSsmall.print_spacer(13)
+        testSpc.print_spacer(40)
+        ansi.ansi_print("Bienvenue sur ce petit tutoriel visant a montrer les principales fonctionnalités du module "
                     "asciitoolset", "green")
-        testSpc.sp_print(40)
+        testSpc.print_spacer(40)
         banTest()
-        testSpc.sp_print(40)
+        testSpc.print_spacer(40)
         spcTest()
-        testSpc.sp_print(40)
+        testSpc.print_spacer(40)
         redo()
 
 
