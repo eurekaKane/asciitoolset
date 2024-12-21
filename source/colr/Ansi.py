@@ -8,8 +8,16 @@ class Ansi:
 
         self.RESET = "\x1b[0m"
 
+        self.GRAD = False
+
+        self.COLOR1 = ""
+        self.COLOR2 = ""
+
+
         class Preset:
             pass
+
+
 
     def rgb_to_ansi(self, rgb_color, background=False):
         r, g, b = rgb_color
@@ -42,6 +50,19 @@ class Ansi:
         else:
             raise ValueError(f"{string} is not a valid color.")
 
+    def process_color(self, color_value, is_background):
+        if isinstance(color_value, str):
+            if color_value.startswith('#'):
+                return self.hex_to_ansi(color_value, is_background)
+            else:
+                return self.string_to_ansi(color_value, is_background)
+        elif isinstance(color_value, tuple):
+            return self.rgb_to_ansi(color_value, is_background)
+        elif color_value is None:
+            return ''
+        else:
+            raise ValueError(f"{color_value} is not a valid color.")
+
     def ansi(self, char, color: None|str|int = None, background: None|str|int = None):
         """
         Function to detect either color is hex, rgb or string to use the right converter to ANSI.
@@ -55,25 +76,12 @@ class Ansi:
         :return: colored 'char'
         """
 
-        def process_color(color_value, is_background):
-            if isinstance(color_value, str):
-                if color_value.startswith('#'):
-                    return self.hex_to_ansi(color_value, is_background)
-                else:
-                    return self.string_to_ansi(color_value, is_background)
-            elif isinstance(color_value, tuple):
-                return self.rgb_to_ansi(color_value, is_background)
-            elif color_value is None:
-                return ''
-            else:
-                raise ValueError(f"{color_value} is not a valid color.")
-
-        ansi_color = process_color(color, False)
-        ansi_bg = process_color(background, True)
+        ansi_color = self.process_color(color, False)
+        ansi_bg = self.process_color(background, True)
 
         return f"{ansi_color}{ansi_bg}{char}{self.RESET}"
 
-    def ansi_comb(self, strs: list[str], colors: list[str|tuple], bg_colors: list[str|tuple]|None = None) -> str:
+    def ansi_comb(self, strs: list[str], colors: list[str | tuple], bg_colors: list[str | tuple] | None = None) -> str:
         """
         Combine multiple strings with different colors and background colors.
 
@@ -87,12 +95,26 @@ class Ansi:
             bg_colors = [None]
 
         length = max(len(strs), len(colors), len(bg_colors))
+        if self.GRAD:
+                if len(colors) < 2:
+                    raise ValueError("At least two colors are required for gradient")
 
-        for i in range(length):
-            text = strs[i % len(strs)]
-            color = colors[i % len(colors)]
-            bg_color = bg_colors[i % len(bg_colors)]
+                raise "IN DEVELOPMENT"
+        else:
+            for i in range(length):
+                text = strs[i % len(strs)]
 
-            result += self.ansi(text, color, bg_color)
+                if isinstance(colors, list):
+                    color = colors[i % len(colors)]
+                else:
+                    color = colors
+
+                if isinstance(bg_colors, list):
+                    bg_color = bg_colors[i % len(bg_colors)]
+                else:
+                    bg_color = bg_colors
+
+                result += self.ansi(text, color, bg_color)
+
 
         return result

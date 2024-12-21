@@ -15,7 +15,9 @@ def main():
     spc.print_spacer(100)
     spc.set(color="red")
     spc.print_spacer(3)
-    print(Colr.Ansi.ansi_comb("WHOLE LOTTA RED", ["red", "white"], ["white", "red"]))
+    print(Colr.Ansi.ansi_comb("BRGYBMCW",
+                              ['black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'],
+                              ['white', 'cyan', 'magenta', 'blue', 'yellow', 'green', 'red', 'black']))
     print(spc.__repr__())
     #roll('red', "test")
 
