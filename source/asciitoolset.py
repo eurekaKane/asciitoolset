@@ -1,6 +1,16 @@
 # -*- encoding: utf-8 -*-
 
 
+# COPYRIGHT
+__copyright__ = """
+The MIT License (MIT)
+Copyright © 2023 - 2024
+Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
+Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
+"""
+
+import sys
+
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
 Allowing you to generate save and edit spacers, banners (and many others)
@@ -18,27 +28,12 @@ import random
 
 import os
 
+import cv2
+
 from PIL import Image as PILImage
 
 import numpy as np
-def process_image(self):
-    """
-    Process the image to detect characters.
-    :return: processed image as text
-    """
-    ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
-    img = self.image
-    img_height, img_width = img.shape
-    text_image = ""
 
-    for y in range(img_height):
-        for x in range(img_width):
-            pixel_value = img[y, x]
-            ascii_char = ascii_chars[pixel_value // 32]  # Map pixel to ASCII char
-            text_image += ascii_char
-        text_image += "\n"
-
-    return text_image
 from types import NoneType
 
 from pyfiglet import Figlet
@@ -46,13 +41,35 @@ from pyfiglet import Figlet
 from .utils import *
 
 
-# COPYRIGHT
-__copyright__ = """
-The MIT License (MIT)
-Copyright © 2023 - 2024
-Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
-Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
-"""
+# EUH ? Denis pourquoi t'as écrit ça 2 fois ?
+
+#def process_image(self):
+#    """
+#    Process the image to detect characters.
+#    :return: processed image as text
+#    """
+#    ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
+#    img = self.image
+#    img_height, img_width = img.shape
+#    text_image = ""
+#
+#    for y in range(img_height):
+#        for x in range(img_width):
+#            pixel_value = img[y, x]
+#            ascii_char = ascii_chars[pixel_value // 32]  # Map pixel to ASCII char
+#            text_image += ascii_char
+#        text_image += "\n"
+#
+#    return text_image
+
+
+def grayscale(rgb):
+    rgb = rgb
+    r = int(rgb[0])
+    g = int(rgb[1])
+    b = int(rgb[2])
+    brightness = (r + g + b) / 3
+    return brightness
 
 
 def _validate_shape(value):
@@ -286,6 +303,7 @@ class Image: # Images become illegible starting from 15-20.
         Process the image to detect characters and apply ANSI colors.
         :return: processed image as text
         """
+
         ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
         img = self.image
         img_height, img_width, _ = img.shape
@@ -323,3 +341,64 @@ class Image: # Images become illegible starting from 15-20.
         return None
 
 # OTHER FEATURES
+
+# don't mind me, temporary function to test the video class without touching Image class
+
+def process_image(image):
+    """
+    Process the image to detect characters and apply ANSI colors.
+    :return: processed image as text
+    """
+    img = image
+    ascii_chars = "@%#*+=-:. "
+    brightness = np.mean(img, axis=2)  # Grayscale
+    num_chars = len(ascii_chars)
+    ascii_indices = (brightness / 256 * (num_chars - 1)).astype(int)
+    ascii_image = np.vectorize(lambda x: ascii_chars[x])(ascii_indices)
+    ascii_lines = [''.join(row) for row in ascii_image]
+    return '\n'.join(ascii_lines)
+
+
+class Video:
+    def __init__(self, path, fps=None):
+        """
+        A video is an object designed to display a video in the console.
+        :param path: video path
+        """
+        self.path = path
+        self.cap = None
+        self.fps = fps
+
+    def load_video(self):
+        # open the video file
+        self.cap = cv2.VideoCapture(self.path)
+        if not self.cap.isOpened():
+            raise ValueError(f"Can't open video at : {self.path}")
+        if not self.fps:
+            self.fps = self.cap.get(cv2.CAP_PROP_FPS)
+        return self.cap
+
+
+    def get_video_frame(self):
+        # getting those FRAMESSS
+        ret, frame = self.cap.read()
+        if not ret:
+            return None  # END
+        return frame
+
+    def process_frame(self, frame):
+        # processing the frame
+        ascii_frame = process_image(frame)
+        return ascii_frame
+
+    def play(self):
+        self.cap = self.load_video()
+
+        while True:
+            frame = self.get_video_frame()
+
+            processed_frame = self.process_frame(frame)
+            print(processed_frame)
+            print(f'\033[3Jm')
+            time.sleep(1/self.fps)
+

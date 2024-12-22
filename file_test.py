@@ -7,4 +7,3 @@ for x in range(10, 101, 10):
 
     img1.print_image()
     img2.print_image()
-
