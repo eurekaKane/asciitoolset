@@ -6,12 +6,20 @@ from os import system
 class Ansi:
 
     def __init__(self):
+        """
+        Ansi is a class that provides methods for coloring and styling text in the terminal.
+        Styles are not supported on most command lines.
+        """
         if os_name == "nt":
             system("color")
 
         self.RESET = "\x1b[0m"
+        self.DEFAULT = "\x1b[39m"
 
         self.color_map = {
+            # Reset
+            'default': ('39', '49'),
+
             # Standard colors
             'black': ('30', '40'),
             'red': ('31', '41'),
@@ -31,35 +39,31 @@ class Ansi:
             'bright_magenta': ('95', '105'),
             'bright_cyan': ('96', '106'),
             'bright_white': ('97', '107'),
-
-            # Reset
-            'reset': ('0', ''),
-            'default': ('39', '49') # Unsupported on most CMDs
         }
 
-        self.styles_map = {
-            'bold': ('1', ''),
-            'italic': ('3', ''),
-            'underline': ('4', ''),
-            'reverse': ('7', ''),
-            'strikethrough': ('9', '')
+        self.styles_map = {# All styles except 'reverse' won't work on Windows CMD.
+            'reset': '0',
+            'bold': '1',
+            'italic': '3',
+            'underline': '4',
+            'reverse': '7',
+            'strikethrough': '9'
         }
 
         class Preset:
-            def __init__(self, color=None, background=None, grad=None, *styles):
+            def __init__(self, color=None, background=None, styles: list = None):
                 """
                 Presets builder for Ansi class
                 """
                 self.color = color
                 self.background = background
-                self.grad = grad
                 self.styles = styles
 
             def apply(self, text):
                 """
                 Apply preset styles to text.
                 """
-                print(Ansi().ansi(text, self.color, self.background, self.styles))
+                return Ansi().ansi(text, self.color, self.background, self.styles)
 
         # Attach Preset class to Ansi class
         self.Preset = Preset
@@ -70,8 +74,6 @@ class Ansi:
 
         if background :
             return f"\x1b[48;2;{r};{g};{b}m"
-        elif rgb_color == (0, 0, 0):
-            return None
         else:
             return f"\x1b[38;2;{r};{g};{b}m"
 
@@ -119,13 +121,13 @@ class Ansi:
         style_codes = []
         for style in styles:
             if style in self.styles_map:
-                style_code = self.styles_map[style][0]
+                style_code = self.styles_map[style]
                 if style_code:
                     style_codes.append(style_code)
 
         return '\033[' + ';'.join(style_codes) + 'm' if style_codes else ''
 
-    def ansi(self, char, color: None|str|int = None, background: None|str|int = None, styles: list|None = None):
+    def ansi(self, char, color: str|int = 'default', background: str|int = 'default', styles: list|None = None):
         """
         Function to detect either color is hex, rgb or string to use the right converter to ANSI.
         After using converter returns colored string.
@@ -145,11 +147,10 @@ class Ansi:
             raise ValueError('Should at least have one color')
 
         ansi_color = self.process_ansi(color, False)
-        ansi_bg = self.process_ansi(background, True) if background is not None else ''
-        ansi_styles = self.process_styles(styles) if styles is not None else ''
+        ansi_bg = self.process_ansi(background, True)
+        ansi_styles = self.process_styles(styles) if styles else ''
 
-        return f"{ansi_color}{ansi_bg}{ansi_styles}{char}{self.RESET}"
-
+        return f"{ansi_bg}{ansi_color}{ansi_styles}{char}{self.RESET}"
 
     def gradient(self, step, color1, color2, *colors):
         all_colors = [color1, color2] + list(colors)
@@ -167,17 +168,13 @@ class Ansi:
             for j in range(step):
                 t = j / (step -1)
 
-                r = int(start_color[0] * (1-t) + end_color[0] * t)
-                g = int(start_color[1] * (1-t) + end_color[1] * t)
-                b = int(start_color[2] * (1-t) + end_color[2] * t)
-
-                result.append((r,g,b))
+                result.append((int(start_color[0] * (1-t) + end_color[0] * t),int(start_color[1] * (1-t) + end_color[1] * t),int(start_color[2] * (1-t) + end_color[2] * t)))
 
         return result
 
 
 
-    def ansi_comb(self, strs: list[str], colors: list[str], bg_colors: list[str] | None = None, *styles) -> str:
+    def ansi_comb(self, strs: list[str], colors: list[str] | str= "default", bg_colors: list[str] | str = "default", *styles) -> str:
         """
         Combine multiple strings with different colors and background colors.
 
@@ -193,9 +190,9 @@ class Ansi:
         # String type support (optional):
         if bg_colors is None:
             bg_colors = [None]
-        if isinstance(bg_colors, str) or isinstance(bg_colors, tuple):
+        if not isinstance(bg_colors, list):
             bg_colors = [bg_colors]
-        if isinstance(colors, str)or isinstance(colors, tuple):
+        if not isinstance(colors, list):
             colors = [colors]
 
         length = max(len(strs), len(colors), len(bg_colors))

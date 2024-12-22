@@ -18,6 +18,27 @@ import random
 
 import os
 
+from PIL import Image as PILImage
+
+import numpy as np
+def process_image(self):
+    """
+    Process the image to detect characters.
+    :return: processed image as text
+    """
+    ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
+    img = self.image
+    img_height, img_width = img.shape
+    text_image = ""
+
+    for y in range(img_height):
+        for x in range(img_width):
+            pixel_value = img[y, x]
+            ascii_char = ascii_chars[pixel_value // 32]  # Map pixel to ASCII char
+            text_image += ascii_char
+        text_image += "\n"
+
+    return text_image
 from types import NoneType
 
 from pyfiglet import Figlet
@@ -175,123 +196,130 @@ class Spacer:
 class Banner:
     def __init__(self, fnt, col, txt, **opt):
         """
-        A banner is an object designed to display your program logo or name
+        A banner is an object designed to display your program logo or name.
+
         :param fnt: Figlet font
         :param col: banner color
         :param txt: banner text
+        :param **opt: Banner options
         """
-        self.font = Figlet(font=fnt)
-        self.fontName = fnt
-        self.color = col
-        self.text = txt
-        self.width = opt.get('width', None)
-        self.banner = self.font.renderText(self.text)
+        class BannerParams:
+            def __init__(self, opt_params):
+                self.FONT = _validate_string(fnt, 'font')
+                self.COLOR = _validate_color(col)
+                self.TEXT = _validate_string(txt, 'text')
+                self.WIDTH = opt_params.get('width', None)
 
-    def getFont(self):
-        """
-        Getter for Banner font
-        :return: Figlet font object
-        """
-        return self.font
+        self.Params = BannerParams(opt)
+        self.font = Figlet(font=self.Params.FONT)
+        self.banner = self.font.renderText(self.Params.TEXT)
 
-    def getColor(self):
-        """
-        Getter for banner's color parameter
-        :return: color parameter
-        """
-        return self.color
+    def set(self, **opt) -> None:
+        for param, value in opt.items():
+            if hasattr(self.Params, param.upper()):
+                setattr(self.Params, param.upper(), value)
+            else:
+                raise ValueError(f'Banner.set() has no attribute "{param.upper()}"')
 
-    def getTxt(self):
-        """
-        Getter for Banner text
-        :return: Banner text
-        """
-        return self.text
-
-
-    def get_width(self):
-        """
-        Getter for Banner width
-        :return: Banner width
-        """
-
-        return self.width
-
-    def setFont(self, fnt):
-        """
-        Setter for Banner font
-        :return: None
-        """
-
-        self.font = fnt
+        self.font = Figlet(font=self.Params.FONT)
+        self.banner = self.font.renderText(self.Params.TEXT)
 
         return None
 
-    def setColor(self, col):
+    def print_banner(self) -> None:
         """
-        Setter for Banner color
+        Displays the compiled banner.
         :return: None
         """
-        self.color = col
-
-        return None
-    def setTxt(self, txt):
-        """
-        Setter for Banner text
-        :return: None
-        """
-        self.text = txt
-
+        ansi.ansi_print(self.banner, self.Params.COLOR)
         return None
 
-
-    def set_width(self, width):
+    def save_banner(self, name: str) -> None:
         """
-        Setter for Banner width
-        :param width:
-        :return:
-        """
-        self.width = width
-
-
-    def printBanner(self):
-        """
-        Displays the compiled banner
-        :return: None
-        """
-
-        ansi.ansi_print(self.banner, self.color)
-
-        return None
-
-
-    def save_banner(self, name: str):
-        """
-        Saves the rendered banner to a (.txt) file
+        Saves the rendered banner to a (.txt) file.
         :param name: user specified name for the banner
         :return: None
         """
         crt_dir('Banners')
-        expBan = open(f"{name}.txt", "w")
-        expBan.write(self.banner)
-        expBan.close()
+        with open(f"Banners/{name}.txt", "w") as expBan:
+            expBan.write(self.banner)
         return None
 
-
-    def __banfo(self):
+    def __banfo(self) -> None:
         """
-        Getter for Banner info (shape and color)
+        Getter for Banner info (shape and color).
         :return: None
 
         Debug func only
         """
         ansi.ansi_print(f"""
-
-               {self}'s shape is {self.getTxt()}
-               {self}'s color is {self.getColor()}
+               {self}'s shape is {self.Params.TEXT}
+               {self}'s color is {self.Params.COLOR}
                """, 'yellow')
-
         return None
 
+
+class Image: # Images become illegible starting from 15-20.
+    def __init__(self, path, size):
+        """
+        An image is an object designed to display an image in the console.
+        :param path: image path
+        :param size: image size (x*y)
+        """
+        self.path = path
+        self.size = size
+        self.image = self.load_image(path, size)
+
+    def load_image(self, path, size):
+        """
+        Load and resize the image.
+        :param path: image path
+        :param size: image size (x, y)
+        :return: numpy array of the image
+        """
+        img = PILImage.open(path).convert('RGB')  # Convert to grayscale
+        img = img.resize(size, PILImage.LANCZOS)
+        return np.array(img)
+
+    def process_image(self):
+        """
+        Process the image to detect characters and apply ANSI colors.
+        :return: processed image as text
+        """
+        ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
+        img = self.image
+        img_height, img_width, _ = img.shape
+        text_image = ""
+
+        for y in range(img_height):
+            for x in range(img_width):
+                pixel_value = img[y, x]
+                ascii_char = ascii_chars[int(np.mean(pixel_value)) // 32]  # Map pixel to ASCII char
+                color = tuple(pixel_value)  # Use RGB value for color
+                text_image += ansi.ansi(ascii_char, color, color)  # Set both foreground and background color
+            text_image += "\n"
+
+        return text_image
+
+    def print_image(self):
+        """
+        Displays the processed image as text.
+        :return: None
+        """
+        text_image = self.process_image()
+        print(text_image)
+
+    def set(self, **opt):
+        """
+        Setter for Image object
+        :param **opt: Image options
+        :return: None
+        """
+        for param, value in opt.items():
+            if hasattr(self, param):
+                setattr(self, param, value)
+            else:
+                raise ValueError(f'Image.set() has no attribute "{param}"')
+        return None
 
 # OTHER FEATURES
