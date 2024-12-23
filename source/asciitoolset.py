@@ -304,7 +304,7 @@ class Image:
 
     def process_image(self, image):
         """
-        Process the image to detect characters and apply ANSI colors.
+        Process the image to apply ANSI colors using '▀' character.
         :return: processed image as text
         """
         img_bgr = image[:, :, ::-1]  # Convert RGB to BGR
@@ -316,12 +316,12 @@ class Image:
 
         for y in range(0, height, 2):
             for x in range(width):
-                upper_pixel = tuple(img_bgr[y, x])
-                lower_pixel = tuple(img_bgr[min(y + 1, height - 1), x])
+                upper_pixel = img_bgr[y, x]
+                lower_pixel = img_bgr[min(y + 1, height - 1), x]
 
                 chars.append('▀')
-                char_colors.append(upper_pixel)
-                bg_colors.append(lower_pixel)
+                char_colors.append(tuple(upper_pixel))
+                bg_colors.append(tuple(lower_pixel))
 
             chars.append('\n')
             char_colors.append("default")
@@ -354,14 +354,13 @@ class Image:
         return None
 
 class Video:
-    def __init__(self, path, fps=None, size=(60, 60)):
+    def __init__(self, path, fps=60, size=(60, 60)):
         """
         A video is an object designed to display a video in the console.
         :param path: video path
         :param fps: frames per second
         :param size: frame size (width, height)
         """
-
         self.path = path
         self.cap = None
         self.fps = fps
@@ -377,37 +376,59 @@ class Video:
         return self.cap
 
     def get_video_frame(self):
-        # getting those frames
         ret, frame = self.cap.read()
         if not ret:
-            return None  # End of video
+            return None
         return frame
 
-    def process_frame(self, frame):
-        _, img_bytes = cv2.imencode('.bmp', frame)
+    def process_frames(self):
+        '''
+        Process the frames of the video to apply ANSI colors using '▀' character.
+        No matter the FPS returns all the frames
+        :return:
+        '''
 
-        image = Image(img_bytes.tobytes(), self.size)
-        ansi_frame = image.process_image(image.image)
+        def _proc_frame(frame):
+            _, img_bytes = cv2.imencode('.bmp', frame)
+            image = Image(img_bytes.tobytes(), self.size)
+            ansi_frame = image.process_image(image.image)
+            return ansi_frame
 
-        return ansi_frame
-
-    def play(self):
-        self.cap = self.load_video()
-
-        processed_frames = []
-        sys.stdout.write('\033[3JConverting video to console output...')
-        sys.stdout.flush()
         while True:
             frame = self.get_video_frame()
             if frame is None:
                 break
+            yield _proc_frame(frame)
 
-            processed_frame = self.process_frame(frame)
-            processed_frames.append(processed_frame)
 
-        for frame in processed_frames:
+    def play(self):
+        self.cap = self.load_video()
+        utils.clr()
+
+        sys.stdout.write('\033[3JConverting video to console output...\n')
+        sys.stdout.flush()
+
+        processed_frames = list(self.process_frames())
+
+        input("Done! Press Enter to play the video.")
+        utils.clr()
+
+        frame_time = 1 / self.fps
+
+        i = 0
+        while i < len(processed_frames):
+            start_time = time.time()
+
             sys.stdout.write('\033[H')
-            sys.stdout.write(f'{frame}\033[3J')
+            sys.stdout.write(processed_frames[i])
             sys.stdout.flush()
-            time.sleep(1 / self.fps) # Python so slow we don't need it haha
+
+            end_time = time.time()
+
+            proc_time = end_time - start_time
+            frame_skip = max(1, int(frame_time / proc_time))
+
+            time.sleep(frame_time)
+            i += frame_skip
+
 
