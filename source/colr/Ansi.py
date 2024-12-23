@@ -185,7 +185,7 @@ class Ansi:
         """
         result = ''
 
-        strs = str(strs)
+
 
         # String type support (optional):
         if bg_colors is None:

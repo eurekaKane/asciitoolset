@@ -30,6 +30,8 @@ import os
 
 import cv2
 
+import sys
+
 from PIL import Image as PILImage
 
 import numpy as np
@@ -276,55 +278,62 @@ class Banner:
         return None
 
 
-class Image: # Images become illegible starting from 15-20.
-    def __init__(self, path, size):
+class Image:
+    def __init__(self, img_bytes, size):
         """
         An image is an object designed to display an image in the console.
-        :param path: image path
-        :param size: image size (x*y)
+        :param img_bytes: image byte array
+        :param size: image size (x, y)
         """
-        self.path = path
         self.size = size
-        self.image = self.load_image(path, size)
+        self.image = self.load_image(img_bytes, size)
 
-    def load_image(self, path, size):
+    def load_image(self, img_bytes, size):
         """
         Load and resize the image.
-        :param path: image path
+        :param img_bytes: image byte array
         :param size: image size (x, y)
         :return: numpy array of the image
         """
-        img = PILImage.open(path).convert('RGB')  # Convert to grayscale
-        img = img.resize(size, PILImage.LANCZOS)
-        return np.array(img)
+        img_array = np.frombuffer(img_bytes, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        img = cv2.resize(img, size, interpolation=cv2.INTER_LANCZOS4)
+        return img
 
-    def process_image(self):
+    def process_image(self, image):
         """
         Process the image to detect characters and apply ANSI colors.
         :return: processed image as text
         """
 
-        ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
-        img = self.image
-        img_height, img_width, _ = img.shape
-        text_image = ""
+        img_bgr = image[:, :, ::-1]  # Convert RGB to BGR
+        height, width = image.shape[:2]
+        clipped_height, clipped_width = min(height, self.size[1]), min(width, self.size[0])
 
-        for y in range(img_height):
-            for x in range(img_width):
-                pixel_value = img[y, x]
-                ascii_char = ascii_chars[int(np.mean(pixel_value)) // 32]  # Map pixel to ASCII char
-                color = tuple(pixel_value)  # Use RGB value for color
-                text_image += ansi.ansi(ascii_char, color, color)  # Set both foreground and background color
-            text_image += "\n"
+        colors = []
+        chars = []
 
-        return text_image
+        for y in range(0, clipped_height, 2):
+            for x in range(clipped_width):
+                top_color = tuple(img_bgr[y, x])
+                bottom_color = tuple(img_bgr[y + 1, x]) if y + 1 < clipped_height else top_color
+                colors.append(top_color)
+                colors.append(bottom_color)
+                chars.append('▀')
+            colors.append("default")  # Add default color for newline
+            chars.append('\n')
+
+        # Apply ANSI colors using ansi_comb
+        colored_image = ansi.ansi_comb(chars, colors[::2], colors[1::2])
+
+        return colored_image
 
     def print_image(self):
         """
         Displays the processed image as text.
         :return: None
         """
-        text_image = self.process_image()
+        text_image = self.process_image(self.image)
         print(text_image)
 
     def set(self, **opt):
@@ -340,65 +349,64 @@ class Image: # Images become illegible starting from 15-20.
                 raise ValueError(f'Image.set() has no attribute "{param}"')
         return None
 
-# OTHER FEATURES
-
-# don't mind me, temporary function to test the video class without touching Image class
-
-def process_image(image):
-    """
-    Process the image to detect characters and apply ANSI colors.
-    :return: processed image as text
-    """
-    img = image
-    ascii_chars = "@%#*+=-:. "
-    brightness = np.mean(img, axis=2)  # Grayscale
-    num_chars = len(ascii_chars)
-    ascii_indices = (brightness / 256 * (num_chars - 1)).astype(int)
-    ascii_image = np.vectorize(lambda x: ascii_chars[x])(ascii_indices)
-    ascii_lines = [''.join(row) for row in ascii_image]
-    return '\n'.join(ascii_lines)
-
-
 class Video:
-    def __init__(self, path, fps=None):
+    def __init__(self, path, fps=None, size=(160, 60)):
         """
         A video is an object designed to display a video in the console.
         :param path: video path
+        :param fps: frames per second
+        :param size: frame size (width, height)
         """
         self.path = path
         self.cap = None
         self.fps = fps
+        self.size = size
 
     def load_video(self):
         # open the video file
         self.cap = cv2.VideoCapture(self.path)
         if not self.cap.isOpened():
-            raise ValueError(f"Can't open video at : {self.path}")
+            raise ValueError(f"Can't open video at: {self.path}")
         if not self.fps:
             self.fps = self.cap.get(cv2.CAP_PROP_FPS)
         return self.cap
 
-
     def get_video_frame(self):
-        # getting those FRAMESSS
+        # getting those frames
         ret, frame = self.cap.read()
         if not ret:
-            return None  # END
+            return None  # End of video
         return frame
 
     def process_frame(self, frame):
         # processing the frame
-        ascii_frame = process_image(frame)
-        return ascii_frame
+        frame_resized = cv2.resize(frame, self.size, interpolation=cv2.INTER_LANCZOS4)
+
+        # Convert the frame to bytes
+        _, img_bytes = cv2.imencode('.bmp', frame_resized)
+
+        image = Image(img_bytes.tobytes(), self.size)
+        ansi_frame = image.process_image(image.image)
+
+        return ansi_frame
 
     def play(self):
         self.cap = self.load_video()
 
+        processed_frames = []
+        sys.stdout.write('\033[3JConverting video to console output...')
+        sys.stdout.flush()
         while True:
             frame = self.get_video_frame()
+            if frame is None:
+                break
 
             processed_frame = self.process_frame(frame)
-            print(processed_frame)
-            print(f'\033[3Jm')
-            time.sleep(1/self.fps)
+            processed_frames.append(processed_frame)
+
+        for frame in processed_frames:
+            sys.stdout.write('\033[H')
+            sys.stdout.write(f'{frame}\033[3J')
+            sys.stdout.flush()
+            time.sleep(1 / self.fps) # Python so slow we don't need it haha
 
