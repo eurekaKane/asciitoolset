@@ -8,8 +8,8 @@ with open("source/tests/test_images/color.bmp", "rb") as f:
 
 for x in range(10, 101, 10):
     print(x)
-    img1 = Image(img1_data, size = (x,x//2))
-    img2 = Image(img2_data, size = (x,x//2))
+    img1 = Image(img1_data, size = (x,x))
+    img2 = Image(img2_data, size = (x,x))
 
     img1.print_image()
     img2.print_image()

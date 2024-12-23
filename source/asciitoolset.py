@@ -279,12 +279,13 @@ class Banner:
 
 
 class Image:
-    def __init__(self, img_bytes, size):
+    def __init__(self, img_bytes, size=(60, 60)):
         """
         An image is an object designed to display an image in the console.
         :param img_bytes: image byte array
         :param size: image size (x, y)
         """
+
         self.size = size
         self.image = self.load_image(img_bytes, size)
 
@@ -292,39 +293,42 @@ class Image:
         """
         Load and resize the image.
         :param img_bytes: image byte array
-        :param size: image size (x, y)
+        :param size: image size (width, height)
         :return: numpy array of the image
         """
         img_array = np.frombuffer(img_bytes, np.uint8)
         img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
-        img = cv2.resize(img, size, interpolation=cv2.INTER_LANCZOS4)
-        return img
+        img_resized = cv2.resize(img, size, interpolation=cv2.INTER_AREA)
+
+        return img_resized
 
     def process_image(self, image):
         """
         Process the image to detect characters and apply ANSI colors.
         :return: processed image as text
         """
-
         img_bgr = image[:, :, ::-1]  # Convert RGB to BGR
-        height, width = image.shape[:2]
-        clipped_height, clipped_width = min(height, self.size[1]), min(width, self.size[0])
+        height, width = img_bgr.shape[:2]
 
-        colors = []
         chars = []
+        char_colors = []
+        bg_colors = []
 
-        for y in range(0, clipped_height, 2):
-            for x in range(clipped_width):
-                top_color = tuple(img_bgr[y, x])
-                bottom_color = tuple(img_bgr[y + 1, x]) if y + 1 < clipped_height else top_color
-                colors.append(top_color)
-                colors.append(bottom_color)
+        for y in range(0, height, 2):
+            for x in range(width):
+                upper_pixel = tuple(img_bgr[y, x])
+                lower_pixel = tuple(img_bgr[min(y + 1, height - 1), x])
+
                 chars.append('▀')
-            colors.append("default")  # Add default color for newline
+                char_colors.append(upper_pixel)
+                bg_colors.append(lower_pixel)
+
             chars.append('\n')
+            char_colors.append("default")
+            bg_colors.append("default")
 
         # Apply ANSI colors using ansi_comb
-        colored_image = ansi.ansi_comb(chars, colors[::2], colors[1::2])
+        colored_image = ansi.ansi_comb(chars, char_colors, bg_colors)
 
         return colored_image
 
@@ -350,13 +354,14 @@ class Image:
         return None
 
 class Video:
-    def __init__(self, path, fps=None, size=(160, 60)):
+    def __init__(self, path, fps=None, size=(60, 60)):
         """
         A video is an object designed to display a video in the console.
         :param path: video path
         :param fps: frames per second
         :param size: frame size (width, height)
         """
+
         self.path = path
         self.cap = None
         self.fps = fps
@@ -379,11 +384,7 @@ class Video:
         return frame
 
     def process_frame(self, frame):
-        # processing the frame
-        frame_resized = cv2.resize(frame, self.size, interpolation=cv2.INTER_LANCZOS4)
-
-        # Convert the frame to bytes
-        _, img_bytes = cv2.imencode('.bmp', frame_resized)
+        _, img_bytes = cv2.imencode('.bmp', frame)
 
         image = Image(img_bytes.tobytes(), self.size)
         ansi_frame = image.process_image(image.image)
