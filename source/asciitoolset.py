@@ -354,7 +354,7 @@ class Image:
         return None
 
 class Video:
-    def __init__(self, path, fps=60, size=(60, 60)):
+    def __init__(self, path, fps=None, size=(60, 60)):
         """
         A video is an object designed to display a video in the console.
         :param path: video path
@@ -363,8 +363,15 @@ class Video:
         """
         self.path = path
         self.cap = None
-        self.fps = fps
+        self.fps = fps if fps else int(self.get_video_fps())
         self.size = size
+
+    def get_video_fps(self):
+        # open the video file
+        cap = cv2.VideoCapture(self.path)
+        if not cap.isOpened():
+            raise ValueError(f"Can't open video at: {self.path}")
+        return cap.get(cv2.CAP_PROP_FPS)
 
     def load_video(self):
         # open the video file
@@ -400,7 +407,6 @@ class Video:
                 break
             yield _proc_frame(frame)
 
-
     def play(self):
         self.cap = self.load_video()
         utils.clr()
@@ -414,21 +420,38 @@ class Video:
         utils.clr()
 
         frame_time = 1 / self.fps
+        total_frames = len(processed_frames)
 
         i = 0
-        while i < len(processed_frames):
-            start_time = time.time()
+        start_time = time.time()
+        while i < total_frames:
+            current_time = time.time()
+            elapsed_time = current_time - start_time
 
+            # Calculate the ideal frame number based on elapsed time
+            ideal_frame = int(elapsed_time * self.fps)
+
+            # Skip frames if we're behind
+            if ideal_frame > i:
+                frames_to_skip = ideal_frame - i
+                i += frames_to_skip
+                if i >= total_frames:
+                    break
+
+            # Display the current frame
+            frame_start_time = time.time()
             sys.stdout.write('\033[H')
             sys.stdout.write(processed_frames[i])
+            sys.stdout.write(f"Frame: {i}/{total_frames}")
             sys.stdout.flush()
+            frame_end_time = time.time()
 
-            end_time = time.time()
+            # Calculate how long to wait until the next frame
+            frame_duration = frame_end_time - frame_start_time
+            wait_time = max(0, frame_time - frame_duration)
 
-            proc_time = end_time - start_time
-            frame_skip = max(1, int(frame_time / proc_time))
+            time.sleep(wait_time)
+            i += 1
 
-            time.sleep(frame_time)
-            i += frame_skip
-
+        sys.stdout.write("\nPlayback finished.")
 

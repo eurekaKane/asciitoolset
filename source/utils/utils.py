@@ -117,10 +117,10 @@ def clr():
     Clears the console on both Linux and Windows
     :return: None
     """
-    # _ = os.system('cls' if os.name == 'nt' else 'clear')
+    #os.system('cls' if os.name == 'nt' else 'clear')
     # Old clr, works too btw (fuck denis)
 
-    print("\033[3J", end="", flush=True)
+    os.system('cls' if os.name == 'nt' else 'clear')#print("\033[3J", end="", flush=True)
 
     return None
 
