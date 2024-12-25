@@ -42,6 +42,8 @@ from pyfiglet import Figlet
 
 from .utils import *
 
+import concurrent.futures
+
 
 # EUH ? Denis pourquoi t'as écrit ça 2 fois ?
 
@@ -310,27 +312,16 @@ class Image:
         img_bgr = image[:, :, ::-1]  # Convert RGB to BGR
         height, width = img_bgr.shape[:2]
 
-        chars = []
-        char_colors = []
-        bg_colors = []
-
+        processed_image = []
         for y in range(0, height, 2):
             for x in range(width):
-                upper_pixel = img_bgr[y, x]
-                lower_pixel = img_bgr[min(y + 1, height - 1), x]
+                upper_pixel = tuple(img_bgr[y, x])
+                lower_pixel = tuple(img_bgr[min(y + 1, height - 1), x])
+                processed_image.append(ansi.ansi_comb(['▀'], [upper_pixel], [lower_pixel]))
+                # Faster to put upper_pixel and lower_pixel in a list bcs it avoids if checks in ansi_comb
+            processed_image.append('\n')
 
-                chars.append('▀')
-                char_colors.append(tuple(upper_pixel))
-                bg_colors.append(tuple(lower_pixel))
-
-            chars.append('\n')
-            char_colors.append("default")
-            bg_colors.append("default")
-
-        # Apply ANSI colors using ansi_comb
-        colored_image = ansi.ansi_comb(chars, char_colors, bg_colors)
-
-        return colored_image
+        return ''.join(processed_image)
 
     def print_image(self):
         """
@@ -362,20 +353,17 @@ class Video:
         :param size: frame size (width, height)
         """
         self.path = path
-        self.cap = None
+        self.cap = cv2.VideoCapture(self.path)
         self.fps = fps if fps else int(self.get_video_fps())
         self.size = size
 
     def get_video_fps(self):
-        # open the video file
-        cap = cv2.VideoCapture(self.path)
-        if not cap.isOpened():
+        if not self.cap.isOpened():
             raise ValueError(f"Can't open video at: {self.path}")
-        return cap.get(cv2.CAP_PROP_FPS)
+        return self.cap.get(cv2.CAP_PROP_FPS)
 
     def load_video(self):
         # open the video file
-        self.cap = cv2.VideoCapture(self.path)
         if not self.cap.isOpened():
             raise ValueError(f"Can't open video at: {self.path}")
         if not self.fps:
@@ -384,43 +372,48 @@ class Video:
 
     def get_video_frame(self):
         ret, frame = self.cap.read()
-        if not ret:
-            return None
-        return frame
+        return frame if ret else None
 
     def process_frames(self):
-        '''
-        Process the frames of the video to apply ANSI colors using '▀' character.
-        No matter the FPS returns all the frames
-        :return:
-        '''
-
-        def _proc_frame(frame):
+        def _proc_frame(frame, index):
             _, img_bytes = cv2.imencode('.bmp', frame)
             image = Image(img_bytes.tobytes(), self.size)
             ansi_frame = image.process_image(image.image)
-            return ansi_frame
+            return index, ansi_frame
 
-        while True:
-            frame = self.get_video_frame()
-            if frame is None:
-                break
-            yield _proc_frame(frame)
+        max_workers = min(32, (os.cpu_count() or 1) + 4)  # Limit number of threads to not burn the family house down
+        processed_frames = []
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = []
+            frame_index = 0
+            while True:
+                frame = self.get_video_frame()
+                if frame is None:
+                    break
+                futures.append(executor.submit(_proc_frame, frame, frame_index))
+                frame_index += 1
+
+            for future in sorted(concurrent.futures.as_completed(futures), key=lambda f: f.result()[0]):
+                _, processed_frame = future.result()
+                processed_frames.append(processed_frame)
+
+        return processed_frames
 
     def play(self):
         self.cap = self.load_video()
         utils.clr()
 
-        sys.stdout.write('\033[3JConverting video to console output...\n')
+        sys.stdout.write('Converting video to console output...\n')
         sys.stdout.flush()
 
-        processed_frames = list(self.process_frames())
+        processed_frames = self.process_frames()
 
         input("Done! Press Enter to play the video.")
         utils.clr()
 
         frame_time = 1 / self.fps
-        total_frames = len(processed_frames)
+        total_frames = len(processed_frames)-1
 
         i = 0
         start_time = time.time()
