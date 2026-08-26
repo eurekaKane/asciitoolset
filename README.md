@@ -6,7 +6,7 @@
 to make clean terminal-based programs UIs</h2>
 
 <h1 align="center">WARNING !</h1>
-<h2>Don't clone my repo nothing works, like seriously I need to make a setup.py file else you are going to need and fix everything by hand to make it work it's terrible !</h2>
+<h2>Don't clone my repo UNLESS you have some experience and can work around it !</h2>
 <h2>Like the mess it is in terms of dependencies and like shit you need to know to make it work is awful. GOD ! This repo is a construction site. Fixing my stuff ASAP :)</h2>
 
 ## Changelog
