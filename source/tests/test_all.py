@@ -1,4 +1,5 @@
 # -*- encoding : utf-8 -*-
+from pyfiglet import FontNotFound
 
 
 # IMPORTS
