@@ -6,15 +6,18 @@ import importlib.resources
 
 import os
 
+import string
+
+import time
+
+from types import NoneType
+
 #from unittest import installHandler
 
 from pyfiglet import FigletError, FontNotFound
 
 from source.colr import *
 
-import string
-
-import time
 
 # SHAPES
 
@@ -34,7 +37,7 @@ shapes = {
 
 # COLORS
 
-colors: dict[int, str] = {
+colrs: dict[int, str] = {
     1: "red",
     2: "green",
     3: "yellow",
@@ -47,9 +50,9 @@ colors: dict[int, str] = {
 
 # CONST
 
-__local = os.getcwd()
-
 #SHARED_DIRECTORY = os.path.join(os.environ["APPDATA"])
+
+__local = os.getcwd()
 
 path_to_fnts = importlib.resources.files('pyfiglet.fonts')
 
@@ -65,6 +68,20 @@ chars = string.printable
 os.system('color')
 
 
+def fibonacci(max_numbers : int, color : str, bg : str):
+    """
+    Useless function that calculates fibonacci number
+    and displays it in the console
+    :return: fib -> str
+    """
+    fib = [0,1]
+
+    for i in range(max_numbers - 1):
+        fib.append(fib[i] + fib[i+1])
+
+    ansi.ansi_print(f"{fib}", color, bg)
+
+
 def crt_dir(new_dir : str):
     os.chdir(__local)
     os.mkdir(f"{new_dir}")
@@ -73,7 +90,6 @@ def crt_dir(new_dir : str):
 def tmp_handler(handler_input : str):
 
     if handler_input == 'make':
-
         try:
             crt_dir('tmp')
 
@@ -81,13 +97,11 @@ def tmp_handler(handler_input : str):
             pass
 
     elif handler_input == 'clean':
-
         try:
             files = os.listdir(__tmp)
             os.chmod(__tmp, 0o777)
 
             for i in range(len(files)):
-                os.chmod(f'{__tmp}\\{files[i]}', 0o777)
                 os.remove(f"{__tmp}\\{files[i]}")
 
             os.removedirs(__tmp)
@@ -95,10 +109,11 @@ def tmp_handler(handler_input : str):
         except FileNotFoundError:
             pass
 
-        else:
-            raise Exception("Not a valid input")
+    elif handler_input not in ('clean', 'make'):
 
-# del_tmp()
+        raise Exception("Not a valid input")
+
+    return None
 
 
 def ln_clr():
@@ -115,6 +130,7 @@ def ln_clr():
 def clr():
     """
     Clears the console on both Linux and Windows
+
     :return: None
     """
     #os.system('cls' if os.name == 'nt' else 'clear')
@@ -146,7 +162,7 @@ def get_fnt_list():
     time.sleep(5)
     tmp_handler('make')
 
-    with open(f'{__local}\\tmp\\fontList.txt', 'w') as t:
+    with open(f'{__tmp}\\fontList.txt', 'w') as t:
         with open(FILES, 'r') as f:
 
             for line in f:
@@ -169,13 +185,31 @@ def show_palette():
     print("Palette :\n\n")
     print("-'black'\n")
 
-    for y in range(1, len(colors)+1):
-        ansi.ansi_print(f"-(light_)'{colors[y]}'\n", colors[y])
+    for y in range(1, len(colrs)+1):
+        ansi.ansi_print(f"-(light_)'{colrs[y]}'\n", colrs[y])
 
 
     print("-'white'\n")
 
     return None
+
+def show_fonts():
+    """
+    Shows the font list
+    :return:
+    """
+    tmp_list = get_fnt_list()
+    ansi.ansi_print("Voici la liste des police utilisables\n", "cyan")
+
+    x = 1
+
+    for i in range(len(tmp_list)//6):
+        for j in range(6):
+            print('|', end = '')
+            ansi.ansi_print(f"{tmp_list[x-1]}   |   {tmp_list[x]}   |   {tmp_list[x+1]}   |   {tmp_list[x+2]}   |   {tmp_list[x+3]}   |   {tmp_list[x+4]}", 'green')
+            x += 6
+
+#TODO : Fix that shit and make fit nicely in the terminal
 
 def show_shapes():
     """
@@ -187,3 +221,36 @@ def show_shapes():
         print(f"{i}.'{shapes[i]}'\n")
 
     return None
+
+
+def _validate_shape(value):
+    if not isinstance(value, (int, str)):
+        raise ValueError("Shape must be an integer or a string")
+    if isinstance(value, int) and value < 1:
+        raise ValueError("Shape integer must be positive")
+    return value
+
+
+def _validate_color(value):
+    if not isinstance(value, (list, str, NoneType)):
+        raise ValueError("Color must be a list or a string")
+    return value
+
+
+def _validate_string(value, param_name):
+    if not isinstance(value, str):
+        raise ValueError(f"{param_name} must be a string")
+    return value
+
+
+def _validate_bool(value, param_name):
+    if not isinstance(value, bool):
+        raise ValueError(f"{param_name} must be a boolean")
+    return value
+
+
+def _validate_positive_int(value, param_name):
+    if not isinstance(value, int) or value < 1:
+        raise ValueError(f"{param_name} must be an integer bigger than 0")
+    return value
+

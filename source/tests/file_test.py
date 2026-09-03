@@ -1,9 +1,9 @@
 from source import *
 
-with open("source/tests/test_images/panda.bmp", "rb") as f:
+with open("test_images/panda.bmp", "rb") as f:
     img1_data = f.read()
 
-with open("source/tests/test_images/color.bmp", "rb") as f:
+with open("test_images/color.bmp", "rb") as f:
     img2_data = f.read()
 
 for x in range(10, 101, 10):

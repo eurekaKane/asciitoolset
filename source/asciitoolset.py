@@ -9,7 +9,7 @@ Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
 Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
 
-import sys
+# DESCRIPTION
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -26,46 +26,22 @@ far more optimized coding in OOP :)
 
 import random
 
-import os
-
 import cv2
 
 import sys
 
-from PIL import Image as PILImage
-
 import numpy as np
 
-from types import NoneType
+import concurrent.futures
 
 from pyfiglet import Figlet
 
 from .utils import *
 
-import concurrent.futures
+#from PIL import Image as PILImage
 
 
-# EUH ? Denis pourquoi t'as écrit ça 2 fois ?
-
-#def process_image(self):
-#    """
-#    Process the image to detect characters.
-#    :return: processed image as text
-#    """
-#    ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
-#    img = self.image
-#    img_height, img_width = img.shape
-#    text_image = ""
-#
-#    for y in range(img_height):
-#        for x in range(img_width):
-#            pixel_value = img[y, x]
-#            ascii_char = ascii_chars[pixel_value // 32]  # Map pixel to ASCII char
-#            text_image += ascii_char
-#        text_image += "\n"
-#
-#    return text_image
-
+# ASCIITOOLSET
 
 def grayscale(rgb):
     rgb = rgb
@@ -75,33 +51,6 @@ def grayscale(rgb):
     brightness = (r + g + b) / 3
     return brightness
 
-
-def _validate_shape(value):
-    if not isinstance(value, (int, str)):
-        raise ValueError("Shape must be an integer or a string")
-    if isinstance(value, int) and value < 1:
-        raise ValueError("Shape integer must be positive")
-    return value
-
-def _validate_color(value):
-    if not isinstance(value, (list, str, NoneType)):
-        raise ValueError("Color must be a list or a string")
-    return value
-
-def _validate_string(value, param_name):
-    if not isinstance(value, str):
-        raise ValueError(f"{param_name} must be a string")
-    return value
-
-def _validate_bool(value, param_name):
-    if not isinstance(value, bool):
-        raise ValueError(f"{param_name} must be a boolean")
-    return value
-
-def _validate_positive_int(value, param_name):
-    if not isinstance(value, int) or value < 1:
-        raise ValueError(f"{param_name} must be an integer bigger than 0")
-    return value
 
 class Spacer:
     def __init__(self, **opt):
@@ -113,10 +62,10 @@ class Spacer:
 
         class SpacerParams:
             def __init__(self, opt_params):
-                self.RANDOM = _validate_bool(opt_params.get('random', False), 'random') # Un-fucking-controllable
-                self.RANDOM_RANGE = _validate_positive_int(opt_params.get('random_range', 4), 'random_range')
+                self.RANDOM = utils._validate_bool(opt_params.get('random', False), 'random') # Un-fucking-controllable
+                self.RANDOM_RANGE = utils._validate_positive_int(opt_params.get('random_range', 4), 'random_range')
 
-                self.SHAPE = _validate_shape(opt_params.get('shape', 2)) # By default, uses preset 2
+                self.SHAPE = utils._validate_shape(opt_params.get('shape', 2)) # By default, uses preset 2
 
                 _result = self.SHAPE
                 if isinstance(self.SHAPE, int):
@@ -126,13 +75,13 @@ class Spacer:
 
                 self.SHAPE = _result
 
-                self.CUTOFF = _validate_bool(opt_params.get('cutoff', True), 'cutoff')
+                self.CUTOFF = utils._validate_bool(opt_params.get('cutoff', True), 'cutoff')
 
-                self.COLOR = _validate_color(opt_params.get('color', 'white'))
-                self.CHARS_COLOR = _validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
+                self.COLOR = utils._validate_color(opt_params.get('color', 'white'))
+                self.CHARS_COLOR = utils._validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
 
-                self.BG_COLOR = _validate_color(opt_params.get('bg_color', None))
-                self.CHARS_BG_COLOR = _validate_positive_int(opt_params.get('chars_bg_color', 1), 'chars_bg_color')
+                self.BG_COLOR = utils._validate_color(opt_params.get('bg_color', None))
+                self.CHARS_BG_COLOR = utils._validate_positive_int(opt_params.get('chars_bg_color', 1), 'chars_bg_color')
 
         self.Params = SpacerParams(opt)
 
@@ -226,9 +175,9 @@ class Banner:
         """
         class BannerParams:
             def __init__(self, opt_params):
-                self.FONT = _validate_string(fnt, 'font')
-                self.COLOR = _validate_color(col)
-                self.TEXT = _validate_string(txt, 'text')
+                self.FONT = utils._validate_string(fnt, 'font')
+                self.COLOR = utils._validate_color(col)
+                self.TEXT = utils._validate_string(txt, 'text')
                 self.WIDTH = opt_params.get('width', None)
 
         self.Params = BannerParams(opt)
@@ -255,14 +204,14 @@ class Banner:
         ansi.ansi_print(self.banner, self.Params.COLOR)
         return None
 
-    def save_banner(self, name: str) -> None:
+    def save_banner(self, path, name: str) -> None:
         """
         Saves the rendered banner to a (.txt) file.
         :param name: user specified name for the banner
         :return: None
         """
-        crt_dir('Banners')
-        with open(f"Banners/{name}.txt", "w") as expBan:
+        #crt_dir('Banners')
+        with open(f"{path}/{name}.txt", "w") as expBan:
             expBan.write(self.banner)
         return None
 
@@ -343,6 +292,7 @@ class Image:
             else:
                 raise ValueError(f'Image.set() has no attribute "{param}"')
         return None
+
 
 class Video:
     def __init__(self, path, fps=None, size=(60, 60)):
@@ -448,3 +398,26 @@ class Video:
 
         sys.stdout.write("\nPlayback finished.")
 
+
+
+class Clickable:
+    """
+    Empty
+    """
+    def __init__(self):
+        """
+        Empty
+        """
+
+# TODO : Implement clickable elements
+
+class Window:
+    """
+    Empty
+    """
+    def __init__(self):
+        """
+        Empty
+        """
+
+# TODO : Implement windows that can contains smaller ones and clickable

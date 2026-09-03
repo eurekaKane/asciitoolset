@@ -74,6 +74,7 @@ def spcTest():
     usrSpacer.print_spacer(length)
 
 
+
 def redo() -> bool:
     """
     Interface func ask redo at the end of
