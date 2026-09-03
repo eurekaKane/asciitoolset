@@ -1,8 +1,13 @@
 # -*- encoding : utf-8 -*-
+import time
 
 # IMPORTS
 
 from source.tests.test_all import *
+
+
+spc = Spacer(shape = '1', color = "red")
+myBan = Banner('doom', "blue", "DooM")
 
 
 def main():
@@ -12,15 +17,18 @@ def main():
     """
 
     # INTRO
-
-    spc = Spacer(shape = '1', color = "red")
-    myBan = Banner('doom', "blue", "DooM")
     ansi.ansi_print(f'DEBUG : {os.getcwd()}', 'yellow')
-    myBan.printBanner()
+    myBan.print_banner()
+    spc.print_spacer(10)
+
+
+    utils.fibonacci(20, 'black', 'white')
+
+
     spc.print_spacer(10)
 
     try:
-        roll('red', 'Ct une VANNE !')
+        roll('red', 'Ct une vanne')
 
     except FigletError:
 
@@ -34,13 +42,15 @@ def main():
 
     finally:
 
-        ansi.ansi_print('Everything is working !', 'green')
+        if len(failed_fonts) == 0:
+            ansi.ansi_print('Everything is working !', 'green')
+            if input('Do you want to see the fonts again ? (y/n) : ') == 'y':
+                roll('red', 'Ct une vanne')
+        else:
+            if input("Do you want to see what's wrong ? (y/n) : ") == 'y':
+                test_fonts()
 
-    clr()
-    test_fonts()
-
-    os.removedirs()
-
+    utils.tmp_handler('clean')
 
 if __name__ == '__main__':
     main()

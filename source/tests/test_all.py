@@ -6,8 +6,9 @@ from pyfiglet import FontNotFound
 
 from source.asciitoolset import *
 
-from source.utils.utils import __local, __tmp
+from source.utils import utils
 
+from source.utils.utils import __tmp, __local
 
 
 failed_fonts = []
@@ -26,8 +27,8 @@ def roll(col, txt):
 
     for font in font_list:
         roll_ban = Banner(font, col, txt, width = 100)
-        print(ansi.ansi_comb(f'{roll_ban.__repr__()}\n', 'green'))
-        roll_ban.printBanner()
+        print(ansi.ansi_comb(f'{font}\n', 'green'))
+        roll_ban.print_banner()
         spc.print_spacer(175)
 
     return None
@@ -46,23 +47,15 @@ def test_fonts():
             working_fonts.append(font)
             print(ansi.ansi_comb(font, 'green'))
 
-    print(ansi.ansi_comb(failed_fonts, 'red'))
+    if len(failed_fonts) == 0:
+        print(ansi.ansi_comb(failed_fonts, 'red'))
+    elif len(failed_fonts) < 0:
+        print(ansi.ansi_comb("No problems w/ the font register :)", 'green'))
 
 
 def fix_fonts():
     tmp_list = get_fnt_list()
-    checked_fonts = []
-    with open(__tmp+'\\fontList.txt', 'w') as file:
-        file.truncate()
-        file.close()
-
-    with open(__tmp+'\\fontList.txt', 'w') as file:
+    with open(utils.FILES, 'w') as file:
         for font in tmp_list:
-            for _ in failed_fonts:
-                if font in checked_fonts:
-                    pass
-                elif font in failed_fonts:
-                    checked_fonts.append(font)
-                else:
-                    file.write(font + '\n')
-                    checked_fonts.append(font)
+            if font not in failed_fonts:
+                file.write(font + '\n')

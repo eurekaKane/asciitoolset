@@ -1,16 +1,17 @@
 # -*- encoding: utf-8 -*-
+from typing import Any
 
-import time
+#import time
 
 from source import *
 
-from source.tests.test_all import roll
+#from source.tests.test_all import roll
 
 spc = Spacer(shape = "zebi zeub", color = ["green","red","yellow"])#, random = True)
 
 
 def print_palette():
-    colors = [
+    colors: list[Any] = [
         (255, 0, 0),  # Red
         (255, 128, 0),  # Orange
         (255, 255, 0),  # Yellow
@@ -32,7 +33,7 @@ def print_palette():
     print()
 
 def print_all_colors():
-    colors = [
+    colrs = [
         "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#FF00FF", "#00FFFF",
         "#800000", "#808000", "#008000", "#800080", "#008080", "#000080",
         "#C0C0C0", "#808080", "#FFFFFF", "#000000"
@@ -40,8 +41,8 @@ def print_all_colors():
 
     print("Terminal Color Palette")
 
-    for i in range(0, len(colors), 4):
-        row_colors = colors[i:i + 4]
+    for i in range(0, len(colrs), 4):
+        row_colors = colrs[i:i + 4]
         for color in row_colors:
             block = ansi.ansi("   ", 'default', background=color)
             print(f"{block} {color}", end="   ")
@@ -57,7 +58,7 @@ def main():
 
     ansi_colors = ansi_colors[1:]
 
-    print("\nColr tests:")
+    print("\nColor tests:")
     ansi.ansi_print("▐"*len(ansi_colors), ansi_colors, ansi_colors[::-1])
     ansi.ansi_print("▐" * len(ansi_colors), ansi_colors[::-1], ansi_colors)
 

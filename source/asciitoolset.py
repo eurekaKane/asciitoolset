@@ -10,7 +10,7 @@ Author: Ernest BECHTOLD-DALBERA <eurekakane@proton.me>
 Co-Author: Denis KISLITSYN <denis.kislitsyn@proton.me>
 """
 
-import sys
+# DESCRIPTION
 
 long_des = """
 This is a module meant to facilitate CLI scripts making process and readability.
@@ -27,42 +27,22 @@ far more optimized coding in OOP :)
 
 import random
 
-import os
-
 import cv2
 
-from PIL import Image as PILImage
+import sys
 
 import numpy as np
 
-from types import NoneType
+import concurrent.futures
 
 from pyfiglet import Figlet
 
 from .utils import *
 
+#from PIL import Image as PILImage
 
-# EUH ? Denis pourquoi t'as écrit ça 2 fois ?
 
-#def process_image(self):
-#    """
-#    Process the image to detect characters.
-#    :return: processed image as text
-#    """
-#    ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
-#    img = self.image
-#    img_height, img_width = img.shape
-#    text_image = ""
-#
-#    for y in range(img_height):
-#        for x in range(img_width):
-#            pixel_value = img[y, x]
-#            ascii_char = ascii_chars[pixel_value // 32]  # Map pixel to ASCII char
-#            text_image += ascii_char
-#        text_image += "\n"
-#
-#    return text_image
-
+# ASCIITOOLSET
 
 def grayscale(rgb):
     rgb = rgb
@@ -72,33 +52,6 @@ def grayscale(rgb):
     brightness = (r + g + b) / 3
     return brightness
 
-
-def _validate_shape(value):
-    if not isinstance(value, (int, str)):
-        raise ValueError("Shape must be an integer or a string")
-    if isinstance(value, int) and value < 1:
-        raise ValueError("Shape integer must be positive")
-    return value
-
-def _validate_color(value):
-    if not isinstance(value, (list, str, NoneType)):
-        raise ValueError("Color must be a list or a string")
-    return value
-
-def _validate_string(value, param_name):
-    if not isinstance(value, str):
-        raise ValueError(f"{param_name} must be a string")
-    return value
-
-def _validate_bool(value, param_name):
-    if not isinstance(value, bool):
-        raise ValueError(f"{param_name} must be a boolean")
-    return value
-
-def _validate_positive_int(value, param_name):
-    if not isinstance(value, int) or value < 1:
-        raise ValueError(f"{param_name} must be an integer bigger than 0")
-    return value
 
 class Spacer:
     def __init__(self, **opt):
@@ -110,10 +63,10 @@ class Spacer:
 
         class SpacerParams:
             def __init__(self, opt_params):
-                self.RANDOM = _validate_bool(opt_params.get('random', False), 'random') # Un-fucking-controllable
-                self.RANDOM_RANGE = _validate_positive_int(opt_params.get('random_range', 4), 'random_range')
+                self.RANDOM = utils._validate_bool(opt_params.get('random', False), 'random') # Un-fucking-controllable
+                self.RANDOM_RANGE = utils._validate_positive_int(opt_params.get('random_range', 4), 'random_range')
 
-                self.SHAPE = _validate_shape(opt_params.get('shape', 2)) # By default, uses preset 2
+                self.SHAPE = utils._validate_shape(opt_params.get('shape', 2)) # By default, uses preset 2
 
                 _result = self.SHAPE
                 if isinstance(self.SHAPE, int):
@@ -123,13 +76,13 @@ class Spacer:
 
                 self.SHAPE = _result
 
-                self.CUTOFF = _validate_bool(opt_params.get('cutoff', True), 'cutoff')
+                self.CUTOFF = utils._validate_bool(opt_params.get('cutoff', True), 'cutoff')
 
-                self.COLOR = _validate_color(opt_params.get('color', 'white'))
-                self.CHARS_COLOR = _validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
+                self.COLOR = utils._validate_color(opt_params.get('color', 'white'))
+                self.CHARS_COLOR = utils._validate_positive_int(opt_params.get('chars_color', 1), 'chars_color')
 
-                self.BG_COLOR = _validate_color(opt_params.get('bg_color', None))
-                self.CHARS_BG_COLOR = _validate_positive_int(opt_params.get('chars_bg_color', 1), 'chars_bg_color')
+                self.BG_COLOR = utils._validate_color(opt_params.get('bg_color', None))
+                self.CHARS_BG_COLOR = utils._validate_positive_int(opt_params.get('chars_bg_color', 1), 'chars_bg_color')
 
         self.Params = SpacerParams(opt)
 
@@ -223,9 +176,9 @@ class Banner:
         """
         class BannerParams:
             def __init__(self, opt_params):
-                self.FONT = _validate_string(fnt, 'font')
-                self.COLOR = _validate_color(col)
-                self.TEXT = _validate_string(txt, 'text')
+                self.FONT = utils._validate_string(fnt, 'font')
+                self.COLOR = utils._validate_color(col)
+                self.TEXT = utils._validate_string(txt, 'text')
                 self.WIDTH = opt_params.get('width', None)
 
         self.Params = BannerParams(opt)
@@ -252,14 +205,14 @@ class Banner:
         ansi.ansi_print(self.banner, self.Params.COLOR)
         return None
 
-    def save_banner(self, name: str) -> None:
+    def save_banner(self, path, name: str) -> None:
         """
         Saves the rendered banner to a (.txt) file.
         :param name: user specified name for the banner
         :return: None
         """
-        crt_dir('Banners')
-        with open(f"Banners/{name}.txt", "w") as expBan:
+        #crt_dir('Banners')
+        with open(f"{path}/{name}.txt", "w") as expBan:
             expBan.write(self.banner)
         return None
 
@@ -277,55 +230,55 @@ class Banner:
         return None
 
 
-class Image: # Images become illegible starting from 15-20.
-    def __init__(self, path, size):
+class Image:
+    def __init__(self, img_bytes, size=(60, 60)):
         """
         An image is an object designed to display an image in the console.
-        :param path: image path
-        :param size: image size (x*y)
+        :param img_bytes: image byte array
+        :param size: image size (x, y)
         """
-        self.path = path
-        self.size = size
-        self.image = self.load_image(path, size)
 
-    def load_image(self, path, size):
+        self.size = size
+        self.image = self.load_image(img_bytes, size)
+
+    def load_image(self, img_bytes, size):
         """
         Load and resize the image.
-        :param path: image path
-        :param size: image size (x, y)
+        :param img_bytes: image byte array
+        :param size: image size (width, height)
         :return: numpy array of the image
         """
-        img = PILImage.open(path).convert('RGB')  # Convert to grayscale
-        img = img.resize(size, PILImage.LANCZOS)
-        return np.array(img)
+        img_array = np.frombuffer(img_bytes, np.uint8)
+        img = cv2.imdecode(img_array, cv2.IMREAD_COLOR)
+        img_resized = cv2.resize(img, size, interpolation=cv2.INTER_AREA)
 
-    def process_image(self):
+        return img_resized
+
+    def process_image(self, image):
         """
-        Process the image to detect characters and apply ANSI colors.
+        Process the image to apply ANSI colors using '▀' character.
         :return: processed image as text
         """
+        img_bgr = image[:, :, ::-1]  # Convert RGB to BGR
+        height, width = img_bgr.shape[:2]
 
-        ascii_chars = "@%#*+=-:. "  # ASCII characters used for mapping
-        img = self.image
-        img_height, img_width, _ = img.shape
-        text_image = ""
+        processed_image = []
+        for y in range(0, height, 2):
+            for x in range(width):
+                upper_pixel = tuple(img_bgr[y, x])
+                lower_pixel = tuple(img_bgr[min(y + 1, height - 1), x])
+                processed_image.append(ansi.ansi_comb(['▀'], [upper_pixel], [lower_pixel]))
+                # Faster to put upper_pixel and lower_pixel in a list bcs it avoids if checks in ansi_comb
+            processed_image.append('\n')
 
-        for y in range(img_height):
-            for x in range(img_width):
-                pixel_value = img[y, x]
-                ascii_char = ascii_chars[int(np.mean(pixel_value)) // 32]  # Map pixel to ASCII char
-                color = tuple(pixel_value)  # Use RGB value for color
-                text_image += ansi.ansi(ascii_char, color, color)  # Set both foreground and background color
-            text_image += "\n"
-
-        return text_image
+        return ''.join(processed_image)
 
     def print_image(self):
         """
         Displays the processed image as text.
         :return: None
         """
-        text_image = self.process_image()
+        text_image = self.process_image(self.image)
         print(text_image)
 
     def set(self, **opt):
@@ -341,65 +294,131 @@ class Image: # Images become illegible starting from 15-20.
                 raise ValueError(f'Image.set() has no attribute "{param}"')
         return None
 
-# OTHER FEATURES
-
-# don't mind me, temporary function to test the video class without touching Image class
-
-def process_image(image):
-    """
-    Process the image to detect characters and apply ANSI colors.
-    :return: processed image as text
-    """
-    img = image
-    ascii_chars = "@%#*+=-:. "
-    brightness = np.mean(img, axis=2)  # Grayscale
-    num_chars = len(ascii_chars)
-    ascii_indices = (brightness / 256 * (num_chars - 1)).astype(int)
-    ascii_image = np.vectorize(lambda x: ascii_chars[x])(ascii_indices)
-    ascii_lines = [''.join(row) for row in ascii_image]
-    return '\n'.join(ascii_lines)
-
 
 class Video:
-    def __init__(self, path, fps=None):
+    def __init__(self, path, fps=None, size=(60, 60)):
         """
         A video is an object designed to display a video in the console.
         :param path: video path
+        :param fps: frames per second
+        :param size: frame size (width, height)
         """
         self.path = path
-        self.cap = None
-        self.fps = fps
+        self.cap = cv2.VideoCapture(self.path)
+        self.fps = fps if fps else int(self.get_video_fps())
+        self.size = size
+
+    def get_video_fps(self):
+        if not self.cap.isOpened():
+            raise ValueError(f"Can't open video at: {self.path}")
+        return self.cap.get(cv2.CAP_PROP_FPS)
 
     def load_video(self):
         # open the video file
-        self.cap = cv2.VideoCapture(self.path)
         if not self.cap.isOpened():
-            raise ValueError(f"Can't open video at : {self.path}")
+            raise ValueError(f"Can't open video at: {self.path}")
         if not self.fps:
             self.fps = self.cap.get(cv2.CAP_PROP_FPS)
         return self.cap
 
-
     def get_video_frame(self):
-        # getting those FRAMESSS
         ret, frame = self.cap.read()
-        if not ret:
-            return None  # END
-        return frame
+        return frame if ret else None
 
-    def process_frame(self, frame):
-        # processing the frame
-        ascii_frame = process_image(frame)
-        return ascii_frame
+    def process_frames(self):
+        def _proc_frame(frame, index):
+            _, img_bytes = cv2.imencode('.bmp', frame)
+            image = Image(img_bytes.tobytes(), self.size)
+            ansi_frame = image.process_image(image.image)
+            return index, ansi_frame
+
+        max_workers = min(32, (os.cpu_count() or 1) + 4)  # Limit number of threads to not burn the family house down
+        processed_frames = []
+
+        with concurrent.futures.ThreadPoolExecutor(max_workers=max_workers) as executor:
+            futures = []
+            frame_index = 0
+            while True:
+                frame = self.get_video_frame()
+                if frame is None:
+                    break
+                futures.append(executor.submit(_proc_frame, frame, frame_index))
+                frame_index += 1
+
+            for future in sorted(concurrent.futures.as_completed(futures), key=lambda f: f.result()[0]):
+                _, processed_frame = future.result()
+                processed_frames.append(processed_frame)
+
+        return processed_frames
 
     def play(self):
         self.cap = self.load_video()
+        utils.clr()
 
-        while True:
-            frame = self.get_video_frame()
+        sys.stdout.write('Converting video to console output...\n')
+        sys.stdout.flush()
 
-            processed_frame = self.process_frame(frame)
-            print(processed_frame)
-            print(f'\033[3Jm')
-            time.sleep(1/self.fps)
+        processed_frames = self.process_frames()
 
+        input("Done! Press Enter to play the video.")
+        utils.clr()
+
+        frame_time = 1 / self.fps
+        total_frames = len(processed_frames)-1
+
+        i = 0
+        start_time = time.time()
+        while i < total_frames:
+            current_time = time.time()
+            elapsed_time = current_time - start_time
+
+            # Calculate the ideal frame number based on elapsed time
+            ideal_frame = int(elapsed_time * self.fps)
+
+            # Skip frames if we're behind
+            if ideal_frame > i:
+                frames_to_skip = ideal_frame - i
+                i += frames_to_skip
+                if i >= total_frames:
+                    break
+
+            # Display the current frame
+            frame_start_time = time.time()
+            sys.stdout.write('\033[H')
+            sys.stdout.write(processed_frames[i])
+            sys.stdout.write(f"Frame: {i}/{total_frames}")
+            sys.stdout.flush()
+            frame_end_time = time.time()
+
+            # Calculate how long to wait until the next frame
+            frame_duration = frame_end_time - frame_start_time
+            wait_time = max(0, frame_time - frame_duration)
+
+            time.sleep(wait_time)
+            i += 1
+
+        sys.stdout.write("\nPlayback finished.")
+
+
+
+class Clickable:
+    """
+    Empty
+    """
+    def __init__(self):
+        """
+        Empty
+        """
+
+# TODO : Implement clickable elements
+
+class Window:
+    """
+    Empty
+    """
+    def __init__(self):
+        """
+        Empty
+        """
+
+# TODO : Implement windows that can contains smaller ones and clickable

@@ -185,11 +185,11 @@ class Ansi:
         """
         result = ''
 
-        strs = str(strs)
+
 
         # String type support (optional):
-        if bg_colors is None:
-            bg_colors = [None]
+        #if bg_colors is None:  Useless !
+        #    bg_colors = [None]
         if not isinstance(bg_colors, list):
             bg_colors = [bg_colors]
         if not isinstance(colors, list):
@@ -207,6 +207,9 @@ class Ansi:
 
         return result
 
-    def ansi_print(self, strs: list[str], colors: list[str | tuple], bg_colors: list[str | tuple] | None = None) -> str:
-        print(self.ansi_comb(strs, colors, bg_colors)) # the most useless function fr
+    def ansi_print(self, strs: list[str], colors: list[str | tuple],  bg_colors: list[str | tuple] | None = None) -> str:
+        combined = self.ansi_comb(strs, colors, bg_colors,)  # the most useless function fr
+        print(combined.encode('utf-8', errors='replace').decode('utf-8'))
+
+
 
