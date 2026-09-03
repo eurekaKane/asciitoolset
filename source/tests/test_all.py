@@ -1,11 +1,14 @@
 # -*- encoding : utf-8 -*-
 from pyfiglet import FontNotFound
 
+
 # IMPORTS
 
 from source.asciitoolset import *
 
 from source.utils.utils import __local, __tmp
+
+
 
 failed_fonts = []
 working_fonts = []
@@ -17,38 +20,37 @@ def roll(col, txt):
     :param txt: text to display
     :return: None
     """
-    fontList = getFntList()
+    font_list = get_fnt_list()
 
     spc = Spacer(shape = 2, color ='white')
 
-    for font in fontList:
+    for font in font_list:
         roll_ban = Banner(font, col, txt, width = 100)
-        tcol.cprint(f'{roll_ban.__repr__()}\n', 'green')
+        print(ansi.ansi_comb(f'{roll_ban.__repr__()}\n', 'green'))
         roll_ban.printBanner()
-        time.sleep(0.1)
-        spc.sp_print(175)
+        spc.print_spacer(175)
 
     return None
 
 
 def test_fonts():
-    tmp_list = getFntList()
+    tmp_list = get_fnt_list()
 
     for font in tmp_list:
         try:
             _ = Figlet(font)
         except FontNotFound:
             failed_fonts.append(font)
-            tcol.cprint(font, 'red')
+            print(ansi.ansi_comb(font, 'red'))
         else:
             working_fonts.append(font)
-            tcol.cprint(font, 'green')
+            print(ansi.ansi_comb(font, 'green'))
 
-    tcol.cprint(failed_fonts, 'red')
+    print(ansi.ansi_comb(failed_fonts, 'red'))
 
 
 def fix_fonts():
-    tmp_list = getFntList()
+    tmp_list = get_fnt_list()
     checked_fonts = []
     with open(__tmp+'\\fontList.txt', 'w') as file:
         file.truncate()
@@ -64,56 +66,3 @@ def fix_fonts():
                 else:
                     file.write(font + '\n')
                     checked_fonts.append(font)
-
-
-
-#def fixFonts():
-#    fntList = getFntList()
-#    passedFnt = []
-#    failed = testFonts()
-#    with open('../files.txt', 'w') as t:
-#        t.truncate()
-#        t.close()
-#
-#    with open('../files.txt', 'w') as f:
-#        for fonts in fntList:
-#            for _ in failed:
-#                if fonts in passedFnt:
-#                    pass
-#                elif fonts in failed:
-#                    tcol.cprint(f"{fonts} is not working, it has been deleted !\n", "red")
-#                    passedFnt.append(fonts)
-#                else:
-#                    f.write(fonts + "\n")
-#                    tcol.cprint(f"{fonts} is good !\n", "green")
-#                    passedFnt.append(fonts)
-#        f.close()
-#        # TODO : fix fixFonts() haha !
-#
-#def testFonts():
-#    fontList = getFntList()
-#    passed = 0
-#    failed = []
-#    status = 'green'
-#    for font in fontList:
-#        try:
-#            _ = Figlet(font)
-#        except FigletError:
-#            ln_clr()
-#            tcol.cprint(f"{font} : Failed !", "red", end=' ', flush=True)
-#            tcol.cprint(f"{passed} tests passed / {len(fontList)}", "green" if passed >= len(fontList) / 2 else "red",
-#                        end='\r', flush=True)
-#            time.sleep(0.05)
-#            failed.append(font)
-#            status = 'red'
-#        else:
-#            passed += 1
-#            ln_clr()
-#            tcol.cprint(f"{font} : OK !", "green", end=' ', flush=True)
-#            tcol.cprint(f"{passed} tests passed / {len(fontList)}", status, end='\r', flush=True)
-#            time.sleep(0.05)
-#
-#    tcol.cprint(f"Failed: {failed}", "red")
-#    return failed
-#
-#

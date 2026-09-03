@@ -100,9 +100,6 @@ Future changes :
 
 ## Modules used
 [requirements.txt](requirements.txt)
-* [setuptools](https://pypi.org/project/setuptools/)
-* [colorama](https://pypi.org/project/colorama/)
-* [termcolor](https://pypi.org/project/termcolor/)
 * [pyfiglet](https://pypi.org/project/pyfiglet/)
 
 ## Bugs

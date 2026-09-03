@@ -1,4 +1,3 @@
-setuptools~=72.2.0
-colorama~=0.4.6
-termcolor~=2.4.0
 pyfiglet~=1.0.2
+pillow
+numpy

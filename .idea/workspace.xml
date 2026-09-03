@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8673f60c-1d6c-463a-8ad6-375906fadbc4" name="Changes" comment="&quot;exp²&quot;">
+      <change afterPath="$PROJECT_DIR$/source/tests/test_images/vid.mp4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vid_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/learchidebugdelamort.py" beforeDir="false" afterPath="$PROJECT_DIR$/learchidebugdelamort.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ansi_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/ansi_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/file_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/file_test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/source/asciitoolset.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/asciitoolset.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/tests/test_all.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/tests/test_all.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/source/utils/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/source/utils/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/source/utils/__init__.py" afterDir="false" />
     </list>
     <list id="a90adb02-1493-4e3f-af68-0d7d700d4563" name="Changes by juste" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -28,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="experimental" />
+        <entry key="$PROJECT_DIR$" value="2422819842274d2cfe0ce5efa8be7dfa899f54ea" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,7 +48,7 @@
   }
 }</component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="DEPENDENCY_CHECKER_PROBLEMS_TAB" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -63,7 +65,9 @@
     "Python.TEST.executor": "Run",
     "Python.__init__.executor": "Run",
     "Python.__main__.executor": "Run",
+    "Python.ansi_test.executor": "Run",
     "Python.asciitoolset.executor": "Run",
+    "Python.file_test.executor": "Run",
     "Python.learchidebugdelamort.executor": "Run",
     "Python.main.executor": "Run",
     "Python.python asciitoolset.py.executor": "Run",
@@ -71,9 +75,11 @@
     "Python.run_tutorial (1).executor": "Coverage",
     "Python.run_tutorial.executor": "Run",
     "Python.scratch.executor": "Run",
+    "Python.setup.executor": "Run",
     "Python.test.executor": "Run",
     "Python.tutorial.executor": "Run",
     "Python.utils.executor": "Run",
+    "Python.vid_test.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "Experimental²",
@@ -85,7 +91,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "run.code.analysis.last.selected.profile": "aDefault",
-    "settings.editor.selected.configurable": "preferences.editor",
+    "settings.editor.selected.configurable": "ssh.settings",
     "two.files.diff.last.used.file": "C:/Users/Peanut/PycharmProjects/asciitoolset/old_main.py",
     "vue.rearranger.settings.migration": "true"
   },
@@ -104,11 +110,11 @@
       <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\source" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\tests\test_images" />
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\utils" />
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source" />
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset" />
       <recent name="C:\Users\mynam\PycharmProjects\asciitoolset\source\tests" />
-      <recent name="C:\Users\Peanut\PycharmProjects\asciitoolset\source" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -117,8 +123,8 @@
       <command value="python asciitoolset.py " />
     </option>
   </component>
-  <component name="RunManager" selected="Python.learchidebugdelamort">
-    <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Python.vid_test">
+    <configuration name="ansi_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -127,12 +133,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet/__init__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ansi_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -141,7 +147,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="__main__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+    <configuration name="file_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -150,12 +156,12 @@
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet/__main__.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/file_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -187,76 +193,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="python asciitoolset.py" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="asciitoolset" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="asciitoolset.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="asciitoolset" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/extras" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Peanut\PycharmProjects\asciitoolset\run_tutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="run_tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="asciitoolset" />
-      <option name="ENV_FILES" value="" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\Users\Peanut\PycharmProjects\asciitoolset\run_tutorial.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python">
+    <configuration name="run_tutorial" type="PythonConfigurationType" factoryName="Python">
       <module name="asciitoolset" />
       <option name="ENV_FILES" value="" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -271,7 +208,76 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/run_tutorial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="run_tutorial" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/source" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Peanut\PycharmProjects\asciitoolset\run_tutorial.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="setup" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/setup.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="vid_test" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="asciitoolset" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/vid_test.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -281,28 +287,28 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.learchidebugdelamort" />
-      <item itemvalue="Python.__init__" />
-      <item itemvalue="Python.__main__" />
-      <item itemvalue="Python.python asciitoolset.py" />
       <item itemvalue="Python.run_tutorial" />
+      <item itemvalue="Python.ansi_test" />
+      <item itemvalue="Python.file_test" />
+      <item itemvalue="Python.setup" />
+      <item itemvalue="Python.vid_test" />
+      <item itemvalue="Python.learchidebugdelamort" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.vid_test" />
+        <item itemvalue="Python.file_test" />
+        <item itemvalue="Python.ansi_test" />
+        <item itemvalue="Python.setup" />
         <item itemvalue="Python.learchidebugdelamort" />
-        <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.run_tutorial" />
-        <item itemvalue="Python.python asciitoolset.py" />
-        <item itemvalue="Python.__main__" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-e768b9ed790e-JavaScript-PY-243.21565.199" />
-        <option value="bundled-python-sdk-cab1f2013843-4ae2d6a61b08-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.21565.199" />
+        <option value="bundled-js-predefined-d6986cc7102b-deb605915726-JavaScript-PY-243.22562.220" />
+        <option value="bundled-python-sdk-0fc6c617c4bd-9a18a617cbe4-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-243.22562.220" />
       </set>
     </attachedChunks>
   </component>
@@ -359,6 +365,10 @@
       <workItem from="1734137036073" duration="6308000" />
       <workItem from="1734441185402" duration="8487000" />
       <workItem from="1734515089117" duration="38123000" />
+      <workItem from="1734781203515" duration="6083000" />
+      <workItem from="1734789470924" duration="8477000" />
+      <workItem from="1734799665430" duration="10238000" />
+      <workItem from="1734871191311" duration="19209000" />
     </task>
     <task id="LOCAL-00001" summary="Edited main.py">
       <option name="closed" value="true" />
@@ -456,7 +466,23 @@
       <option name="project" value="LOCAL" />
       <updated>1734608756874</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="&quot;exp²&quot;">
+      <option name="closed" value="true" />
+      <created>1734632443324</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1734632443324</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Many fixes; Preset class for ANSI formating; Gradient">
+      <option name="closed" value="true" />
+      <created>1734810072301</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1734810072301</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -498,18 +524,23 @@
     <MESSAGE value="squash! Update README.md" />
     <MESSAGE value="Finally !" />
     <MESSAGE value="&quot;exp²&quot;" />
-    <option name="LAST_COMMIT_MESSAGE" value="&quot;exp²&quot;" />
+    <MESSAGE value="Many fixes; Preset class for ANSI formating; Gradient" />
+    <option name="LAST_COMMIT_MESSAGE" value="Many fixes; Preset class for ANSI formating; Gradient" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/asciitoolset$tutorial.coverage" NAME="tutorial Coverage Results" MODIFIED="1734443332077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$utils.coverage" NAME="utils Coverage Results" MODIFIED="1734606685908" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source/utils" />
     <SUITE FILE_PATH="coverage/asciitoolset$__main__.coverage" NAME="__main__ Coverage Results" MODIFIED="1723732838811" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/.venv/Lib/site-packages/pyfiglet" />
     <SUITE FILE_PATH="coverage/asciitoolset$asciitoolset.coverage" NAME="asciitoolset Coverage Results" MODIFIED="1734563072334" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
-    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1734607854839" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
-    <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial.coverage" NAME="run_tutorial Coverage Results" MODIFIED="1734542087034" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/asciitoolset$learchidebugdelamort.coverage" NAME="learchidebugdelamort Coverage Results" MODIFIED="1734608401338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$test.coverage" NAME="test Coverage Results" MODIFIED="1734871229779" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
+    <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial.coverage" NAME="run_tutorial Coverage Results" MODIFIED="1734802880541" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="C:\Users\mynam\PycharmProjects\asciitoolset" />
+    <SUITE FILE_PATH="coverage/asciitoolset$learchidebugdelamort.coverage" NAME="learchidebugdelamort Coverage Results" MODIFIED="1734871239904" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$setup.coverage" NAME="setup Coverage Results" MODIFIED="1734871419987" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$run_test.coverage" NAME="run_test Coverage Results" MODIFIED="1734541945152" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$ansi_test.coverage" NAME="ansi_test Coverage Results" MODIFIED="1734871718409" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/asciitoolset$file_test.coverage" NAME="file_test Coverage Results" MODIFIED="1734880483189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$python_asciitoolset_py.coverage" NAME="python asciitoolset.py Coverage Results" MODIFIED="1723843959323" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
+    <SUITE FILE_PATH="coverage/asciitoolset$vid_test.coverage" NAME="vid_test Coverage Results" MODIFIED="1734885553385" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$main.coverage" NAME="main Coverage Results" MODIFIED="1722775935463" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/asciitoolset$run_tutorial__1_.coverage" NAME="run_tutorial (1) Coverage Results" MODIFIED="1723885758319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/source" />
     <SUITE FILE_PATH="coverage/asciitoolset$scratch.coverage" NAME="scratch Coverage Results" MODIFIED="1721461228012" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

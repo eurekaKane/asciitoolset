@@ -39,16 +39,16 @@ def banTest():
     Simple test protocol for Banner object
     :return:
     """
-    tcol.cprint("\n| Test bannière |\n", "red")
-    testSpc.sp_print(40)
+    ansi.ansi_print("\n| Test bannière |\n", "red")
+    testSpc.print_spacer(40)
 
-    showPalette()
+    show_palette()
 
-    testSsmall.sp_print(13)
-    usrBanner = Banner(input(askFnt), input(f"{testSsmall.sp_print(13)}\n{askCol}\n"), input(f"{testSsmall.sp_print(13)}\n{askTxt}\n"))
-    testSsmall.sp_print(13)
-    tcol.cprint("| Rendu |", "yellow")
-    testSpc.sp_print(13)
+    testSsmall.print_spacer(13)
+    usrBanner = Banner(input(askFnt), input(f"{testSsmall.print_spacer(13)}\n{askCol}\n"), input(f"{testSsmall.print_spacer(13)}\n{askTxt}\n"))
+    testSsmall.print_spacer(13)
+    ansi.ansi_print("| Rendu |", "yellow")
+    testSpc.print_spacer(13)
     time.sleep(1)
     usrBanner.printBanner()
 
@@ -58,20 +58,20 @@ def spcTest():
     Simple test protocol for Spacer object
     :return:
     """
-    tcol.cprint("| Test éspaceur |\n", "red")
+    ansi.ansi_print("| Test éspaceur |\n", "red")
 
-    testSpc.sp_print(40)
+    testSpc.print_spacer(40)
 
-    showShapes()
-    testSsmall.sp_print(13)
-    usrSpacer = Spacer(shape = input(askShape), color = input(f"{testSsmall.sp_print(13)}\n{askCol}\n"))
-    length = int(input(f"{testSsmall.sp_print(13)}\n{askLen}"))
-    testSpc.sp_print(40)
-    testSsmall.sp_print(13)
-    tcol.cprint(" | Rendu | ", 'yellow')
-    testSsmall.sp_print(13)
+    show_shapes()
+    testSsmall.print_spacer(13)
+    usrSpacer = Spacer(shape = input(askShape), color = input(f"{testSsmall.print_spacer(13)}\n{askCol}\n"))
+    length = int(input(f"{testSsmall.print_spacer(13)}\n{askLen}"))
+    testSpc.print_spacer(40)
+    testSsmall.print_spacer(13)
+    ansi.ansi_print(" | Rendu | ", 'yellow')
+    testSsmall.print_spacer(13)
     time.sleep(1)
-    usrSpacer.sp_print(length)
+    usrSpacer.print_spacer(length)
 
 
 def redo() -> bool:
